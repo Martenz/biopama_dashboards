@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dashboard_link
+    - node.type.biopama_dashboards_content
+  module:
+    - link
+id: node.biopama_dashboards_content.field_dashboard_link
+field_name: field_dashboard_link
+entity_type: node
+bundle: biopama_dashboards_content
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

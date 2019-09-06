@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+  # enforced:
+  #   module:
+  #     - biopama_dashboards # Needed to remove also the ContentType
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Biopama DashBoards Page Content'
+type: biopama_dashboards_content
+description: 'Biopama DashBoards Page section contents'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

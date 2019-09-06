@@ -1,0 +1,69 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.biopama_dashboards_content.body
+    - field.field.node.biopama_dashboards_content.field_biopama_dashboards
+    - field.field.node.biopama_dashboards_content.field_dashboard_bkgd_img
+    - field.field.node.biopama_dashboards_content.field_dashboard_elem_order
+    - field.field.node.biopama_dashboards_content.field_dashboard_image_icon
+    - field.field.node.biopama_dashboards_content.field_dashboard_link
+    - field.field.node.biopama_dashboards_content.field_dashboard_section
+    - field.field.node.biopama_dashboards_content.field_dashboard_subtitle
+    - node.type.biopama_dashboards_content
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.biopama_dashboards_content.default
+targetEntityType: node
+bundle: biopama_dashboards_content
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 2
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_dashboard_image_icon:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_dashboard_link:
+    type: link
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_dashboard_subtitle:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  links:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_biopama_dashboards: true
+  field_dashboard_bkgd_img: true
+  field_dashboard_elem_order: true
+  field_dashboard_section: true

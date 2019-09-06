@@ -1,0 +1,37 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.biopama_dashboards_content.body
+    - field.field.node.biopama_dashboards_content.field_dashboard_image_icon
+    - field.field.node.biopama_dashboards_content.field_dashboard_section
+    - field.field.node.biopama_dashboards_content.field_dashboard_subtitle
+    - node.type.biopama_dashboards_content
+  module:
+    - text
+    - user
+id: node.biopama_dashboards_content.teaser
+targetEntityType: node
+bundle: biopama_dashboards_content
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  addtoany: true
+  field_dashboard_image_icon: true
+  field_dashboard_section: true
+  field_dashboard_subtitle: true
+  langcode: true

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dashboard_subtitle
+    - node.type.biopama_dashboards_content
+id: node.biopama_dashboards_content.field_dashboard_subtitle
+field_name: field_dashboard_subtitle
+entity_type: node
+bundle: biopama_dashboards_content
+label: 'Subtitle'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

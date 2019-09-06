@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dashboard_elem_order
+    - node.type.biopama_dashboards_content
+id: node.biopama_dashboards_content.field_dashboard_elem_order
+field_name: field_dashboard_elem_order
+entity_type: node
+bundle: biopama_dashboards_content
+label: 'Element Order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

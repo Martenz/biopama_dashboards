@@ -1,0 +1,16 @@
+name: 'BIOPAMA DashBoards'
+description: 'Creates a content types for BIOPAMA Dashboards Pages, and all related views'
+package: BIOPAMA
+type: module
+version: !!float 1
+core: 8.x
+dependencies:
+  - 'drupal:field'
+  - 'drupal:taxonomy'
+  - 'drupal:node'
+  - 'drupal:user'
+  - 'drupal:views'
+  - 'drupal:file'
+  - 'drupal:image'
+  - menu_ui
+  - 'twig_tweak:twig_tweak'

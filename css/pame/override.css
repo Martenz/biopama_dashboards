@@ -1,0 +1,86 @@
+/* PAME CSS overrides */
+
+.masthead {
+     background-image: none!important;
+     background-color: #fdfdff!important;
+}
+
+.header-table-cards .card {
+    box-shadow: 0 0 20px 10px rgba(17,133,171,0.13);
+}
+
+.header-text .views-element-container {
+    background-color: transparent!important;
+}
+
+.landing_headers {
+     color: #8eb4b1!important;
+}
+
+.landing_headers p {
+    text-shadow: none!important;
+}
+
+#landing_top_cards .view-content {
+    display: unset!important;
+}
+
+.biopama_d-edit-node {
+    position: absolute!important;
+    left: -3rem!important;
+    margin-top: -10%!important;
+    z-index: 2!important;
+    border: 1px solid #41ad53!important;
+    border-radius: 4px!important;
+}
+
+.landing_headers {
+    width: 90%!important;
+    padding-bottom: 20px!important;
+}
+
+.header-table-cards h6.masthead-subheading {
+    width: auto!important;
+    margin: 0px!important;
+}
+
+#landing_top_cards .card-body h4, #landing_top_cards .card-body .heading-d {
+    margin: 1em 0 0.5em;
+    font-size: 1.5em!important;
+    font-weight: inherit;
+    color: #90c14f;
+    text-align: left;
+}
+
+#landing_top_cards .card-body h6, #landing_top_cards .card-body .heading-f {
+     margin: 0px 3rem 0 0!important;
+     letter-spacing: unset;
+     text-transform: unset;
+}
+
+.card .card-link {
+    background: #90c14f;
+    outline: none;
+    border: none;
+    color: #fff!important;
+    margin-left: -20px;
+    cursor: pointer;
+    position: absolute;
+    right: -4rem;
+    top: 20px;
+    height: 80%;
+    width: 5rem;
+    padding-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.header-table-cards .card {
+  height:auto!important;
+}
+
+.biopama_d-card-img {
+    width: 5rem;
+    height: 4rem;
+    margin-right: 2rem;
+}

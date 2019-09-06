@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Biopama DashBoards Section'
+vid: biopama_dashboards_section
+description: 'Biopama Dashboard page section name'
+weight: 0

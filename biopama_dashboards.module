@@ -1,0 +1,380 @@
+<?php
+
+/**
+ * implementing hook_theme().
+ */
+
+ function biopama_install_configurations(){
+
+   $dashboards_pages = [
+    [
+    'taxonomy' => 'BIOPAMA LandingPage',
+    'path' =>'BPMLP_page_landingpage',
+    'template' => 'page--BPMLP-page-landingpage.html.twig',
+    'view_machine_name' => 'biopama_dashboards_landingpage',
+    'header' => [],
+    'cards' => [], // empty i.e. default nodes created or define cards to be created
+    'learn' => [],
+    ],
+    [
+    'taxonomy' => 'PAME LandingPage', // new main page taxonomy will be created
+    'path' =>'BPMLP_page_pame', // this path needs to be specified in the view.biopama_dashboards_pame.yml file and all Taxonomies here should point to this above taxonomy
+    'template' => 'page--BPMLP-page-pame.html.twig', // template to use, copy of the default one where all views names are replaced with the one here below
+    'view_machine_name' => 'biopama_dashboards_pame', // view name specified in the view.biopama_dashboards_pame.yml file
+    'header' => [
+                 'PAME Dashboard' => [
+                   'title' => 'PAME Dashboard',
+                   'subtitle' => '',
+                   'body' => '<p>&nbsp;</p><p>Protected areas (PAs) are a key strategy for the conservation of natural values&nbsp;with associated ecosystem services and cultural values. But PAs need to be managed effectively in order to achieve their multiple goals and objectives. The evaluation of <strong>Protected Area&nbsp;Management Effectiveness (PAME) </strong>is therefore a critical element of adaptive PA management.</p><p><strong>This PAME Module of the BIOPAMA&nbsp;Reference Information System (RIS) provides a one-stop shop for essential information and resources on PAME in the African, Caribbean and Pacific (ACP) countries</strong>. The module supports the BIOPAMA Regional Observatories, national ministries and agencies, PA managers and staff, and others (e.g. donors and NGOs).</p><p>The module provides an overview of the most important PAME assessment tools and the many PAME assessments carried out in the ACP countries&nbsp;(e.g. which tools have been used where and when). The module also provides easy access to key PAME resources and PA management plans. Registered users can contribute additional information and resources to the PAME Module.</p>',
+                   'link' => '',
+                 ],
+                ],
+    'cards' => [ 'Tools' => [
+                                  'title' => 'Tools',
+                                  'subtitle' => 'Learn about the main PAME Assessment Tools',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/pame/assessment_tools', 'title' => 'Assessment Tools'],
+                                ],
+                  'Assessments' => [
+                                  'title' => 'Assessments',
+                                  'subtitle' => 'Browse, search and map PAME Assessments',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/pame/assessments', 'title' => 'Assessments'],
+                                ],
+                  'Resources' => [
+                                  'title' => 'Resources',
+                                  'subtitle' => 'Browse, search and add PAME Assessments',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/pame/resources', 'title' => 'Resources'],
+                                ],
+                  'Management' => [
+                                  'title' => 'Management Plans',
+                                  'subtitle' => 'Browse, search and add Management Plans',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/pame/management_plans', 'title' => 'Management Plans'],
+                                ],
+               ],
+      'learn' => [],
+    ],
+  ]; // List of test terms
+   return $dashboards_pages;
+ }
+
+ function biopama_dashboards_theme($existing, $type, $theme, $path) {
+
+   $dashboards_pages = biopama_install_configurations();
+   $array = [];
+ foreach( $dashboards_pages as $dashboard_page){
+      $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
+      $array[$underscore] = ['base hook' => 'page'];
+    }
+
+  \Drupal::logger('biopama_dashboards')->notice(json_encode($array));
+  //  $array = [
+  //      // .. Custom Landing Pages Templates
+  //      'page__BPMLP_page_landingpage' => [
+  //        'base hook' => 'page',
+  //      ],
+  //    ];
+  //    \Drupal::logger('biopama_dashboards')->notice(json_encode($array));
+
+   return $array;
+ }
+
+function biopama_dashboards_install(){
+
+  $dashboards_pages = biopama_install_configurations();
+  // Populates 'Vocabulary name' vocabulary with taxonomy terms.
+  //use Drupal\taxonomy\Entity\Term;
+  $categories_vocabulary = 'biopama_dashboards'; // Vocabulary machine name
+  foreach ($dashboards_pages as $dashboard_page) {
+
+    $category = $dashboard_page["taxonomy"];
+    $check1 = taxonomy_term_load_multiple_by_name($category,$categories_vocabulary);
+    if (sizeof($check1) <1 ){
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, creating Taxonomy : ' . $categories_vocabulary.' | '. $category );
+      $term = \Drupal\taxonomy\Entity\Term::create([
+            'vid' => $categories_vocabulary,
+            'name' => $category,
+          ]);
+      $term->save();
+    }else{
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Taxonomy already exists : ' . $categories_vocabulary.' | '. $category );
+    }
+  }
+
+  // Populate page-type taxonomy
+  $sections_vocabulary = 'biopama_dashboards_section'; // Vocabulary machine name
+  $sections = ['Content', 'Dashboard cards', 'Header','Learn & Explore Contents','Timeline or Workflow']; // List of test terms
+  foreach ($sections as $section) {
+
+    $check2 = taxonomy_term_load_multiple_by_name($section,$sections_vocabulary);
+    if (sizeof($check2) <1 ){
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, creating Taxonomy : ' . $sections_vocabulary.' | '. $section );
+      $term = \Drupal\taxonomy\Entity\Term::create([
+            'vid' => $sections_vocabulary,
+            'name' => $section,
+          ]);
+      $term->save();
+    }else{
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Taxonomy already exists : ' . $sections_vocabulary.' | '.$category );
+    }
+  }
+
+  //..CREATE DEFAULT NODES
+  foreach ($dashboards_pages as $dashboard_page){
+
+    $category = $dashboard_page["taxonomy"];
+    $view_path = $dashboard_page["path"];
+
+    $dashboard_page_tid = taxonomy_term_load_multiple_by_name($category,$categories_vocabulary);
+
+    // .. create default Header node for LandingPage
+    $header_tid = taxonomy_term_load_multiple_by_name('Header',$sections_vocabulary);
+    if ( sizeof($dashboard_page['header']) > 0 ){
+      foreach( $dashboard_page['header'] as $header){
+        $title = $header['title'];
+        // Create node object with attached file.
+        $values = \Drupal::entityQuery('node')->condition('title', $title)->execute();
+        $node_exists = !empty($values);
+        if (!$node_exists){
+          $node = \Drupal\node\Entity\Node::create([
+            'type'        => 'biopama_dashboards_content',
+            'title'       => $title,
+            'body'        => [ 'value' =>  $header['body'],
+                               'format' => 'full_html',
+                              ],
+            'field_dashboard_elem_order' => 0,
+            'field_dashboard_subtitle' => [ 'value' => $header['subtitle'] ],
+            'field_dashboard_section' => [ 'target_id' => reset($header_tid)->id()],
+            'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+          ]);
+          $node->save();
+          \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for header : ' . $title );
+        }
+      }
+    }else{
+      $welcome = 'Welcome To '.$category;
+      // Create node object with attached file.
+      $values = \Drupal::entityQuery('node')->condition('title', $welcome)->execute();
+      $node_exists = !empty($values);
+      if (!$node_exists){
+        $node = \Drupal\node\Entity\Node::create([
+          'type'        => 'biopama_dashboards_content',
+          'title'       => $welcome,
+          'body'        => [ 'value' => '<p>Your landingpage view path is <a href="/'.$view_path.'">/'.$view_path.'</a>,\
+           of course you can change it form the view or use this for your frontpage.</p><p>Read how this module works and the full docuemtation here below in the Learn & Explore section.</p>' ,
+                             'format' => 'full_html',
+                            ],
+          'field_dashboard_elem_order' => 0,
+          'field_dashboard_subtitle' => [ 'value' => 'This is your subtitle ...' ],
+          'field_dashboard_section' => [ 'target_id' => reset($header_tid)->id()],
+          'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+        ]);
+        $node->save();
+        \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for header : ' . $welcome );
+      }
+    }
+    // .. create default Card node for LandingPage
+    $cards_tid = taxonomy_term_load_multiple_by_name('Dashboard cards',$sections_vocabulary);
+    if ( sizeof($dashboard_page['cards']) > 0 ){
+
+      foreach( $dashboard_page['cards'] as $card){
+
+          $title = $card['title'];
+          // Create node object with attached file.
+          $values = \Drupal::entityQuery('node')->condition('title', $title)->execute();
+          $node_exists = !empty($values);
+          if (!$node_exists){
+            $node = \Drupal\node\Entity\Node::create([
+              'type'        => 'biopama_dashboards_content',
+              'title'       => $title,
+              'body'        => [ 'value' => $card['body'],
+                                 'format' => 'full_html',
+                                ],
+              'field_dashboard_elem_order' => 0,
+              'field_dashboard_subtitle' => [ 'value' => $card['subtitle'] ],
+              'field_dashboard_section' => [ 'target_id' => reset($cards_tid)->id()],
+              'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+              'field_dashboard_link' => [
+                    'uri' => $card['link']['uri'],
+                    'title' => $card['link']['title'],
+                    'options' => ['attributes' => [
+                    'target' => '_self'
+                    ]],]
+            ]);
+            $node->save();
+            \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for cards : ' . $title );
+          }
+        }
+    }else{
+          $welcome = 'BPMLP Card '.$category;
+          // Create deafault node object with attached file.
+          $values = \Drupal::entityQuery('node')->condition('title', $welcome)->execute();
+          $node_exists = !empty($values);
+          if (!$node_exists){
+            $node = \Drupal\node\Entity\Node::create([
+              'type'        => 'biopama_dashboards_content',
+              'title'       => $welcome,
+              'body'        => [ 'value' => 'This is a default text for your landingpage card ... you can also add an icon/image to the card. Edit this content :)',
+                                 'format' => 'full_html',
+                                ],
+              'field_dashboard_elem_order' => 0,
+              'field_dashboard_subtitle' => [ 'value' => 'Subtitle ...' ],
+              'field_dashboard_section' => [ 'target_id' => reset($cards_tid)->id()],
+              'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+              'field_dashboard_link' => [
+                    'uri' => 'internal:/admin/content?title=&type=biopama_dashboards_content&status=All&langcode=All',
+                    'title' => 'Link',
+                    'options' => ['attributes' => [
+                    'target' => '_blank'
+                    ]],]
+            ]);
+            $node->save();
+            \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for cards : ' . $welcome );
+          }
+    }
+
+    // .. create 1st default Learn node for LandingPage
+    $learn_tid = taxonomy_term_load_multiple_by_name('Learn & Explore Contents',$sections_vocabulary);
+    // $dashboard_page_tid = taxonomy_term_load_multiple_by_name('BIOPAMA LandingPage',$categories_vocabulary);
+    $welcome = 'BPMLP GIT '.$category;
+    // Create node object with attached file.
+    $values = \Drupal::entityQuery('node')->condition('title', $welcome)->execute();
+    $node_exists = !empty($values);
+    if (!$node_exists){
+      $node = \Drupal\node\Entity\Node::create([
+        'type'        => 'biopama_dashboards_content',
+        'title'       => $welcome,
+        'body'        => [ 'value' => 'Read more' ,
+                           'format' => 'full_html',
+                          ],
+        'field_dashboard_elem_order' => 0,
+        'field_dashboard_subtitle' => [ 'value' => 'GitHub Repo' ],
+        'field_dashboard_section' => [ 'target_id' => reset($learn_tid)->id()],
+        'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+        'field_dashboard_link' => [
+              'uri' => 'https://github.com/Martenz/biopama_dashboards',
+              'title' => 'Git Link',
+              'options' => ['attributes' => [
+              'target' => '_blank'
+              ]],]
+      ]);
+      $node->save();
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for Learn section : ' . $welcome );
+    }
+
+    // .. create 1st default Learn node for LandingPage
+    $learn_tid = taxonomy_term_load_multiple_by_name('Learn & Explore Contents',$sections_vocabulary);
+    // $dashboard_page_tid = taxonomy_term_load_multiple_by_name('BIOPAMA LandingPage',$categories_vocabulary);
+    $welcome = 'BPMLP READ ME '.$category;
+    // Create node object with attached file.
+    $values = \Drupal::entityQuery('node')->condition('title', $welcome)->execute();
+    $node_exists = !empty($values);
+    if (!$node_exists){
+      $node = \Drupal\node\Entity\Node::create([
+        'type'        => 'biopama_dashboards_content',
+        'title'       => $welcome,
+        'body'        => [ 'value' => 'This is a default text for your Documentation icons ... you can also add an icon/image to the card. Edit this content :)' ,
+                           'format' => 'full_html',
+                          ],
+        'field_dashboard_elem_order' => 0,
+        'field_dashboard_subtitle' => [ 'value' => 'Subtitle ...' ],
+        'field_dashboard_section' => [ 'target_id' => reset($learn_tid)->id()],
+        'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
+        'field_dashboard_link' => [
+              'uri' => 'https://github.com/Martenz/biopama_dashboards',
+              'title' => 'Git Link',
+              'options' => ['attributes' => [
+              'target' => '_blank'
+              ]],]
+      ]);
+      $node->save();
+      \Drupal::logger('biopama_dashboards')->notice('INSTALLING, Creating default node for Learn section : ' . $welcome );
+    }
+
+  }
+
+}
+
+function biopama_dashboards_preprocess(&$variables, $hook) {
+  global $base_root, $base_path;
+  $variables['image_path'] = $base_root . $base_path . drupal_get_path('module', 'biopama_dashboards') . '/images/';
+  $variables['base_url'] = $GLOBALS['base_url']; /*\Drupal::request()->getRequestUri();*/
+}
+
+/*
+* implements hook_preprocess_node()
+*/
+function biopama_dashboards_preprocess_node(&$variables) {
+	$node = $variables['node'];
+	/*
+	* turn on dev_mode to see stuff that's in development through the templates.
+	*/
+	$variables['dev_mode'] = "false";
+}
+
+/*
+* implements hook_view_pre_render()
+*/
+function biopama_dashboards_views_pre_render(\Drupal\views\ViewExecutable $view)
+{
+	if (isset($view)){
+		switch($view->storage->id()){
+			case 'biopama_dashboards':
+				$view->element['#attached']['library'][] = 'biopama_dashboards/biopama_dashboards';
+				break;
+			default:
+			  break;
+		}
+	}
+}
+
+//
+function biopama_dashboards_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  // $node = NULL;
+  // $revision = NULL;
+  // if (\Drupal::routeMatch()->getParameter('node')) {
+	// //revision IDs are strings and node ids are strings when a revision is loaded.
+  //   $node = \Drupal::routeMatch()->getParameter('node');
+	//   $revision = \Drupal::routeMatch()->getRawParameter('node_revision');
+  // }
+  // $tid = NULL;
+  // $term = NULL;
+  // if (\Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
+	// $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
+  //   $term = Term::load($tid);
+  // }
+  //
+  // //node parameters loaded by getParameter are objects and the bundle can be accessed normally.
+  // if (!empty($node)) {
+  //   if ($revision) {
+  //     $revised_node = \Drupal::entityTypeManager()
+  //                            ->getStorage('node')
+  //                            ->loadRevision($revision);
+  //     $content_type = $revised_node->bundle();
+  //   }
+  //   else {
+  //     $content_type = $node->bundle();
+  //   }
+  //   $suggestions[] = 'page__' . $content_type;
+  // }
+  // if (!empty($term)) {
+  //    $vid = $term->vid->getValue();
+  //    $suggestions[] = 'page__taxonomy__vocabulary__' . $vid[0]['target_id'];
+  //  }
+  //
+  // $request = end( explode("/", \Drupal::service('path.current')->getPath() ) );
+  // $twig_name = str_replace('_','-',$request);
+  // $twig_path = realpath( drupal_get_path('module', 'biopama_dashboards') . '/templates/page--' . $twig_name . '.html.twig' );
+  // // \Drupal::logger('biopama_dashboards')->notice($request . ' ||| ' . $twig_path);
+  //
+  // if (file_exists($twig_path)){
+  //   \Drupal::logger('biopama_dashboards')->notice('File Exists ||| ' . $twig_path);
+  // }
+  //
+  // if (!empty($request) && file_exists($twig_path) ) {
+  //   \Drupal::logger('biopama_dashboards')->notice($request . ' ||| ' . $twig_path);
+  //   $suggestions[] = 'page__' . $request;
+  // }
+}

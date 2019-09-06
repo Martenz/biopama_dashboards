@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dashboard_section
+    - node.type.biopama_dashboards_content
+    - taxonomy.vocabulary.biopama_dashboards_section
+id: node.biopama_dashboards_content.field_dashboard_section
+field_name: field_dashboard_section
+entity_type: node
+bundle: biopama_dashboards_content
+label: 'Biopama DashBoard Page Section'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      biopama_dashboards_section: biopama_dashboards_section
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
