@@ -84,3 +84,20 @@
     height: 4rem;
     margin-right: 2rem;
 }
+
+@media (max-width:992px) {
+
+  .col-4.header-text{
+    flex: unset;
+    max-width: unset;
+  }
+
+  .card .card-link {
+    right: -1rem!important;
+  }
+
+  .biopama_d-edit-node {
+    left: -1rem!important;
+  }
+
+}
