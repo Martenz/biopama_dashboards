@@ -33,25 +33,29 @@
                                   'title' => 'Tools',
                                   'subtitle' => 'Learn about the main PAME Assessment Tools',
                                   'body' => '',
-                                  'link' => ['uri' => 'internal:/pame/assessment_tools', 'title' => 'Assessment Tools'],
+                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_tools', 'title' => 'Assessment Tools'],
+                                  'elem_order' => 0,
                                 ],
                   'Assessments' => [
                                   'title' => 'Assessments',
                                   'subtitle' => 'Browse, search and map PAME Assessments',
                                   'body' => '',
-                                  'link' => ['uri' => 'internal:/pame/assessments', 'title' => 'Assessments'],
+                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_assessments', 'title' => 'Assessments'],
+                                  'elem_order' => 1,
                                 ],
                   'Resources' => [
                                   'title' => 'Resources',
                                   'subtitle' => 'Browse, search and add PAME Assessments',
                                   'body' => '',
-                                  'link' => ['uri' => 'internal:/pame/resources', 'title' => 'Resources'],
+                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_resources', 'title' => 'Resources'],
+                                  'elem_order' => 2,
                                 ],
                   'Management' => [
                                   'title' => 'Management Plans',
                                   'subtitle' => 'Browse, search and add Management Plans',
                                   'body' => '',
-                                  'link' => ['uri' => 'internal:/pame/management_plans', 'title' => 'Management Plans'],
+                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_management_plans', 'title' => 'Management Plans'],
+                                  'elem_order' => 3,
                                 ],
                ],
       'learn' => [],
@@ -63,8 +67,12 @@
  function biopama_dashboards_theme($existing, $type, $theme, $path) {
 
    $dashboards_pages = biopama_install_configurations();
-   $array = [];
- foreach( $dashboards_pages as $dashboard_page){
+   $array = ['page__BPMLP_page_pame_tools' => ['base hook' => 'page'],
+             'page__BPMLP_page_pame_assessments' => ['base hook' => 'page'],
+             'page__BPMLP_page_pame_resources' => ['base hook' => 'page'],
+             'page__BPMLP_page_pame_management_plans' => ['base hook' => 'page'],
+            ];
+   foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
       $array[$underscore] = ['base hook' => 'page'];
     }
@@ -192,7 +200,7 @@ function biopama_dashboards_install(){
               'body'        => [ 'value' => $card['body'],
                                  'format' => 'full_html',
                                 ],
-              'field_dashboard_elem_order' => 0,
+              'field_dashboard_elem_order' => $card['elem_order'],
               'field_dashboard_subtitle' => [ 'value' => $card['subtitle'] ],
               'field_dashboard_section' => [ 'target_id' => reset($cards_tid)->id()],
               'field_biopama_dashboards' => ['target_id' => reset($dashboard_page_tid)->id()],
