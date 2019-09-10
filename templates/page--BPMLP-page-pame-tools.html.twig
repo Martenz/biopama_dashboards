@@ -60,54 +60,23 @@
                 </ul>
             </div>
           </div>
-          <div class="col-lg-10 header-table-cards">
-              <div class="header-table-wrap">
-                  <div class="form-group">
-                    <label for="assessment_tools">Tool</label>
-                      <select class="form-control cql_filters" id="assessment_tools" param="pame_methodology">
-                        <option value="%">All Assessment Tools</option>
-                       </select>
+          <div class="col-lg-10 header-table-cards pame-tools-page">
+            <div class="header-table-wrap">
+                <h1>Assessment Tools</h1>
+                <h5>available assessment tools details and links</h5>
 
-                    <label for="assessment_year">Year</label>
-                     <select class="form-control cql_filters" id="assessment_year" param="pame_source_year">
-                       <option value="%">All Assessment Tools</option>
-                      </select>
-
-                      <label for="assessment_region">Region</label>
-                       <select class="form-control cql_filters" id="assessment_region" param="region">
-                         <option value="%">All Assessment Tools</option>
-                        </select>
-
-                        <label for="assessment_country">Country</label>
-                         <select class="form-control cql_filters" id="assessment_country" param="country_na">
-                           <option value="%">All Assessment Tools</option>
-                          </select>
-
-                        <label for="assessment_marine">Marine</label>
-                         <select class="form-control cql_filters" id="assessment_marine" param="marine">
-                           <option value="%">All Assessment Tools</option>
-                          </select>
-
+                {% if user.hasPermission('administer nodes') %}
+                  <div class="row">
+                    <a href="/node/add/pame_assessment_tools"><button class="btn btn-info">+ Add Assessment tool</button></a>
                   </div>
+                {% endif %}
 
-              </div>
-              <div id="pame_assessments_map"></div>
-              <div id="spinner">
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-              </div>
-              <!--
-              <button onclick="dt_table = $('#table_assessments').DataTable();" class="btn btn-info">Filter</button>
-              <button onclick="dt_table.destroy();" class="btn btn-info">Reset</button>
-              -->
-              <div id="pame_assessments_table">
-                 <table class="table" id="table_assessments">
-                 <thead></thead>
-                 <tbody></tbody>
-                 <tfoot></tfoot>
-                 </table>
-              </div>
+                <div class="contextual-region">
+                  {{ contextual_links('entity.view.edit_form:view=pame_contents&display_id=block_1') }}
+                  {{ drupal_view('pame_contents', 'block_1') }}
+                </div>
+
+            </div>
 
 
           </div>
