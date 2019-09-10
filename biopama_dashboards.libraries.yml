@@ -19,7 +19,7 @@ biopama_dashboards:
 
 biopama_dashboards_maps:
   js:
-    js/pame/main.js: {}
+    # js/pame/main.js: {}
   css:
     component:
       css/bootstrap.4.3.1_bootstrap.min.css: {}
@@ -42,3 +42,9 @@ pame:
       css/pame/override.css: {}
       css/override.css: {}
       https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/datatables.min.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings

@@ -45,7 +45,14 @@
             <h5>PAME Dashboard</h5>
             <img src="{{ image_path }}divider_02.png"/>
                 <ul class="list-group pame-links">
-                  <li class="pame-menu-left"><a href="/pame"><img src="{{ image_path }}pame/pame_home.png"/>PAME Home</a></li>
+                  <li class="pame-menu-left">
+                    <a href="/pame">
+                      <div class="row">
+                       <div class="col-4"><img src="{{ image_path }}pame/pame_home.png"/></div>
+                       <div class="col-8">PAME Home</div>
+                      </div>
+                    </a>
+                  </li>
                   <div class="contextual-region">
                         {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_3') }}
                         {{ drupal_view('biopama_dashboards_pame', 'block_3') }}

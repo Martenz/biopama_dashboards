@@ -54,7 +54,7 @@
                                   'title' => 'Management Plans',
                                   'subtitle' => 'Browse, search and add Management Plans',
                                   'body' => '',
-                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_management_plans', 'title' => 'Management Plans'],
+                                  'link' => ['uri' => 'internal:/BPMLP_page_pame_management', 'title' => 'Management Plans'],
                                   'elem_order' => 3,
                                 ],
                ],
@@ -70,7 +70,7 @@
    $array = ['page__BPMLP_page_pame_tools' => ['base hook' => 'page'],
              'page__BPMLP_page_pame_assessments' => ['base hook' => 'page'],
              'page__BPMLP_page_pame_resources' => ['base hook' => 'page'],
-             'page__BPMLP_page_pame_management_plans' => ['base hook' => 'page'],
+             'page__BPMLP_page_pame_management' => ['base hook' => 'page'],
             ];
    foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];

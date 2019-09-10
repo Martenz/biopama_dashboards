@@ -31,12 +31,14 @@ jQuery(document).ready(function($) {
 
   function createDTables(){
       $('#table_assessments').show();
-        dt_table = $('#table_assessments').DataTable( {
+      dt_table = $('#table_assessments').DataTable( {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
         ]
         } );
+        $('#table_assessments_filter').prepend($('.dt-buttons.btn-group'));
+
   }
 
   function destroyDTables(){

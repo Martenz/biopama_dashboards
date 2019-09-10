@@ -22,7 +22,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: dFFyx-JHZb_fG1G_S0sqB8K5wz8cw4Qq8WrCkx2WQ1M
+  default_config_hash: OqXOeNqPgbA-7iy-0CkFb7NFPygLtJqRSLP7HuRKEqk
 id: biopama_dashboards_pame
 label: 'PAME Landingpage Template'
 module: views
@@ -1744,7 +1744,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<li class=\"pame-menu-left\"><a href=\"{{ field_dashboard_link }}\">\r\n<span>{{ field_dashboard_image_icon }}</span><span>{{ title }}</span>\r\n</a></li>\r\n\r\n"
+            text: "<li class=\"pame-menu-left\"><a href=\"{{ field_dashboard_link }}\">\r\n                     <div class=\"row\">\r\n                       <div class=\"col-4\">{{ field_dashboard_image_icon }}</div>\r\n                       <div class=\"col-8\">{{ title }}</div>\r\n                      </div>\r\n</a></li>\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -3012,7 +3012,7 @@ display:
     position: 7
     display_options:
       display_extenders: {  }
-      path: BPMLP_page_pame_management_plans
+      path: BPMLP_page_pame_management
       display_description: ''
       title: PAME-Management-Plans
       defaults:
