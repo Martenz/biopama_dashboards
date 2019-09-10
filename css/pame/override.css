@@ -146,6 +146,15 @@
     transform: scale(1.0);
 }
 
+.workinprogress{
+  text-align: center;
+  width:100%;
+}
+.workinprogress img{
+  width:30%;
+}
+
+
 @media (max-width:992px) {
 
   .col-4.header-text{
