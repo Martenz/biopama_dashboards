@@ -48,3 +48,24 @@ pame:
     - core/jquery
     - core/jquery.once
     - core/drupalSettings
+
+pa_dashboard:
+  css:
+    theme:
+      css/pame/main.css: {}
+      css/pa_dashboard/override.css: {}
+      https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css: {}
+      https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css: {}
+  js:
+    https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js: { external: true }
+    https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js: { external: true }
+    https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js: { external: true }
+    https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js: { external: true }
+    https://cdn.jsdelivr.net/npm/echarts@4.2.1/dist/echarts.min.js: {external:true}
+    js/pa_dashboard/main.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings

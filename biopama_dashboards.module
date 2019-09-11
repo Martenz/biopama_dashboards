@@ -12,6 +12,29 @@
     'path' =>'BPMLP_page_landingpage',
     'template' => 'page--BPMLP-page-landingpage.html.twig',
     'view_machine_name' => 'biopama_dashboards_landingpage',
+    'header' => [
+                 'Biopama Welcome' => [
+                   'title' => 'Welcome',
+                   'subtitle' => '',
+                   'body' => '<p>to the new version of the BIOPAMA Reference Information System (RIS 2.0), our web-based, open-source information system for protected areas across the 79 countries of the&nbsp;<a href="http://acp.int">Africa, Caribbean, Pacific (ACP)</a> Group of States.</p><h2><b>What\'s New</b></h2><p>The RIS 2.0 is a major re-design, so you\'ll find a very different look and feel if you were a user of the previous system. But don\'t worry, you can still navigate easily across regions, countries or individual protected areas to find the information you need, with an intuitive, map-centric interface.</p>',
+                   'link' => '',
+                 ],
+                ],
+    'cards' => [ 'PA Dashboard' => [
+                                  'title' => 'PA Dashboard',
+                                  'subtitle' => 'Protected areas global knowledge',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_PA_dashboard', 'title' => 'PA Dashboard'],
+                                  'elem_order' => 0,
+                                ],
+               ],
+      'learn' => [],
+    ],
+    [
+    'taxonomy' => 'BIOPAMA PA Dashboard',
+    'path' =>'BPMLP_PA_dashboard',
+    'template' => 'page--BPMLP-PA-dashboard.html.twig',
+    'view_machine_name' => 'biopama_dashboards_landingpage',
     'header' => [],
     'cards' => [], // empty i.e. default nodes created or define cards to be created
     'learn' => [],

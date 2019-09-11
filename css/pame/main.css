@@ -834,7 +834,7 @@ header a:hover {
   background-color:white;
   padding:10px;
 
-  background-image: url(/themes/custom/bootstrap_barrio_biopama/img/landingpage/white_wave.svg);
+  background-image: url(../../images/white_wave.svg);
     background-position: top left;
     background-repeat: no-repeat;
     background-color: #cde2ec;

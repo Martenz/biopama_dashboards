@@ -1,12 +1,45 @@
 /* PAME CSS overrides */
 
+header.masthead {
+    height:auto!important;
+}
+
+.card-header h1 {
+  color: #8FBF4B;
+  text-align: left;
+  font-size: x-large;
+}
+
+table.globalk tfoot {
+    background-color: #fdfdff!important;
+    color: black!important;
+    font-weight: 100!important;
+}
+
 .masthead {
      background-image: none!important;
      background-color: #fdfdff!important;
 }
 
+.header-table-cards table{
+  font-family: "Maven Pro";
+}
+
+.header-table-cards table thead > tr {
+    border-bottom: 0;
+    background-color:#62737f;
+}
+
+.header-table-cards table thead > tr th {
+  font-weight:100;
+}
+
 .header-table-cards .card {
     box-shadow: 0 0 20px 10px rgba(17,133,171,0.13);
+}
+
+.header-table-cards .card:hover {
+    transform: scale(1.0)!important;
 }
 
 .header-text .views-element-container {
