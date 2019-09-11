@@ -2,8 +2,37 @@
 
 Drupal8 custom module name: **biopama_dashboards**
 
-JRC BIOPAMA Dashboards Module
+JRC BIOPAMA Dashboards Module will install the following items:
 
+**Content Types**
+
+>>  ...
+
+**Taxonomies**
+
+>> biopama_dashboards
+
+    * BIOPAMA LandingPage
+    * BIOPAMA PA Dashboard
+    * ...
+
+>> biopama_dashboards_section
+
+    * Content
+    * ...
+
+**Views**
+
+/BPMLP_page_landingpage
+/BPMLP_PA_dashboard
+
+/BPMLP_page_pame
+/BPMLP_page_pame_tools
+/BPMLP_page_pame_assessments
+/BPMLP_page_pame_resources
+/BPMLP_page_pame_management
+
+Use Drupal URL Alias to replace those paths to your desired urls.
 
 ---------------------
 Note:
