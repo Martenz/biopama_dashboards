@@ -10,8 +10,9 @@ body{
 }
 
 .biopama_d-card-img img {
-  height: -webkit-fill-available;
-  height:fill-available;
+  /*height: -webkit-fill-available;
+  height:fill-available;*/
+  height:70px;
 }
 
 h5, .heading-e {

@@ -10,6 +10,10 @@
     /*margin-top: 0;*/
   }
 
+  header.masthead .masthead-content .masthead-heading {
+    font-family:"Maven Pro";
+}
+
   body.path-landingpage .btn-light{
     border-color: #41ad53;
   }
@@ -168,6 +172,7 @@ padding: 7px;*/
 .header-table-cards .card:hover{
   transform:scale(1.1);
   opacity:1;
+  z-index: 10000;
 }
 
 .header-table-cards .card-body{
@@ -203,10 +208,10 @@ bottom: 0;
   margin-left: -20px;
   cursor: pointer;
   position: absolute;
-  right: -2rem;
+  right: -3rem;
   top: 20px;
   height: 80%;
-  width: 5rem;
+  width: 6rem;
   padding-top: 20px;
   text-align: center;
   text-transform: uppercase;
