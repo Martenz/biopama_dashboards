@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
     var dom = document.getElementById(idelem);
     var myChart = echarts.init(dom);
 
-    //...with Marine ...
+    //...with Marine... missing the total area of Marine to compute correctly TODO
     //var perc = ( 100.0* (prot_t + prot_m) / (not_prot + prot_t + prot_m ) ).toFixed(1).toString() + ' %';
 
     //...withouth marine
