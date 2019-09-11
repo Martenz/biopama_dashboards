@@ -1,3 +1,8 @@
+bootstrap:
+  css:
+    component:
+      css/bootstrap.4.3.1_bootstrap.min.css: {}
+
 biopama_dashboards:
   js:
     js/main.js: {}
@@ -7,7 +12,6 @@ biopama_dashboards:
       css/main.css: {}
       css/timeline.css: {}
       css/override.css: {}
-      css/bootstrap.4.3.1_bootstrap.min.css: {}
       //use.fontawesome.com/releases/v5.7.2/css/all.css: {}
       //fonts.googleapis.com/css?family=Maven+Pro&display=swap: {}
   dependencies:
@@ -16,19 +20,21 @@ biopama_dashboards:
     - core/jquery
     - core/jquery.once
     - core/drupalSettings
+    - biopama_dashboards/bootstrap
 
 biopama_dashboards_maps:
   js:
     # js/pame/main.js: {}
   css:
     component:
-      css/bootstrap.4.3.1_bootstrap.min.css: {}
       //use.fontawesome.com/releases/v5.7.2/css/all.css: {}
       //fonts.googleapis.com/css?family=Maven+Pro&display=swap: {}
       css/pame/footer.css: {}
       css/pame/main.css: {}
       css/pame/timeline.css: {}
       css/pame/override.css: {}
+  dependencies:
+    - biopama_dashboards/bootstrap
 
 pame:
   js:
