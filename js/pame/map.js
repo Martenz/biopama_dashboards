@@ -1,8 +1,18 @@
 var filters;
-var cql_filters = {'region':'%','country_na':'%','pame_source_year':'%','pame_methodology':'%','marine':'%'};
-var cql_filters_type = {'region':'text','country_na':'text','pame_source_year':'text','pame_methodology':'text','marine':'numeric'};
+var cql_filters = {'region':'%','country_na':'%','pame_year':'%','pame_methodology':'%','pa_type':'%'};
+var cql_filters_type = {'region':'text','country_na':'text','pame_year':'text','pame_methodology':'text','pa_type':'text'};
 
-var table_fileds = ['wdpaid','region','country_na','iso3','name','desig','pame_source_year','pame_methodology','marine'];
+var table_fileds = ['wdpaid','region','country_na','iso3','name','desig','pame_year','pame_methodology','pa_type'];
+var table_labels = {'wdpaid':'WDPAID',
+                    'region':'Region',
+                    'country_na':'Country',
+                    'iso3':'ISO-3 Code',
+                    'name':'Protected Area',
+                    'desig':'Designation',
+                    'pame_year':'Year',
+                    'pame_methodology':'Methodology',
+                    'pa_type':'Type'
+                  };
 
 var preselect = {};
 
@@ -29,12 +39,18 @@ jQuery(document).ready(function($) {
 
   //$('#table_assessments').hide();
 
+
   function createDTables(){
       $('#table_assessments').show();
       dt_table = $('#table_assessments').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'csv', 'excel', 'print',
+            {
+                extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'
+            }
         ]
         } );
         $('#table_assessments_filter').prepend($('.dt-buttons.btn-group'));
@@ -102,14 +118,14 @@ jQuery(document).ready(function($) {
     $.each($('.cql_filters'),function(){
       $(this).find('option').not(':first').remove();
     });
-    filters={'region':{},'country':{},'year':{},'tool':{}, 'marine':{}};
+    filters={'region':{},'country':{},'year':{},'tool':{}, 'pa_type':{}};
 
     for (var key in data.features){
       filters["region"][ data.features[key].properties["region"] ] = true;
       filters["country"][ data.features[key].properties["country_na"] ] = true;
-      filters["year"][ data.features[key].properties["pame_source_year"] ] = true;
+      filters["year"][ data.features[key].properties["pame_year"] ] = true;
       filters["tool"][ data.features[key].properties["pame_methodology"] ] = true;
-      filters["marine"][ data.features[key].properties["marine"] ] = true;
+      filters["pa_type"][ data.features[key].properties["pa_type"] ] = true;
     }
         //Create and append the options
         var selec_tools = document.getElementById("assessment_tools");
@@ -144,14 +160,15 @@ jQuery(document).ready(function($) {
             select_country.appendChild(option);
         }
 
-        var select_marine = document.getElementById("assessment_marine");
-        for (key in filters["marine"]) {
+        var select_marine = document.getElementById("assessment_pa_type");
+        for (key in filters["pa_type"]) {
             var option = document.createElement("option");
             option.value = key;
             option.text = key;
             select_marine.appendChild(option);
         }
 
+        resetFiltersSelect();
           $('#spinner').hide();
 
   }
@@ -175,7 +192,7 @@ jQuery(document).ready(function($) {
       var thead = $("<tr></tr>");
       $.each(headers,function(idx,lab){
         if( table_fileds.indexOf(lab) > -1){
-          thead.append($("<th />").html(lab));
+          thead.append($("<th />").html(table_labels[lab]));
         }
       });
       $('#table_assessments thead').append(thead);
@@ -206,6 +223,9 @@ jQuery(document).ready(function($) {
         mymap.on('click',function(){
           mymap.removeLayer(marqueur);
         },200);
+        $('html, body').animate({
+          scrollTop: $("#pame_assessments_map").offset().top - 100
+        }, 1000);
       });
 
       pop_filters(response);
@@ -258,7 +278,7 @@ jQuery(document).ready(function($) {
                                e.latlng,
                                {
                                    'info_format': 'text/javascript',  //it allows us to get a jsonp
-                                   'propertyName': 'wdpaid,pame_source_year,pame_methodology,name,region,country_na,marine',
+                                   'propertyName': 'wdpaid,pame_year,pame_methodology,name,region,country_na,pa_type',
                                    'query_layers': 'biopama:wdpa_acp_jul2018_pame',
                                    'format_options':'callback:getJson'
                                }
@@ -324,13 +344,13 @@ jQuery(document).ready(function($) {
   function hi_highcharts_pa(info,latlng){
    var wdpaid=info['wdpaid'];
    var name=info['name'];
-   var pame_source_year = info['pame_source_year'];
+   var pame_year = info['pame_year'];
    var pame_methodology = info['pame_methodology'];
    var region = info['region'];
    var country_na = info['country_na'];
 
 if (  pame_methodology !== null ) {
-    var popupContentwdpa = '<center class="available"><i class="fas fa-2x fa-paste"></i><p>'+wdpaid+'</p><i>'+name+'</i><hr><i>'+pame_methodology+'</i><hr><i>'+pame_source_year+'</i><hr></center>';
+    var popupContentwdpa = '<center class="available"><i class="fas fa-2x fa-paste"></i><p>'+wdpaid+'</p><i>'+name+'</i><hr><i>'+pame_methodology+'</i><hr><i>'+pame_year+'</i><hr></center>';
 }else{
   var popupContentwdpa = '<center><i class="fas fa-2x fa-spinner"></i><p>'+wdpaid+'</p><i>'+name+'</i><hr><p>PA not yet assessed</p></center>';
 }
@@ -341,47 +361,74 @@ if (  pame_methodology !== null ) {
 
   }
 
+  function loadFilteredData(parameter,value){
+    $('#spinner').show();
+//  $(this).hide();
+//  $(this).after('<button class="btn btn-success remove-me" target="'+$(this).attr('id')+'"><i class="fas fa-times-circle"></i> '+value+'</button>');
+//   $('.remove-me').on('click',function(){
+//     var target = '#' + $(this).attr('target');
+//     $(this).remove();
+//     $(target).show();
+//     // $(target+'>option:eq(1)').prop('selected', true);
+//   });
+
+    var cql_filter = set_cql_filters( parameter, value );
+
+  if (cql_filter['reset'] == true){
+    wdpa.setParams({styles:"pame_acp_wdpa_all"});
+    preselect = {};
+  }else{
+    wdpa.setParams({styles:"pame_selection"});
+  }
+  wdpa.setParams({CQL_FILTER:cql_filter['query']});
+
+//    $.when( function(){
+    resetTableData(cql_filter['query']);
+//    } ).done(function(){
+
+    // preselect[$(this).attr('id')] = value;
+    // setTimeout(function(){
+    //   // console.log(preselect);
+    //   // $('#'+preselect).prop('selectedIndex', 1);
+    //   $.each(preselect,function(key,val){
+    //     $('#'+key).val(val);
+    //   });
+    // },800);
+//    })
+  }
+
   $('.cql_filters').on('change', function() {
     var parameter = $(this).attr('param');
     var value = $(this).val();
 
-      $('#spinner').show();
-
-
-  //  $(this).hide();
-  //  $(this).after('<button class="btn btn-success remove-me" target="'+$(this).attr('id')+'"><i class="fas fa-times-circle"></i> '+value+'</button>');
-  //   $('.remove-me').on('click',function(){
-  //     var target = '#' + $(this).attr('target');
-  //     $(this).remove();
-  //     $(target).show();
-  //     // $(target+'>option:eq(1)').prop('selected', true);
-  //   });
-
-      var cql_filter = set_cql_filters( parameter, value );
-
-    if (cql_filter['reset'] == true){
-      wdpa.setParams({styles:"pame_acp_wdpa_all"});
-      preselect = {};
-    }else{
-      wdpa.setParams({styles:"pame_selection"});
-    }
-    wdpa.setParams({CQL_FILTER:cql_filter['query']});
-
-//    $.when( function(){
-      resetTableData(cql_filter['query']);
-//    } ).done(function(){
-      preselect[$(this).attr('id')] = value;
-      setTimeout(function(){
-        // console.log(preselect);
-        // $('#'+preselect).prop('selectedIndex', 1);
-        $.each(preselect,function(key,val){
-          $('#'+key).val(val);
-        });
-      },800);
-//    })
+    loadFilteredData(parameter,value);
 
   });
 
+  function resetFiltersSelect(){
+    for (k in cql_filters){
+      $('select.cql_filters[param="'+k+'"]').val(cql_filters[k]);
+    }
+  }
 
+  $('#reset_filters').on('click',function(){
+    cql_filters = {'region':'%','country_na':'%','pame_year':'%','pame_methodology':'%','pa_type':'%'};
+    $('.cql_filters').val('%');
+    loadFilteredData('pame_methodology','%');
+  });
+
+  //check for Parameters
+  // wait two second to load parameters
+  setTimeout(function(){
+    var url_string = new URL( window.location.href );
+    for (k in cql_filters){
+      if (url_string.searchParams.get(k)){
+        cql_filters[k] = url_string.searchParams.get(k);
+        setTimeout(function(){
+          loadFilteredData(k,cql_filters[k])
+        },400);
+      }
+    }
+  },3000);
 
 });

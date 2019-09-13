@@ -62,31 +62,38 @@
           </div>
           <div class="col-lg-10 header-table-cards">
               <div class="header-table-wrap">
+              <h1>Assessments</h1>
+              <div class="data_source">
+                <p>Data Source: <b><a class="btn btn-light" href="https://pame.protectedplanet.net/" target="_blank">Global Database on Protected Area Management Effectiveness (GD-PAME)</a></b></p>
+              </div>
+
                   <div class="form-group">
                     <label for="assessment_tools">Tool</label>
                       <select class="form-control cql_filters" id="assessment_tools" param="pame_methodology">
-                        <option value="%">All Assessment Tools</option>
+                        <option value="%">All Methodologies</option>
                        </select>
 
                     <label for="assessment_year">Year</label>
-                     <select class="form-control cql_filters" id="assessment_year" param="pame_source_year">
-                       <option value="%">All Assessment Tools</option>
+                     <select class="form-control cql_filters" id="assessment_year" param="pame_year">
+                       <option value="%">All Years</option>
                       </select>
 
                       <label for="assessment_region">Region</label>
                        <select class="form-control cql_filters" id="assessment_region" param="region">
-                         <option value="%">All Assessment Tools</option>
+                         <option value="%">All Regions</option>
                         </select>
 
                         <label for="assessment_country">Country</label>
                          <select class="form-control cql_filters" id="assessment_country" param="country_na">
-                           <option value="%">All Assessment Tools</option>
+                           <option value="%">All Countries</option>
                           </select>
 
-                        <label for="assessment_marine">Marine</label>
-                         <select class="form-control cql_filters" id="assessment_marine" param="marine">
-                           <option value="%">All Assessment Tools</option>
+                        <label for="assessment_pa_type">Type</label>
+                         <select class="form-control cql_filters" id="assessment_pa_type" param="pa_type">
+                           <option value="%">Not Set</option>
                           </select>
+
+                        <button class="btn btn-info" type="button" id="reset_filters">Clear All</button>
 
                   </div>
 
@@ -108,7 +115,6 @@
                  <tfoot></tfoot>
                  </table>
               </div>
-
 
           </div>
 

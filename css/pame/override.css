@@ -163,6 +163,24 @@
   width:30%;
 }
 
+#landing_top_cards {
+    /* display: none; */
+    text-align: left;
+    padding-left: 5%;
+}
+
+#landing_top_cards .card  {
+    padding: 1.5rem!important;
+    width: 100%!important;
+}
+
+#reset_filters{
+  margin-left:10px;
+}
+
+.data_source *{ 
+  color:#679c97!important;
+}
 
 @media (max-width:992px) {
 
@@ -189,5 +207,18 @@
     letter-spacing: unset;
     text-transform: unset;
   }
+
+  #landing_top_cards {
+      /* display: none; */
+      text-align: left;
+      padding-left: 0;
+      margin-left:0;
+  }
+
+  #landing_top_cards .card {
+      padding: 1rem!important;
+      width: 80%!important;
+  }
+
 
 }

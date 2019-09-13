@@ -117,7 +117,7 @@ footer .text_f {
 
 .header-text .views-element-container{
   /*background-color:#90c14f24;*/
-  background-color:#0000002e;
+  background-color:rgba(0, 0, 0, 0.1803921568627451);
   height: fit-content;
 }
 
@@ -378,7 +378,7 @@ font-size: large;
 }
 
 .title-element-fullwidth{
-      background-color: #a7cb48d1;
+      background-color: rgba(167, 203, 72, 0.8196078431372549);
       padding-top:50px;
       padding-bottom:50px;
       margin-top: 30px;
