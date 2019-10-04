@@ -29,9 +29,6 @@ jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
 
 jQuery(document).ready(function($) {
 
-  var global_protection = {'marine':0,'land':0,'prot':0};
-  var last = false;
-
   function draw_pie_chart(idelem,prot_m=0,prot_t=0,not_prot=0){
     var dom = document.getElementById(idelem);
     var myChart = echarts.init(dom);
@@ -42,7 +39,7 @@ jQuery(document).ready(function($) {
     //...withouth marine
     var perc = ( 100.0* (prot_t ) / (not_prot + prot_t  ) ).toFixed(1).toString() + ' %';
 
-    $('#'+idelem).prepend('<h1 style="position:absolute;right:0;top:0;color:#8FBF4B;">'+perc+'</h1>');
+    $('#'+idelem).prepend('<h1 style="position:absolute;right:0;top:1.5rem;color:#8FBF4B;">'+perc+'</h1>');
     var app = {};
     option = null;
     app.title = 'Protection Coverage';
@@ -110,7 +107,7 @@ jQuery(document).ready(function($) {
     }
   };
 
-  function draw_table(new_id,data,last=false){
+  function draw_table(new_id,data){
       var tab_html = $(empty_table(new_id));
       $('#globalk-tables').append(tab_html);
 
@@ -155,15 +152,6 @@ jQuery(document).ready(function($) {
 
             //draw pie chart based on totals computed
             draw_pie_chart(new_id+'-pie-chart',prot_m,prot_t,land - prot_t);
-            global_protection['marine']+= land;
-            global_protection['land']+= land;
-            global_protection['prot']+= prot_t;
-            if (last){
-              setTimeout(function(){
-                console.log(global_protection);
-                draw_pie_chart('ACP-pie-chart',global_protection["marine"],global_protection["prot"],global_protection["land"] - global_protection["prot"]);
-              },200);
-            }
           }
       });
      };
@@ -208,19 +196,13 @@ jQuery(document).ready(function($) {
    $.each(data.records,function(idx,obj){
      regions[obj['region']].push(obj);
    });
-   var ri=0;
-   var last_r = 6;
+   //console.log(regions);
    $.each(regions,function(key, val){
-     ri+=1;
-     if (ri == last_r){
-//       alert('duccio');
-       draw_table(key.toLowerCase().replace(' ','_'),val,last=true);
-     }else{
-       draw_table(key.toLowerCase().replace(' ','_'),val);
-     }
+     draw_table(key.toLowerCase().replace(' ','_'),val);
      //console.log(val);
    });
- })
+ });
+ //console.log(data_tables);
 
  $.each(sources,function(idx,obj){
    $('#data-sources').append('\

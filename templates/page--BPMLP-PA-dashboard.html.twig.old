@@ -46,20 +46,8 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-8 header-table-cards"> 
+          <div class="col-lg-8 header-table-cards">
               <div class="header-table-wrap">
-
-              <div id="ACP-card" class="card">
-               <div class="card-header">
-                <div class="row">
-                 <div class="col-sm-5"><h1>ACP Total Coverage</h1></div>
-                 <div class="col-sm-7">
-                    <div id="ACP-pie-chart" style="height: 100%;min-height:200px;"></div>
-                 </div>
-                </div>
-                </div>
-                <div class="card-body"></div>
-              </div>
                 <div id="globalk-tables">
                 </div>
                 <hr></hr>

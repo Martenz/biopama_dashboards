@@ -18,6 +18,8 @@ var preselect = {};
 
 var dt_table;
 
+var enable_zoom = false;
+
 // function parseResponse(data) {
 //       //console.log(data); // outputs 'Foo'
 //
@@ -45,16 +47,32 @@ jQuery(document).ready(function($) {
       dt_table = $('#table_assessments').DataTable( {
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'print',
+            'copy', 'csv', 'excel',
+            {
+              extend: 'print',
+              customize: function ( win ) {
+                  $(win.document.body)
+                      .prepend(
+                          '<p>Data Source: Global Database on Protected Area Management Effectiveness (GD-PAME) | <b>https://pame.protectedplanet.net/ </b></p>'
+                      );
+                  $(win.document.body).find( 'table' )
+                      .addClass( 'compact row-border' )
+                      .css( 'font-size', 'inherit' );
+              }
+            },
             {
                 extend: 'pdfHtml5',
                 orientation: 'landscape',
-                pageSize: 'LEGAL'
+                pageSize: 'LEGAL',
+                customize: function (doc){
+                  doc['header'] = 'Data Source: https://pame.protectedplanet.net/ | Global Database on Protected Area Management Effectiveness (GD-PAME)';
+                }
             }
         ]
         } );
         $('#table_assessments_filter').prepend($('.dt-buttons.btn-group'));
-
+        // $('#table_assessments thead').append("<tr><th id='data_sources_row'></th></tr>");
+        // $("#data_source").clone().appendTo("#data_sources_row");
   }
 
   function destroyDTables(){
@@ -249,7 +267,41 @@ jQuery(document).ready(function($) {
    });
 
 
-  var mymap = L.map('pame_assessments_map').setView([0, 0], 2);
+  var mymap = L.map('pame_assessments_map',{zoomControl: false}).setView([0, 0], 2);
+  var zoom = L.control.zoom({position: 'bottomright'});
+  zoom.addTo(mymap);
+
+    mymap.dragging.disable(); 
+    mymap.touchZoom.disable(); 
+	mymap.doubleClickZoom.disable();
+	mymap.scrollWheelZoom.disable
+
+  $('#pame_assessments_map').append('<div id="help-text">Double-click to pan and zoom the map.</div>')
+
+ 
+  mymap.on("mouseover",function(){
+  	if (enable_zoom == false){
+  		$('#help-text').show();
+  	}
+  });
+
+  mymap.on("dblclick",function(){
+  	$('#help-text').hide();
+    mymap.dragging.enable(); 
+    mymap.touchZoom.enable();
+	mymap.doubleClickZoom.enable();
+	mymap.scrollWheelZoom.enable();
+	enable_zoom = true;
+  })
+
+  mymap.on("mouseout",function(){
+    mymap.dragging.disable(); 
+    mymap.touchZoom.disable(); 
+	mymap.doubleClickZoom.disable();
+	mymap.scrollWheelZoom.disable();
+	enable_zoom = false;
+  });
+
 
   var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',

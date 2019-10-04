@@ -21,7 +21,16 @@ h5, .heading-e {
 }
 
 #landing_top_cards .view-content{
-  display:flex;
+   height: 100%;
+    padding: 0;
+    margin: 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #landing_top_cards .view-content .views-row{
@@ -133,7 +142,7 @@ h5, .heading-e {
   }
 
   .biopama_d-card-img img{
-    height:unset!important;
+    height:70px!important;
   }
 
   .col-6.icons-left-col, .col-6.text-right-col{
@@ -144,6 +153,31 @@ h5, .heading-e {
 
   .wave-corner {
     position: relative;
+    text-align: right;
   }
 
 }
+
+@media (max-width:1400px) {
+
+	.icons-left-col {
+	    text-align: center;
+	    padding-left: unset!important;
+	}
+
+	.landing_headers {
+	    width: 100%;
+	    padding-bottom: 20px;
+	}
+
+}
+
+
+.relativeICons {
+    float: left;
+    width: auto;
+    position: relative!important;
+    left: 0px;
+    top: unset!important;
+    z-index: 0!important;
+} 
