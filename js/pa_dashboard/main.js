@@ -182,16 +182,16 @@ jQuery(document).ready(function($) {
  var sources = [
    {"source":"The World Bank",
    "url":"https://data.worldbank.org/indicator/ag.lnd.totl.k2",
-   "data":"Land area (sq. km)",
+   "data":"[2018] Land area (sq. km)",
    "icon":"https://data.worldbank.org/assets/images/logo-wb-header-en.svg"
  },
  {"source":"The World Bank",
  "url":"https://data.worldbank.org/indicator/SP.POP.TOTL?view=chart",
- "data":"Population, total",
+ "data":"[2018] Population, total",
  "icon":"https://data.worldbank.org/assets/images/logo-wb-header-en.svg"
 },
 {"source":"Dopa-services",
-"url":"https://rest-services.jrc.ec.europa.eu/services/d6dopa30/administrative_units/get_country_all_inds?format=json&fields=country_iso3,country_name,prot_marine_area_km2,prot_terrestrial_area_km2",
+"url":"https://rest-services.jrc.ec.europa.eu/services/d6dopa40/administrative_units/get_country_all_inds",
 "data":"Protected Area Marine/Terrestrial (sq. km)",
 "icon":"https://dopa-explorer.jrc.ec.europa.eu/sites/default/files/dopa_logo_wo3.png"
 },
