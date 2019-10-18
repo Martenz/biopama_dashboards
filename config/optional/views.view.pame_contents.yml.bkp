@@ -13,13 +13,13 @@ dependencies:
     module:
       - biopama_dashboards
   module:
+    - image
     - link
     - node
-    - svg_image
     - text
     - user
 _core:
-  default_config_hash: lccKoa6LaCUE0mDTdCqvutXevs0fyHtLztzqcLOzQag
+  default_config_hash: Xalc8in6KAujj-7f9ZBOno54F-fMiRcHsg1o8vcijh8
 id: pame_contents
 label: 'PAME Contents'
 module: views
@@ -276,7 +276,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_external_link__uri }}" target="_blank"><div class="btn btn-primary">Link</div></a>'
+            text: '<a href="{{ field_pame_external_link__uri }}"><div class="btn btn-primary">Link</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -320,7 +320,7 @@ display:
             url_only: false
             url_plain: false
             rel: '0'
-            target: _blank
+            target: '0'
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -396,7 +396,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="/node/{{ field_pame_related_document__target_id }}" target="_blank"><div class="btn btn-info">Doc</div></a>'
+            text: '<a href="/node/{{ field_pame_related_document__target_id }}"><div class="btn btn-info">Doc</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -458,7 +458,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_map_link__uri }}" target="_blank"><div class="btn btn-success">Map</div></a>'
+            text: '<a href="{{ field_pame_map_link__uri }}"><div class="btn btn-success">Map</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -677,47 +677,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       sorts:
         created:
           id: created
@@ -761,21 +720,6 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      sorts:
-        field_pame_tool_order_value:
-          id: field_pame_tool_order_value
-          table: node__field_pame_tool_order
-          field: field_pame_tool_order_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      defaults:
-        sorts: false
     cache_metadata:
       max-age: -1
       contexts:

@@ -8,7 +8,7 @@ function empty_table(new_id){
   card += '<div class="row"><div class="col-sm-5">';
   card += '<h1>'+new_id.replace(re,' ').toUpperCase()+' coverage</h1>';
   card += '</div><div class="col-sm-7"><div id="'+new_id+'-pie-chart" style="height: 100%;min-height:200px;"></div></div></div>';
-  card += '<div class="card-body"><i class="fas fa-2x fa-caret-square-up open-table"></i>';
+  card += '<div class="card-body"><i class="fas fa-2x fa-caret-square-up open-table open-table-close"></i>';
   card += '<table id="'+new_id+'" class="table display globalk" style="width:100%"><thead><tr></tr></thead><tbody></tbody><tfoot><tr></tr></tfoot></table>';
   card +='</div></div>';
   return card;
@@ -162,6 +162,8 @@ jQuery(document).ready(function($) {
               setTimeout(function(){
                 console.log(global_protection);
                 draw_pie_chart('ACP-pie-chart',global_protection["marine"],global_protection["prot"],global_protection["land"] - global_protection["prot"]);
+                var global_prot_land = Math.round((parseInt(global_protection["prot"])/1000)).toLocaleString();
+                $('#ACP-card .col-sm-5').append('<h6>Total ACP Protected Land (1000 x km<sup>2</sup>) = <b>'+global_prot_land+' </b></h6>');
               },200);
             }
           }
@@ -169,7 +171,7 @@ jQuery(document).ready(function($) {
      };
    },200);
 
-      $('#'+new_id+'-card .card-body tbody').hide();
+      //$('#'+new_id+'-card .card-body tbody').hide();
       $('#'+new_id+'-card .card-header .open-table').on('click',function(){
         $('#'+new_id+'-card .card-body tbody').slideToggle();
         $(this).toggleClass('open-table-close');

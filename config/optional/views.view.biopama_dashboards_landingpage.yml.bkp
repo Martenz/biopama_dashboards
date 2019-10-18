@@ -7,12 +7,7 @@ dependencies:
     - field.storage.node.field_dashboard_image_icon
     - field.storage.node.field_dashboard_link
     - field.storage.node.field_dashboard_subtitle
-    - image.style.thumbnail
     - node.type.biopama_dashboards_content
-    - taxonomy.vocabulary.biopama_dashboards
-    - taxonomy.vocabulary.biopama_dashboards_section
-  content:
-    - 'taxonomy_term:document_types:bdbbd9f4-bc27-4581-bb3f-f630fdb0d8d3'
   enforced:
     module:
       - biopama_dashboards
@@ -20,14 +15,13 @@ dependencies:
     - image
     - link
     - node
-    - svg_image
     - taxonomy
     - text
     - user
 _core:
-  default_config_hash: JwT-sVqMVcTNW5WvbPjebQDOVoytdDN7Hmc1UxOea1k
-id: biopama_dashboards_pame
-label: 'PAME Landingpage Template'
+  default_config_hash: XFBECkp5ZX4Ekbgw1xaq-JnjiBbvL1jy39nprI2h2No
+id: biopama_dashboards_landingpage
+label: 'Biopama Landingpage Template'
 module: views
 description: ''
 tag: ''
@@ -371,7 +365,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA LandingPage'
           group: 1
           exposed: false
           expose:
@@ -410,47 +404,6 @@ display:
           entity_field: name
           plugin_id: string
           relationship: field_biopama_dashboards
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       sorts:
         created:
           id: created
@@ -492,7 +445,7 @@ display:
       arguments: {  }
       display_extenders:
         library_in_views_display_extender: {  }
-      title: PAME
+      title: headers
     cache_metadata:
       max-age: -1
       contexts:
@@ -545,7 +498,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA LandingPage'
           group: 1
           exposed: false
           expose:
@@ -615,47 +568,6 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -675,7 +587,7 @@ display:
     display_plugin: block
     id: block_2
     display_title: icon_learn
-    position: 3
+    position: 2
     display_options:
       display_extenders:
         library_in_views_display_extender: {  }
@@ -756,7 +668,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA LandingPage'
           group: 1
           exposed: false
           expose:
@@ -787,47 +699,6 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -1235,755 +1106,11 @@ display:
         - 'config:field.storage.node.field_dashboard_image_icon'
         - 'config:field.storage.node.field_dashboard_link'
         - 'config:field.storage.node.field_dashboard_subtitle'
-  block_3:
-    display_plugin: block
-    id: block_3
-    display_title: highlights_cards_menu
-    position: 5
-    display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
-      title: icons
-      defaults:
-        title: false
-        filters: false
-        filter_groups: false
-        fields: false
-        pager: false
-        sorts: false
-      display_description: ''
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        name_1:
-          id: name_1
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_dashboard_section
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'Dashboard cards'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      fields:
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: nid
-          plugin_id: field
-        field_dashboard_image_icon:
-          id: field_dashboard_image_icon
-          table: node__field_dashboard_image_icon
-          field: field_dashboard_image_icon
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: thumbnail
-            image_link: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: node
-          entity_field: title
-          plugin_id: field
-        field_dashboard_subtitle:
-          id: field_dashboard_subtitle
-          table: node__field_dashboard_subtitle
-          field: field_dashboard_subtitle
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        edit_node:
-          id: edit_node
-          table: node_field_revision
-          field: edit_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: true
-            text: '<div class="btn btn-light">{{ edit_node }}</div>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: div
-          element_wrapper_class: 'btn btn-light'
-          element_default_classes: true
-          empty: ''
-          hide_empty: true
-          empty_zero: false
-          hide_alter_empty: true
-          text: edit
-          output_url_as_text: false
-          absolute: false
-          entity_type: node
-          plugin_id: entity_link_edit
-        field_dashboard_link:
-          id: field_dashboard_link
-          table: node__field_dashboard_link
-          field: field_dashboard_link
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: "<a href=\"{{ field_dashboard_link__uri }}\">\r\n<div class=\"card-link\"><div class=\"card-title\">{{ field_dashboard_link__title }}</div></div>\r\n</a>"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: uri
-          type: link
-          settings:
-            trim_length: 80
-            url_only: true
-            url_plain: true
-            rel: '0'
-            target: '0'
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_dashboard_bkgd_img:
-          id: field_dashboard_bkgd_img
-          table: node__field_dashboard_bkgd_img
-          field: field_dashboard_bkgd_img
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: '0'
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: image_url
-          settings:
-            image_style: ''
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        body:
-          id: body
-          table: node__body
-          field: body
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: "<div class=\"card\">\r\n                <div class=\"card-body\">\r\n       <div class=\"text-center card-link\">{{ field_dashboard_link }}</div>\r\n                       {{ edit_node }}\r\n                </div>\r\n    <div class=\"hidden_background\">{{ field_dashboard_bkgd_img }}</div>\r\n</div>\r\n                  <h6 class=\"masthead-subheading mb-0\">{{ field_dashboard_subtitle }}</h5>\r\n                  <p class=\"card-text\">\r\n                    \r\n                  </p>\r\n       \r\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: text_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: "<li class=\"pame-menu-left\"><a href=\"{{ field_dashboard_link }}\">\r\n                     <div class=\"row\">\r\n                       <div class=\"col-4\">{{ field_dashboard_image_icon }}</div>\r\n                       <div class=\"col-8\">{{ title }}</div>\r\n                      </div>\r\n</a></li>\r\n\r\n"
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
-      pager:
-        type: none
-        options:
-          offset: 0
-      sorts:
-        field_dashboard_elem_order_value:
-          id: field_dashboard_elem_order_value
-          table: node__field_dashboard_elem_order
-          field: field_dashboard_elem_order_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_bkgd_img'
-        - 'config:field.storage.node.field_dashboard_image_icon'
-        - 'config:field.storage.node.field_dashboard_link'
-        - 'config:field.storage.node.field_dashboard_subtitle'
   block_7:
     display_plugin: block
     id: block_7
     display_title: highlights_cards
-    position: 4
+    position: 6
     display_options:
       display_extenders:
         library_in_views_display_extender: {  }
@@ -2025,7 +1152,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA LandingPage'
           group: 1
           exposed: false
           expose:
@@ -2095,47 +1222,6 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -2654,7 +1740,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"card\">\r\n                <div class=\"card-body\">\r\n                   <div class=\"row\">\r\n                        <div class=\"col-sm-4>\r\n                          <div class=\"biopama_d-card-img\">\r\n                                  <img src=\"{{ field_dashboard_image_icon }}\"/>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"col-sm-5>\r\n                            <h4 class=\"masthead-subheading mb-0\">{{ title }}</h4>\r\n                            <h6 class=\"masthead-subheading mb-0\">{{ field_dashboard_subtitle }}</h6>\r\n                               <p>{{ body }}</p>\r\n                              <div class=\"biopama_d-edit-node\">{{ edit_node }}</div>\r\n                         </div>\r\n                        <div class=\"col-sm-3>\r\n                                        {{ field_dashboard_link }}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n</div>\r\n\r\n\r\n"
+            text: "<div class=\"card\">\r\n                <div class=\"card-body\">\r\n                   <div class=\"row\">\r\n                        <div class=\"col-sm-4>\r\n                          <div class=\"biopama_d-card-img\">\r\n                                  <img src=\"{{ field_dashboard_image_icon }}\"/>\r\n                          </div>\r\n                        </div>\r\n                        <div class=\"col-sm-5>\r\n                            <h6 class=\"masthead-subheading mb-0\">{{ title }}</h6>\r\n                                <div class=\"biopama_d-modal\">\r\n                                   <a  href=\"node/{{ nid }}\" class=\"use-ajax add-policy\" data-dialog-type=\"modal\" data-dialog-options=\"{&quot;width&quot;:600}\">\r\n                                     <i class=\"fas fa-info-circle\"> </i> More\r\n                                       </a>\r\n                                 </div>\r\n                              <div class=\"biopama_d-edit-node\">{{ edit_node }}</div>\r\n                         </div>\r\n                        <div class=\"col-sm-3>\r\n                                        {{ field_dashboard_link }}\r\n                    </div>\r\n                </div>\r\n            </div>\r\n</div>\r\n\r\n\r\n"
             make_link: false
             path: ''
             absolute: false
@@ -2725,190 +1811,12 @@ display:
   block_8:
     display_plugin: block
     id: block_8
-    display_title: GlobalKnowledge
-    position: 2
+    display_title: 'PA Dashboard'
+    position: 1
     display_options:
       display_extenders:
         library_in_views_display_extender: {  }
       display_description: ''
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        field_dashboard_section_target_id:
-          id: field_dashboard_section_target_id
-          table: node__field_dashboard_section
-          field: field_dashboard_section_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            335: 335
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: biopama_dashboards_section
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
-        field_biopama_dashboards_target_id:
-          id: field_biopama_dashboards_target_id
-          table: node__field_biopama_dashboards
-          field: field_biopama_dashboards_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            - 356
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: biopama_dashboards
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-      defaults:
-        filters: false
-        filter_groups: false
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - user
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_subtitle'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
-    position: 6
-    display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
-      path: BPMLP_page_pame
       filters:
         status:
           value: '1'
@@ -2938,7 +1846,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA PA Dashboard'
           group: 1
           exposed: false
           expose:
@@ -2969,17 +1877,15 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
+        name_1:
+          id: name_1
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_dashboard_section
           group_type: group
           admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          operator: '='
+          value: Header
           group: 1
           exposed: false
           expose:
@@ -2994,7 +1900,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -3007,9 +1913,98 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+        title: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      title: 'PA Dashboard'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_dashboard_subtitle'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Landing Page'
+    position: 9
+    display_options:
+      display_extenders:
+        library_in_views_display_extender: {  }
+      path: BPMLP_page_landingpage
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
           entity_type: node
-          entity_field: langcode
-          plugin_id: language
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            biopama_dashboards_content: biopama_dashboards_content
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_biopama_dashboards
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'BIOPAMA LandingPage'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
       defaults:
         filters: false
         filter_groups: false
@@ -3017,6 +2012,7 @@ display:
         operator: AND
         groups:
           1: AND
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
@@ -3031,17 +2027,12 @@ display:
   page_2:
     display_plugin: page
     id: page_2
-    display_title: Assessments
-    position: 7
+    display_title: 'PA Dashboard Page'
+    position: 1
     display_options:
-      display_extenders: {  }
-      path: BPMLP_page_pame_assessments
+      display_extenders:
+        library_in_views_display_extender: {  }
       display_description: ''
-      title: PAME-Assessments
-      defaults:
-        title: false
-        filters: false
-        filter_groups: false
       filters:
         status:
           value: '1'
@@ -3071,7 +2062,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: 'PAME LandingPage'
+          value: 'BIOPAMA PA Dashboard'
           group: 1
           exposed: false
           expose:
@@ -3102,441 +2093,16 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_subtitle'
-  page_3:
-    display_plugin: page
-    id: page_3
-    display_title: Tools
-    position: 7
-    display_options:
-      display_extenders: {  }
-      path: BPMLP_page_pame_tools
-      display_description: ''
-      title: PAME-Tools
       defaults:
-        title: false
         filters: false
         filter_groups: false
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_subtitle'
-  page_4:
-    display_plugin: page
-    id: page_4
-    display_title: Resources
-    position: 7
-    display_options:
-      display_extenders: {  }
-      path: BPMLP_page_pame_resources
-      display_description: ''
-      title: PAME-Resources
-      defaults:
         title: false
-        filters: false
-        filter_groups: false
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
       filter_groups:
         operator: AND
         groups:
           1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_subtitle'
-  page_5:
-    display_plugin: page
-    id: page_5
-    display_title: 'Management Plans'
-    position: 7
-    display_options:
-      display_extenders: {  }
-      path: BPMLP_page_pame_management
-      display_description: ''
-      title: PAME-Management-Plans
-      defaults:
-        title: false
-        filters: false
-        filter_groups: false
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        langcode:
-          id: langcode
-          table: node_field_data
-          field: langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: in
-          value:
-            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
-            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: langcode
-          plugin_id: language
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
+      path: BPMLP_PA_dashboard
+      title: 'PA Dashboard'
     cache_metadata:
       max-age: -1
       contexts:
