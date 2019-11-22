@@ -10,7 +10,7 @@
     [
     'taxonomy' => 'BIOPAMA LandingPage',
     'path' =>'BPMLP_page_landingpage',
-    'template' => 'page--BPMLP-page-landingpage.html.twig',
+    'template' => 'views-view--biopama-dashboards-landingpage--page-1.html.twig',
     'view_machine_name' => 'biopama_dashboards_landingpage',
     'header' => [
                  'Biopama Welcome' => [
@@ -164,7 +164,9 @@ function biopama_dashboards_install(){
     $header_tid = taxonomy_term_load_multiple_by_name('Header',$sections_vocabulary);
     if ( sizeof($dashboard_page['header']) > 0 ){
       foreach( $dashboard_page['header'] as $header){
+		  
         $title = $header['title'];
+		
         // Create node object with attached file.
         $values = \Drupal::entityQuery('node')->condition('title', $title)->execute();
         $node_exists = !empty($values);
