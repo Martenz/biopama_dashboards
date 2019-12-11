@@ -1,33 +1,7 @@
 {% set url = current_uri %}
-{% block head %}
-
-   {{ attach_library( 'biopama_dashboards/pame' ) }}
-   {{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
-
-
-   <div id="header" class="header">
-        <nav{{ navbar_attributes }}>
-            {{ page.header }}
-            {% if page.primary_menu or page.header_form %}
-              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-              <div class="collapse navbar-collapse" id="CollapsingNavbar">
-                {{ page.primary_menu }}
-                {% if page.header_form %}
-                  <div class="form-inline navbar-form float-right">
-                    {{ page.header_form }}
-                  </div>
-                {% endif %}
-            </div>
-            {% endif %}
-        </nav>
-   </div>
-
-{% endblock %}
-
-<body>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+{{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
+{{ attach_library( 'biopama_dashboards/pame' ) }}
+{{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
 
 
 <header class="masthead text-left text-white">
@@ -46,7 +20,7 @@
             <img src="{{ image_path }}divider_02.png"/>
                 <ul class="list-group pame-links">
                   <li class="pame-menu-left">
-                    <a href="/pame">
+                    <a href="/BPMLP_page_pame">
                       <div class="row">
                        <div class="col-4"><img src="{{ image_path }}pame/pame_home.png"/></div>
                        <div class="col-8">PAME Home</div>
@@ -84,7 +58,7 @@
                         </select>
 
                         <label for="assessment_country">Country</label>
-                         <select class="form-control cql_filters" id="assessment_country" param="country_na">
+                         <select class="form-control cql_filters" id="assessment_country" param="iso3">
                            <option value="%">All Countries</option>
                           </select>
 
@@ -104,16 +78,26 @@
                   <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
                   <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
               </div>
-              <!--
-              <button onclick="dt_table = $('#table_assessments').DataTable();" class="btn btn-info">Filter</button>
-              <button onclick="dt_table.destroy();" class="btn btn-info">Reset</button>
-              -->
               <div id="pame_assessments_table">
-                 <table class="table" id="table_assessments">
-                 <thead></thead>
-                 <tbody></tbody>
-                 <tfoot></tfoot>
-                 </table>
+				<table id="table_assessments" class="table compact row-border">
+					<thead>
+						<tr>
+							<th>WDPAID</th>
+							<th>ISO3</th>
+							<th>Region</th>
+							<th>Country</th>
+							<th>Type</th>
+							<th>Protected Area</th>
+							<th>Designation</th>
+							<th>Methodology</th>
+							<th>Year</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					<tfooter>
+					</tfooter> 					
+				</table>
               </div>
 
           </div>
@@ -129,39 +113,3 @@
 
 <button id="myBtn_scrollTop" title="Go to top"><i class="fas fa-arrow-up fa-2x"></i></button>
 
-
-<footer>
-<div id="footer-biopama">
-   <div class="row align-items-center"><div class="col-12 col-md-2 logo_f">
-    <img src="{{ image_path }}PEN_Biopama_Logo_no_text_sm.png">
-   </div>
-   <div class="col-12 col-md-6 text_f"><div class="copyright_text">
-     COPYRIGHT © BIOPAMA - ALL RIGHTS RESERVED<br>
-    <div>
-    <div role="navigation" aria-labelledby="block-footer-menu" id="block-footer">
-   <h2 class="visually-hidden" id="block-footer-menu">Footer</h2>
-   <a href="/terms-and-conditions" class="text_f copyright_text">Terms and Conditions</a>
-   </div></div></div>
-   <div class="details">
-     This publication has been produced with support of the 11th EDF.
-     The contents of this publication are the sole responsibility of IUCN
-     and the European Commission’s Joint Research Centre and can in no way
-     be taken to reflect the views of the European Union nor of the ACP Group of States.
-  </div>
-  </div>
-  <div class="col-12 col-md-4 logos_f">
-  <div class="color sep">
-  <div class="c1"></div><div class="c2"></div><div class="c3"></div>
-  <div class="c4"></div></div><ul class="logos_partners">
-  <li><img src="{{ image_path }}acp_logo.png" alt="acp"></li>
-  <li><img src="{{ image_path }}eu.jpg" alt="EU"></li>
-  <li><img src="{{ image_path }}iucn.png" alt="IUCN"></li>
-  <li><img src="{{ image_path }}EC.png" alt="EC">
-  </li></ul></div></div>
-
-</footer>
-
-<div id="preload-images"></div>
-
-
-</body>

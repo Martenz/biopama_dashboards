@@ -1,0 +1,68 @@
+{% set url = current_uri %}
+{{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
+{{ attach_library( 'biopama_dashboards/pame' ) }}
+
+<header class="masthead text-left text-white">
+
+  <div id="bkgd-linear" class="masthead-linear"></div>
+  <div id="bkgd-img" class="masthead-img" style="display:none;"></div>
+
+      <div class="masthead-content">
+
+      <div class="row">
+
+        <div class="col-4 header-text">
+          <div class="container landing_headers">
+          <img src="{{ image_path }}divider_02.png"/>
+
+            <div class="contextual-region">
+                  {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_1') }}
+                  {{ drupal_view('biopama_dashboards_pame', 'block_1') }}
+              </div>
+          </div>
+        </div>
+        <div id="landing_top_cards" class="col-8 header-table-cards no-mobile">
+            <div class="header-table-wrap">
+            <div class="contextual-region">
+                  {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_7') }}
+                  {{ drupal_view('biopama_dashboards_pame', 'block_7') }}
+              </div>
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+ </header>
+
+ <div id="landing_top_cards" class="col-12-lg header-table-cards mobile-view">
+     <div class="header-table-wrap">
+     <div class="contextual-region">
+           {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_7') }}
+           {{ drupal_view('biopama_dashboards_pame', 'block_7') }}
+       </div>
+     </div>
+ </div>
+
+<div class="main-section-container">
+  <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-12">
+              <div class="contextual-region">
+                    {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_2') }}
+                    {{ drupal_view('biopama_dashboards_pame', 'block_2') }}
+                </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="wave-corner">
+      <img src="{{ image_path }}color_wave.png"/>
+    </div>
+
+</div>
+
+
+<button id="myBtn_scrollTop" title="Go to top"><i class="fas fa-arrow-up fa-2x"></i></button>
+
+

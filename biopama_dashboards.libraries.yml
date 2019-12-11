@@ -13,7 +13,7 @@ biopama_dashboards:
     - core/jquery
     - core/jquery.once
     - core/drupalSettings
-    - biopama_dashboards/bootstrap
+    - biopama_libraries/bootstrap
 
 biopama_dashboards_maps:
   js:
@@ -25,7 +25,7 @@ biopama_dashboards_maps:
       css/pame/timeline.css: {}
       css/pame/override.css: {}
   dependencies:
-    - biopama_dashboards/bootstrap
+    - biopama_libraries/bootstrap
 
 pame:
   js:
@@ -33,32 +33,34 @@ pame:
     js/pame/tools.js: {}
     https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
     https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
-    https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/datatables.min.js: {}
   css:
     component:
       css/pame/override.css: {}
       css/override.css: {}
-      https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-colvis-1.5.6/b-flash-1.5.6/b-html5-1.5.6/b-print-1.5.6/datatables.min.css: {}
   dependencies:
     - core/drupal
     - core/drupal.ajax
     - core/jquery
     - core/jquery.once
     - core/drupalSettings
+    - biopama_libraries/datatables
+    - biopama_libraries/mapbox
+
+pame_resources:
+  js:
+    https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js: {}
+    js/pame/pdfThumbnails.js: {}
+    js/pame/resources.js: {}
+  css:
+    component:
+      css/pame/resources.css: {}
 
 pa_dashboard:
   css:
     theme:
       css/pame/main.css: {}
       css/pa_dashboard/override.css: {}
-      https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css: {}
-      https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css: {}
   js:
-    https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js: { external: true }
-    https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js: { external: true }
-    https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js: { external: true }
-    https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js: { external: true }
-    https://cdn.jsdelivr.net/npm/echarts@4.2.1/dist/echarts.min.js: {external:true}
     js/pa_dashboard/main.js: {}
   dependencies:
     - core/drupal
@@ -66,3 +68,5 @@ pa_dashboard:
     - core/jquery
     - core/jquery.once
     - core/drupalSettings
+    - biopama_libraries/datatables
+    - biopama_libraries/echarts

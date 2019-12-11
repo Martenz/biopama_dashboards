@@ -17,7 +17,7 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: 'landingpage/[date:custom:Y]-[date:custom:m]'
+  file_directory: 'biopama_dashboards/[date:custom:Y]-[date:custom:m]'
   file_extensions: 'png gif jpg jpeg'
   max_filesize: ''
   max_resolution: ''

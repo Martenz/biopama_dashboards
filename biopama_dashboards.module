@@ -33,7 +33,7 @@
     [
     'taxonomy' => 'BIOPAMA PA Dashboard',
     'path' =>'BPMLP_PA_dashboard',
-    'template' => 'page--BPMLP-PA-dashboard.html.twig',
+    'template' => 'views-view--biopama-dashboards-landingpage--page-2.html.twig',
     'view_machine_name' => 'biopama_dashboards_landingpage',
     'header' => [],
     'cards' => [], // empty i.e. default nodes created or define cards to be created
@@ -42,7 +42,7 @@
     [
     'taxonomy' => 'PAME LandingPage', // new main page taxonomy will be created
     'path' =>'BPMLP_page_pame', // this path needs to be specified in the view.biopama_dashboards_pame.yml file and all Taxonomies here should point to this above taxonomy
-    'template' => 'page--BPMLP-page-pame.html.twig', // template to use, copy of the default one where all views names are replaced with the one here below
+    'template' => 'views-view--biopama-dashboards-pame--page-1.html.twig', // template to use, copy of the default one where all views names are replaced with the one here below
     'view_machine_name' => 'biopama_dashboards_pame', // view name specified in the view.biopama_dashboards_pame.yml file
     'header' => [
                  'PAME Dashboard' => [
@@ -87,30 +87,24 @@
    return $dashboards_pages;
  }
 
- function biopama_dashboards_theme($existing, $type, $theme, $path) {
+  function biopama_dashboards_theme($existing, $type, $theme, $path) {
 
    $dashboards_pages = biopama_install_configurations();
-   $array = ['page__BPMLP_page_pame_tools' => ['base hook' => 'page'],
-             'page__BPMLP_page_pame_assessments' => ['base hook' => 'page'],
-             'page__BPMLP_page_pame_resources' => ['base hook' => 'page'],
-             'page__BPMLP_page_pame_management' => ['base hook' => 'page'],
+   $array = ['views_view__biopama_dashboards_pame__page_3' => ['base hook' => 'view'],
+             'views_view__biopama_dashboards_pame__page_2' => ['base hook' => 'view'],
+             'views_view__biopama_dashboards_pame__page_4' => ['base hook' => 'view'],
+             'views_view__biopama_dashboards_pame__page_5' => ['base hook' => 'view'],
             ];
    foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
-      $array[$underscore] = ['base hook' => 'page'];
+      $array[$underscore] = ['base hook' => 'view'];
     }
 
-  \Drupal::logger('biopama_dashboards')->notice(json_encode($array));
-  //  $array = [
-  //      // .. Custom Landing Pages Templates
-  //      'page__BPMLP_page_landingpage' => [
-  //        'base hook' => 'page',
-  //      ],
-  //    ];
-  //    \Drupal::logger('biopama_dashboards')->notice(json_encode($array));
+  \Drupal::logger('biopama_dashboards')->notice($theme);
 
+  \Drupal::logger('biopama_dashboards')->notice(json_encode($array));
    return $array;
- }
+ } 
 
 function biopama_dashboards_install(){
 
@@ -363,51 +357,3 @@ function biopama_dashboards_views_pre_render(\Drupal\views\ViewExecutable $view)
 	}
 }
 
-//
-function biopama_dashboards_theme_suggestions_page_alter(array &$suggestions, array $variables) {
-  // $node = NULL;
-  // $revision = NULL;
-  // if (\Drupal::routeMatch()->getParameter('node')) {
-	// //revision IDs are strings and node ids are strings when a revision is loaded.
-  //   $node = \Drupal::routeMatch()->getParameter('node');
-	//   $revision = \Drupal::routeMatch()->getRawParameter('node_revision');
-  // }
-  // $tid = NULL;
-  // $term = NULL;
-  // if (\Drupal::routeMatch()->getRawParameter('taxonomy_term')) {
-	// $tid = \Drupal::routeMatch()->getRawParameter('taxonomy_term');
-  //   $term = Term::load($tid);
-  // }
-  //
-  // //node parameters loaded by getParameter are objects and the bundle can be accessed normally.
-  // if (!empty($node)) {
-  //   if ($revision) {
-  //     $revised_node = \Drupal::entityTypeManager()
-  //                            ->getStorage('node')
-  //                            ->loadRevision($revision);
-  //     $content_type = $revised_node->bundle();
-  //   }
-  //   else {
-  //     $content_type = $node->bundle();
-  //   }
-  //   $suggestions[] = 'page__' . $content_type;
-  // }
-  // if (!empty($term)) {
-  //    $vid = $term->vid->getValue();
-  //    $suggestions[] = 'page__taxonomy__vocabulary__' . $vid[0]['target_id'];
-  //  }
-  //
-  // $request = end( explode("/", \Drupal::service('path.current')->getPath() ) );
-  // $twig_name = str_replace('_','-',$request);
-  // $twig_path = realpath( drupal_get_path('module', 'biopama_dashboards') . '/templates/page--' . $twig_name . '.html.twig' );
-  // // \Drupal::logger('biopama_dashboards')->notice($request . ' ||| ' . $twig_path);
-  //
-  // if (file_exists($twig_path)){
-  //   \Drupal::logger('biopama_dashboards')->notice('File Exists ||| ' . $twig_path);
-  // }
-  //
-  // if (!empty($request) && file_exists($twig_path) ) {
-  //   \Drupal::logger('biopama_dashboards')->notice($request . ' ||| ' . $twig_path);
-  //   $suggestions[] = 'page__' . $request;
-  // }
-}

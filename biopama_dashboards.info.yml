@@ -13,4 +13,5 @@ dependencies:
   - 'drupal:file'
   - 'drupal:image'
   - menu_ui
+  - biopama_libraries
   - 'twig_tweak:twig_tweak'

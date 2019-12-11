@@ -85,7 +85,7 @@ header div.masthead-content h4{
 }
 
 .header-table-wrap .form-group label{
-  padding: 5px;
+  padding: 0px 5px;
 color: #659a94;
 }
 
@@ -103,14 +103,16 @@ color: #659a94;
   float: right;
 }
 
-.leaflet-popup-content center{
+.mapboxgl-popup-content center{
   color:brown;
 }
 
-.leaflet-popup-content center.available{
+.mapboxgl-popup-content center.available{
   color:green;
 }
-
+.mapboxgl-popup-content hr {
+    margin: 0px;
+}
 .pame-links img{
   max-width: 50px;
 }

@@ -1,0 +1,114 @@
+/* PAME RESOURCES CSS */
+
+.view-pame-resources .views-row{
+	
+	background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 0px 0px 10px 6px #4e8cab33;
+}
+
+.view-pame-resources .views-row a{
+	
+	padding:5px;
+	/*background-color: green;*/
+	border-radius:3px;
+	color: green;
+}
+
+.header-table-cards .view-pame-resources .view-content.row{
+	display:inline-flex;
+}
+
+.view-pame-resources .pagination{
+	display:inline-block;
+}
+
+.resources-doc-thumb{
+/*	background-color:red; */
+	display:none;
+	padding:5px;
+	margin:5px;
+	width:fit-content;
+}
+
+.resources-doc-thumb i{
+	font-size:3rem;
+}
+
+.resources-thumb-img{
+	display:none;
+	position:absolute;
+}
+
+.resources-doc-thumb:hover .resources-thumb-img{
+	display: block;
+    position: absolute;
+    top: -3rem;
+    box-shadow: 0px 0px 5px 0px #00000030;
+    border-radius: 3px;
+    left: 0rem;
+    width: 3rem;
+	transform: scale(2);
+} 
+
+.header-table-cards {
+	text-align:unset;
+}
+
+.view-pame-resources div.view-header{
+	text-align:left;
+}
+
+.view-pame-resources div.view-header h2{
+	font-size: 3rem;
+    color: #90c14f;
+}
+
+.view-pame-resources div.view-header p{
+	font-size: 2rem;
+    color: #8eb4b1;
+    font-weight: lighter;
+}
+
+.pame-resources-card{
+   max-width: 20rem;
+}
+
+.pame-resources-card .col-3, .pame-resources-card .col-9{
+	margin:0px!important;
+	padding:0px!important;
+}
+
+.pame-resources-title{
+	font-size:2rem;
+	color:green;
+	font-variant:all-small-caps;
+	line-height:1;
+	padding-left:3px;
+	text-align:left;
+}
+
+.pame-resources-body{
+	color:silver;
+}
+
+/* Filters */
+
+fieldset.col-auto{
+	text-align:left;	
+	padding-right:10px!important;
+	min-width:5rem!important;
+	max-width:10rem!important;
+}
+
+fieldset .form-text {
+	margin-top:0px!important;
+}
+
+fieldset label {
+	margin-bottom:0px!important;
+	color:#90c14f;
+	font-weight:lighter!important;
+}

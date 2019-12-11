@@ -4,6 +4,23 @@ body{
     background: #fdfdff!important;
 }
 
+.container-fluid , .col-auto, .col{
+    padding-right: 0!important;
+    padding-left: 0!important;
+ }
+
+section, .site-footer, .site-footer__bottom .content, .site-footer__bottom .block, .site-footer__bottom {
+	padding-top:0px!important;
+	padding-bottom:0px!important;
+	margin-top: 0px!important;
+	margin-bottom: 0px!important;
+	border:0px!important;
+}
+
+.toolbar-icons-right {
+    right: 280px!important;
+}
+
 .landing_headers{
   text-transform: none;
   color:white;
@@ -52,6 +69,10 @@ h5, .heading-e {
     height: 100%;
     top: 0;
     /* min-height: 900px; */
+}
+
+#views-live-preview #bkgd-linear, #views-live-preview #bkgd-img, #views-live-preview #bkgd-filter {
+    position: absolute !important;/*Fix to show templat in admin section*/
 }
 
 .masthead {

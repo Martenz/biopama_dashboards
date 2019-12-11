@@ -90,7 +90,7 @@
 }
 
 .pame-links img {
-     max-width: 100%!important;
+     /*max-width: 100%!important;*/
 }
 
 .btn-secondary {
@@ -252,4 +252,8 @@
     font-family:"Maven Pro";
     font-size: 1.5em;
     display:none;
+}
+
+.landing_headers .views-row{
+	width:100%;
 }

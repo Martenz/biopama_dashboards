@@ -482,7 +482,7 @@ nav.navbar-we-mega-menu {
   	overflow: hidden;
   	padding-top: calc(3rem + 55px)!important;
   	padding-bottom: 20px!important;
-    height:950px!important;
+    /*height:950px!important;*/
 
         width: 100%;
         /* min-height: 350px!important; */
@@ -490,6 +490,8 @@ nav.navbar-we-mega-menu {
         margin-top: -100px;
 
   }
+
+
 
 header .landing_headers a {
   /*color: #8BC34A;*/
