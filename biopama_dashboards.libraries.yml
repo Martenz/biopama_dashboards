@@ -46,6 +46,25 @@ pame:
     - biopama_libraries/datatables
     - biopama_libraries/mapbox
 
+pame_managements:
+  js:
+    js/pame/management_map.js: {}
+    js/pame/tools.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
+  css:
+    component:
+      css/pame/override.css: {}
+      css/override.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - biopama_libraries/datatables
+    - biopama_libraries/mapbox
+
 pame_resources:
   js:
     https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js: {}
@@ -70,3 +89,4 @@ pa_dashboard:
     - core/drupalSettings
     - biopama_libraries/datatables
     - biopama_libraries/echarts
+

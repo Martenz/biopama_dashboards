@@ -1,6 +1,6 @@
 {% set url = current_uri %}
 {{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
-   {{ attach_library( 'biopama_dashboards/pame' ) }}
+   {{ attach_library( 'biopama_dashboards/pame_managements' ) }}
    {{ attach_library( 'biopama_dashboards/pame_resources' ) }}
    {{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
 
@@ -35,7 +35,20 @@
             </div>
           </div>
           <div class="col-lg-10 header-table-cards">
-			  {{ drupal_view('pame_resources', 'block_2') }}
+
+             <div id="spinner">
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+              </div>
+			  <h2 class="pame-resources-header-title">PAME Managements</h2>
+				<p class="pame-resources-subtitle">Latest published Management Plan documents:</p>
+				{{ drupal_block('views_exposed_filter_block:pame_management-block_2', wrapper=false) }}
+				<div id="pame_assessments_map"></div>
+			  
+              {{ contextual_links('entity.view.edit_form:view=pame_management&display_id=block_2') }}
+			  {{ drupal_view('pame_management', 'block_2') }} 
+
           </div>
 
         </div>

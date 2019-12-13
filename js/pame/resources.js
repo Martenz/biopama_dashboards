@@ -5,9 +5,14 @@ console.log('Resources JS .. TODO')
 mdocs = ['docx','doc','docb'];
 mexcel = ['xlsx','xls','xlm'];
 
-jQuery(document).ready(function($) {
+(function ($, Drupal) {
+	Drupal.behaviors.pameviews = {
+		attach: function (context, settings) {
 
-	$('.resources-doc-thumb').each(function(){
+    //Drupal.attachBehaviors($(".view-pame-resources").get(0));
+    //Drupal.attachBehaviors($(".view-pame-management").get(0));
+
+	$('.resources-doc-thumb').once('updated-view').each(function(){
 		
 		var fpath = $(this).html();
 		var ext = fpath.substr(fpath.lastIndexOf('.') + 1);
@@ -30,5 +35,6 @@ jQuery(document).ready(function($) {
 		$(this).fadeIn(1500);
 		
 	});
-	
-});
+		}
+	};
+})(jQuery, Drupal);

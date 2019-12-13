@@ -94,6 +94,7 @@
              'views_view__biopama_dashboards_pame__page_2' => ['base hook' => 'view'],
              'views_view__biopama_dashboards_pame__page_4' => ['base hook' => 'view'],
              'views_view__biopama_dashboards_pame__page_5' => ['base hook' => 'view'],
+			 'views_view_fields__pame_management__block_2' => ['base hook' => 'view'],
             ];
    foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
