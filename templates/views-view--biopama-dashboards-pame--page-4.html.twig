@@ -35,6 +35,18 @@
             </div>
           </div>
           <div class="col-lg-10 header-table-cards">
+		  
+		  
+		  	<h2 class="pame-resources-header-title">PAME Resources</h2>
+			    <div class="row">
+					<div class="col-5">				
+						<p class="pame-resources-subtitle">Latest published PAME documents:</p>
+					</div>
+					<div class="col-7">				
+						{{ drupal_block('views_exposed_filter_block:pame_resources-block_1', wrapper=false) }}
+					</div>
+				</div>
+
 			  {{ drupal_view('pame_resources', 'block_1') }}
           </div>
 

@@ -17,7 +17,7 @@
 	color: green;
 }
 
-.header-table-cards .view-pame-resources .view-content.row{
+.header-table-cards .view-pame-resources .view-content.row, .view-pame-management .view-content.row{
 	display:inline-flex;
 }
 
