@@ -69,7 +69,7 @@
     right: -4rem;
     top: 20px;
     height: 80%;
-    width: 7rem;
+    width: 10rem;
     padding-top: 20px;
     text-align: center;
     text-transform: uppercase;
@@ -134,7 +134,7 @@
 
 .header-table-cards .header-table-wrap{
   width: 100%;
-  display: flex;
+  display: unset;
   flex-direction: column;
 }
 
@@ -166,12 +166,12 @@
 #landing_top_cards {
     /* display: none; */
     text-align: left;
-    padding-left: 5%;
+    padding-left: 0%;
 }
 
 #landing_top_cards .card  {
     padding: 1.5rem!important;
-    width: 100%!important;
+    width: 80%!important;
 }
 
 #reset_filters{

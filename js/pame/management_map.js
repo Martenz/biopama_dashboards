@@ -8,6 +8,13 @@ var sel_filters = {
 	'pa_type':null
 };
 
+var filters_sel = {
+	'title': null,
+	'year' : null,
+	'country' : null,
+	'region' : null
+}
+
 var table_fields = ['wdpaid','region','country_name','iso3','name','desig','pame_year','pame_methodology','pa_type'];
 var table_labels = {
 	'wdpaid':'WDPAID',
@@ -36,10 +43,10 @@ jQuery(document).ready(function($) {
 	Drupal.attachBehaviors($(".view-pame-management").get(0));
 
 	
-	function addwdpas(){
+	function addwdpas(parameters = ''){
 		$('#spinner').show();
 		
-		var url = "/rest/pame/management_plans?format=json";		
+		var url = "/rest/pame/management_plans?format=json" + parameters;		
 		
  		$.getJSON(url,function(response){
 			var assessmentsByWDPA = ['in', 'WDPAID'];
@@ -47,9 +54,9 @@ jQuery(document).ready(function($) {
 
 			$.each(response,function(idx,obj){
 				var thisWdpa = parseInt(obj.wdpa_id, 10);
-				console.log(thisWdpa);
+				//console.log(thisWdpa);
 				if(assessmentsByWDPA.indexOf(thisWdpa) === -1) assessmentsByWDPA.push(thisWdpa); //collect all wdpa IDs
-//				if(currentCountries.indexOf(obj.iso3) === -1) currentCountries.push(obj.iso3); //collect all countries to zoom to the group
+				if(currentCountries.indexOf(obj.iso3) === -1) currentCountries.push(obj.iso3); //collect all countries to zoom to the group
 			});
 
 			mymap.setFilter("wdpaRegionSelected", assessmentsByWDPA);	
@@ -57,7 +64,7 @@ jQuery(document).ready(function($) {
 			url = 'https://rest-services.jrc.ec.europa.eu/services/d6biopamarest/d6biopama/get_bbox_for_countries_dateline_safe?iso3codes='+currentCountries.toString()+'&format=json&includemetadata=false';
 			
 			$.getJSON(url,function(response){
-				mymap.fitBounds(jQuery.parseJSON(response[0].get_bbox_for_countries_dateline_safe));
+				mymap.fitBounds(jQuery.parseJSON(response.records[0].get_bbox_for_countries_dateline_safe));
 			});
 
 			$('#spinner').hide();
@@ -220,7 +227,37 @@ jQuery(document).ready(function($) {
 			var wdpaid = $(this).html();
 			zoomToPA(wdpaid);
 		})
+				
 	}};
+
+
+    function filter_map_onfilters(elem){
+			parameters = '';
+
+			var filter_name = $(elem).attr('name');
+			var filter_val = $(elem).val();
+
+			filters_sel [filter_name] = filter_val;
+
+			//region, country, year , title
+			for (fkey in filters_sel){
+				if (filters_sel[fkey] != null){
+					parameters += '&' + fkey + '=' + filters_sel[fkey];
+				}
+			}
+			
+			addwdpas(parameters);
+
+	}
+
+	
+	$('#pame-managements-filters select').on('change',function(){
+			filter_map_onfilters($(this));
+	})
+
+	$('#pame-managements-filters input').on('input',function(){
+			filter_map_onfilters($(this));
+	})
 
 	
 });
