@@ -11,9 +11,10 @@ header.masthead {
 }
 
 table.globalk tfoot {
-    background-color: #fdfdff!important;
-    color: black!important;
-    font-weight: 100!important;
+    background-color: #70c17e!important;
+    color: #fff!important;
+    font-weight: 600!important;
+	text-align:left!important;
 }
 
 .masthead {
