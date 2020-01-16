@@ -228,6 +228,7 @@
 }
 
 .header-table-wrap .form-group{
+	position: relative;
 	margin-bottom: -50px;
     padding: 3px;
     background-color: rgba(255, 255, 255, 0.61);
