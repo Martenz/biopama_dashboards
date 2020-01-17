@@ -27,7 +27,8 @@
                       </div>
                     </a>
                   </li>
-                  <div class="contextual-region">{{ title_suffix }}
+                  <div class="contextual-region">
+                        {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_3') }}
                         {{ drupal_view('biopama_dashboards_pame', 'block_3') }}
                   </div>
                 </ul>
@@ -51,6 +52,7 @@
 				</div>
 				<div id="pame_assessments_map"></div>
 			  
+              {{ contextual_links('entity.view.edit_form:view=pame_management&display_id=block_2') }}
 			  {{ drupal_view('pame_management', 'block_2') }} 
 
           </div>

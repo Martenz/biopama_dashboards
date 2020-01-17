@@ -15,7 +15,8 @@
             <div class="container landing_headers">
             <img src="{{ image_path }}divider_02.png"/>
 
-              <div class="contextual-region">{{ title_suffix }}
+              <div class="contextual-region">
+                {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_landingpage&display_id=block_8') }}
                 {{ drupal_view('biopama_dashboards_landingpage', 'block_8') }}
               </div>
             </div>

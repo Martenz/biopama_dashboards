@@ -1,6 +1,6 @@
 {% set url = current_uri %}
 {{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
-   {{ attach_library( 'biopama_dashboards/pame_managements' ) }}
+   {{ attach_library( 'biopama_dashboards/pame' ) }}
    {{ attach_library( 'biopama_dashboards/pame_resources' ) }}
    {{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
 
@@ -27,32 +27,27 @@
                       </div>
                     </a>
                   </li>
-                  <div class="contextual-region">{{ title_suffix }}
+                  <div class="contextual-region">
+                        {{ contextual_links('entity.view.edit_form:view=biopama_dashboards_pame&display_id=block_3') }}
                         {{ drupal_view('biopama_dashboards_pame', 'block_3') }}
                   </div>
                 </ul>
             </div>
           </div>
           <div class="col-lg-10 header-table-cards">
-
-             <div id="spinner">
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-              </div>
-			  <h2 class="pame-resources-header-title">PAME Managements</h2>
+		  
+		  
+		  	<h2 class="pame-resources-header-title">PAME Resources</h2>
 			    <div class="row">
-					<div class="col-6">				
-						<p class="pame-resources-subtitle">Latest published Management Plan documents:</p>
+					<div class="col-5">				
+						<p class="pame-resources-subtitle">Latest published PAME documents:</p>
 					</div>
-					<div class="col-6" id="pame-managements-filters">				
-						{{ drupal_block('views_exposed_filter_block:pame_management-block_2', wrapper=false) }}
+					<div class="col-7">				
+						{{ drupal_block('views_exposed_filter_block:pame_resources-block_1', wrapper=false) }}
 					</div>
 				</div>
-				<div id="pame_assessments_map"></div>
-			  
-			  {{ drupal_view('pame_management', 'block_2') }} 
 
+			  {{ drupal_view('pame_resources', 'block_1') }}
           </div>
 
         </div>

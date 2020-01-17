@@ -12,7 +12,7 @@ dependencies:
   - 'drupal:views'
   - 'drupal:file'
   - 'drupal:image'
-  - menu_ui
-  - biopama_libraries
+  - 'drupal:menu_ui'
+  - 'biopama_libraries:biopama_libraries'
   - 'twig_tweak:twig_tweak'
 #  - 'biopama_protected_areas'
