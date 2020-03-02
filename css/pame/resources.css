@@ -15,6 +15,7 @@
 	/*background-color: green;*/
 	border-radius:3px;
 	color: green;
+	overflow-wrap: break-word;
 }
 
 .header-table-cards .view-pame-resources .view-content.row, .view-pame-management .view-content.row{

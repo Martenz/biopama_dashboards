@@ -74,6 +74,11 @@ pame_resources:
     component:
       css/pame/resources.css: {}
 
+pame_tools:
+  css:
+    component:
+      css/pame/resources.css: {}
+
 pa_dashboard:
   css:
     theme:
