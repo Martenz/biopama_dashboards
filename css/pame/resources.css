@@ -85,12 +85,16 @@
 }
 
 .pame-resources-title{
-	font-size:2rem;
+	font-size:1.2rem;
 	color:green;
 	font-variant:all-small-caps;
 	line-height:1;
 	padding-left:3px;
-	text-align:left;
+/*	text-align:left;*/
+}
+
+.row.pame-resources-footer{
+	font-size:small;
 }
 
 .pame-resources-body{
