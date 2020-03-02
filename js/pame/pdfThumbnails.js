@@ -40,6 +40,7 @@ var createPDFThumbnails = function(){
                     viewport: viewport
                 }).then(function () {
                     element.src = canvas.toDataURL();
+                    //console.log(canvas.toDataURL());
                 });
             }).catch(function() {
                 console.log("pdfThumbnails error: could not open page 1 of document " + filePath + ". Not a pdf ?");

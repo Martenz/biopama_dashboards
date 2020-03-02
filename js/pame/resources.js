@@ -21,13 +21,13 @@ mexcel = ['xlsx','xls','xlm'];
 		var html_code = '';
 		if (ext.toLowerCase() == 'pdf'){
 			//$(this).html( '<img data-pdf-thumbnail-file="'+fpath+'" src="pdf.png" data-pdf-thumbnail-height="150">' );
-			html_code = '<a href="'+fpath+'" target="_blank"><i class="far fa-file-pdf"></i>' + '<img class="resources-thumb-img" data-pdf-thumbnail-file="'+fpath+'"></a>'; 			
+			html_code = '<a href="'+fpath+'" target="_blank"><i class="far fa-file-pdf"></i>' + '<img class="resources-thumb-img" data-pdf-thumbnail-file="'+fpath+'"> .pdf</a>'; 			
 		}else if( mexcel.indexOf( ext.toLowerCase() ) > -1 ){
-			html_code = '<a href="'+fpath+'" download><i class="far fa-file-excel"></i></a>'; 						
+			html_code = '<a href="'+fpath+'" download><i class="far fa-file-excel"></i> .xlsx</a>'; 						
 		}else if( mdocs.indexOf( ext.toLowerCase() ) > -1 ){
-			html_code = '<a href="'+fpath+'" download><i class="far fa-file-word"></i></a>'; 						
+			html_code = '<a href="'+fpath+'" download><i class="far fa-file-word"></i> .docx</a>'; 						
 		}else{
-			html_code = '<a href="'+fpath+'" download><i class="far fa-file-alt"></i></a>'; 						
+			html_code = '<a href="'+fpath+'" download><i class="far fa-file-alt"></i> .other</a>'; 						
 		}
 		
 		$(this).html( html_code );
