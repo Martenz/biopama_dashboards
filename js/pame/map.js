@@ -46,7 +46,7 @@ jQuery(document).ready(function($) {
 			],
 			dom: 'Bfrtip',
 			buttons: [
-				'copy', 'csv', 'excel',
+//				'copy', 'csv', 'excel',
 				{
 				  extend: 'print',
 				  customize: function ( win ) {
@@ -66,6 +66,11 @@ jQuery(document).ready(function($) {
 					customize: function (doc){
 					  doc['header'] = 'Data Source: https://pame.protectedplanet.net/ | Global Database on Protected Area Management Effectiveness (GD-PAME)';
 					}
+				},
+				{
+					extend: 'excel',
+					text: 'Xlsx',
+					messageTop: "Data Source: https://pame.protectedplanet.net/ | Global Database on Protected Area Management Effectiveness (GD-PAME)'"
 				}
 			]
 		});
@@ -93,7 +98,9 @@ jQuery(document).ready(function($) {
 
 		//Create and append the options
 		var selec_tools = document.getElementById("assessment_tools");
-		for (key in filters["tool"]) {
+		var sortedMethodologies = Object.keys(filters["tool"]).sort();
+		//console.log(sortedMethodologies);
+		for (const key of sortedMethodologies) {
 			var option = document.createElement("option");
 			option.value = key;
 			option.text = key;
@@ -111,7 +118,8 @@ jQuery(document).ready(function($) {
 		if (sel_filters.pame_year != null) $('#assessment_year').val(sel_filters.pame_year);
 
 		var select_region = document.getElementById("assessment_region");
-		for (key in filters["region"]) {
+		var sortedRegions = Object.keys(filters["region"]).sort();
+		for (const key of sortedRegions) {
 			var option = document.createElement("option");
 			option.value = key;
 			option.text = key;
@@ -120,7 +128,8 @@ jQuery(document).ready(function($) {
 		if (sel_filters.region != null) $('#assessment_region').val(sel_filters.region);
 
 		var select_country = document.getElementById("assessment_country");
-		for (key in filters["country"]) {
+		var sortedCountries = Object.keys(filters["country"]).sort();
+		for (const key of sortedCountries) {
 			var option = document.createElement("option");
 			filters["region"]
 			option.value = filters["country"][key];
@@ -130,7 +139,8 @@ jQuery(document).ready(function($) {
 		if (sel_filters.iso3 != null) $('#assessment_country').val(sel_filters.iso3);
 
 		var select_marine = document.getElementById("assessment_pa_type");
-		for (key in filters["pa_type"]) {
+		var sortedPAtype = Object.keys(filters["pa_type"]).sort();
+		for (const key of sortedPAtype) {
 			var option = document.createElement("option");
 			option.value = key;
 			option.text = key;
