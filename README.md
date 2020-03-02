@@ -48,3 +48,14 @@ and duplicate the default twig template to
 
    page-<path>.html.twig
    (use - insthead of _)
+
+---------------------
+Installation/Update:
+
+If you update this module please double check that all views will be created. If not Import views manually from 
+
+./admin/config/development/configuration/full/import
+
+using the .yml view config file
+
+NOTE: check also that custom module <b>biopama_libraries</b> is installed and enabled

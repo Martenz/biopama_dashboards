@@ -91,6 +91,7 @@
 
 .pame-links img {
      /*max-width: 100%!important;*/
+     height:auto!important;
 }
 
 .btn-secondary {

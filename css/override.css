@@ -116,7 +116,9 @@ h5, .heading-e {
   text-decoration: none;
 }
 
-
+.landing_headers img{
+  width:100%!important;
+}
 
 @media (max-width:992px) {
   .col-3, .col-9 {
