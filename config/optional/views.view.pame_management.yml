@@ -14,7 +14,7 @@ dependencies:
     - taxonomy.vocabulary.document_types
     - taxonomy.vocabulary.region
   content:
-    - 'taxonomy_term:document_types:8db694c5-95e8-4e33-a1b8-59c6a2757ede'
+    - 'taxonomy_term:document_types:bdbbd9f4-bc27-4581-bb3f-f630fdb0d8d3'
   module:
     - better_exposed_filters
     - file
@@ -123,7 +123,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 4
+          items_per_page: 8
           offset: 0
           id: 0
           total_pages: null
@@ -353,7 +353,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -867,7 +867,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            339: 339
+            335: 335
           group: 1
           exposed: false
           expose:
@@ -876,6 +876,8 @@ display:
             description: ''
             use_operator: false
             operator: field_document_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: field_document_type_target_id
             required: false
             remember: true
@@ -889,8 +891,6 @@ display:
               content_manager: '0'
               administrator: '0'
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
