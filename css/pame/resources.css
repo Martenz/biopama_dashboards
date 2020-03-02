@@ -23,7 +23,8 @@
 }
 
 .view-pame-resources .pagination, .view-pame-management .pagination{
-	display:inline-block;
+	/*display:inline-block;*/
+	float:right;
 }
 
 .resources-doc-thumb{
