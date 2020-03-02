@@ -264,7 +264,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -670,7 +670,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"pame-resources-card\">\r\n\r\n    <div class=\"row pame-resources-header\">\r\n        <div class=\"col-3\">\r\n            <div class=\"resources-doc-thumb\">{{ field_document }}</div>\r\n        </div>\r\n        <div class=\"col-9\">\r\n            {{ title }}\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row pame-resources-footer\">\r\n        <div class=\"col-12\">{{ field_document_publication_year }} - {{ field_document_type }}</div>\r\n        <div class=\"col-12\">{{ field_ac_region }} - {{ field_ac_country }}</div>\r\n        <div class=\"col-12\">{{ field_reference_link }}</div>\r\n    </div>\r\n\r\n</div>"
+            text: "<div class=\"pame-resources-card\">\r\n\r\n    <div class=\"row pame-resources-header\">\r\n        <div class=\"col-3\">\r\n            <div class=\"resources-doc-thumb\">{{ field_document }}</div>\r\n        </div>\r\n        <div class=\"col-9\">\r\n           <a href=\"{{ field_document }}\" download> {{ title }}</a>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row pame-resources-footer\">\r\n        <div class=\"col-12\">{{ field_document_publication_year }} - {{ field_document_type }}</div>\r\n        <div class=\"col-12\">{{ field_ac_region }} - {{ field_ac_country }}</div>\r\n        <div class=\"col-12\">{{ field_reference_link }}</div>\r\n    </div>\r\n\r\n</div>"
             make_link: false
             path: ''
             absolute: false
