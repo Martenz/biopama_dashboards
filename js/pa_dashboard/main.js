@@ -49,7 +49,7 @@ jQuery.fn.dataTable.Api.register( 'sum()', function ( ) {
 
 jQuery(document).ready(function($) {
 
-  var global_protection = {'marine':0,'terrestrial':0,'not_prot':0,'tot_mari':0,'tot_terr':0};
+  var global_protection = {'marine':0,'terrestrial':0,'not_prot':0,'tot_mari':0,'tot_terr':0,'pas':0};
   var last = false;
   
  /// draw piechart for only marine or terrestrial
@@ -296,6 +296,7 @@ jQuery(document).ready(function($) {
             global_protection['tot_mari']+= tot_mari;
             global_protection['tot_terr']+= tot_terr;
             global_protection['not_prot']+= land - (prot_t + prot_m);
+            global_protection['pas']+= n_pas;
 
             if (last){
               setTimeout(function(){
@@ -310,8 +311,21 @@ jQuery(document).ready(function($) {
 				
                 var global_prot_terr = Math.round((parseInt(global_protection["terrestrial"])/1000)).toLocaleString();
                 var global_prot_mari = Math.round((parseInt(global_protection["marine"])/1000)).toLocaleString();
-                $('#ACP-card .col-sm-7').append('<h6>Total ACP Protected Terrestrial (1000 x km<sup>2</sup>) = <b>'+global_prot_terr+' </b></h6>');
-                $('#ACP-card .col-sm-7').append('<h6>Total ACP Protected Marine (1000 x km<sup>2</sup>) = <b>'+global_prot_mari+' </b></h6>');
+                var global_prot_pas_coverage = Math.round((parseInt(global_protection["marine"] + global_protection["terrestrial"])/1000)).toLocaleString();
+                var global_prot_pas = parseInt(global_protection["pas"]).toLocaleString();
+                
+                var table_html = $("<table class='table table-sm table-hover pas_recap_table' id='pas_recap'></table>");            
+                table_html.append('<tr class="pas_theader"><td>PAs</td><td>n<sup>o</sup></td><td>Coverage (1000 x km<sup>2</sup>)</td></tr>')
+                table_html.append('<tr><td></td><td>'+global_prot_pas+'</td><td>'+global_prot_pas_coverage+'</td></tr>');
+                table_html.append('<tr><td></td><td></td><td>'+global_prot_terr+' (Terrestrial)</td></tr>');
+                table_html.append('<tr><td></td><td></td><td>'+global_prot_mari+' (Marine)</td></tr>');
+                //$('#ACP-card .col-sm-7').append(table_html);
+
+                var text_html = $('<div class="pas_summary_text"></div>');
+                text_html.append('<p>Total n<sup>o</sup> of Protected Areas: <b>'+global_prot_pas+'</b><br>covering: <b>'+global_prot_pas_coverage+' </b><small>[1000 km<sup>2</sup>]</small></p>');
+                text_html.append('<p>where <br><b>   '+global_prot_terr+'</b> <small>[1000 km<sup>2</sup>]</small> are <b>Terrestial</b> and <br>   <b>'+global_prot_mari+'</b> <small>[1000 km<sup>2</sup>]</small> are <b>Marine</b></p>');
+                $('#ACP-card .col-sm-7').prepend(text_html);
+
               },200);
             }
           }
@@ -344,12 +358,18 @@ jQuery(document).ready(function($) {
 },
 {"source":"Dopa-services",
 "url":"https://rest-services.jrc.ec.europa.eu/services/d6dopa40/administrative_units/get_country_all_inds",
-"data":"Protected Area Marine/Terrestrial (sq. km)",
+"data":"ACP Protected Area Marine/Terrestrial (sq. km)",
 "icon":"https://dopa-explorer.jrc.ec.europa.eu/sites/default/files/dopa_logo_wo3.png"
+},
+{"source":"Protected Planet ®",
+"url":"https://www.protectedplanet.net",
+"data":"Protected Areas",
+"icon":"https://www.protectedplanet.net/assets/hand-solo-c3651891bbbe2e2587d022898851ceeaac288aeff06019a063b1adc17f518f75.png",
+"icon_style":"background-color:#71a32b;padding:10px;border-radius:5px;"
 },
 ];
 
- var regions = {};
+var regions = {};
 
  var rest_url = "https://rest-services.jrc.ec.europa.eu/services/d6biopamarest/d6biopama/get_tmp_acp_pa_stat?format=json";
  var data_tables= $.getJSON( rest_url ,function(data){
@@ -379,7 +399,7 @@ jQuery(document).ready(function($) {
    <div class="card">\
     <div class="card-body">\
      <div class="row">\
-      <div class="col-sm-2"><img src="' + obj['icon'] + '">"</div>\
+      <div class="col-sm-2" style="'+obj['icon_style']+'"><img src="' + obj['icon'] + '" width="100%"></div>\
       <div class="col-sm-10"><span style="color:#8eb4b1;">'+obj['data']+' Source: </span><a href="'+obj['url']+'"><div class="btn btn-light">' +obj['source']+ '</div></a></div>\
      </div>\
     </div>\

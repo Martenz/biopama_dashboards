@@ -197,6 +197,33 @@ table.globalk tfoot {
   width:30%;
 }
 
+.pas_recap_table{
+  margin-top:0!important;  
+}
+
+.pas_recap_table *{
+  color: green;  
+}
+
+.pas_theader{
+  background-color: #95c458!important;
+}
+
+.pas_theader td, .pas_theader td *{
+  color: white;
+}
+
+.pas_summary_text{
+  color:#fdfdff;
+  background-color: #90c14f;
+  /* text-align: left; */
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 15px 0px rgba(17,133,171,0.13);
+  border: 1px solid #e9ecef;
+}
+
 
 @media (max-width:992px) {
 
