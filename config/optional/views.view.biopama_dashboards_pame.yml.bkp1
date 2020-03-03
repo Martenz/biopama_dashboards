@@ -9,6 +9,10 @@ dependencies:
     - field.storage.node.field_dashboard_subtitle
     - image.style.thumbnail
     - node.type.biopama_dashboards_content
+    - taxonomy.vocabulary.biopama_dashboards
+    - taxonomy.vocabulary.biopama_dashboards_section
+  content:
+    - 'taxonomy_term:document_types:bdbbd9f4-bc27-4581-bb3f-f630fdb0d8d3'
   enforced:
     module:
       - biopama_dashboards
@@ -29,6 +33,7 @@ description: ''
 tag: ''
 base_table: node_field_data
 base_field: nid
+core: 8.x
 display:
   default:
     display_plugin: default
@@ -348,8 +353,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -360,9 +363,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -387,8 +387,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -412,18 +410,17 @@ display:
           entity_field: name
           plugin_id: string
           relationship: field_biopama_dashboards
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -432,14 +429,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -453,8 +449,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       sorts:
         created:
           id: created
@@ -497,10 +493,10 @@ display:
       display_extenders:
         library_in_views_display_extender: {  }
       title: PAME
-      rendering_language: '***LANGUAGE_language_interface***'
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -520,7 +516,6 @@ display:
       defaults:
         filters: false
         filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -532,8 +527,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -544,9 +537,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -571,8 +561,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -605,8 +593,6 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -629,15 +615,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -646,14 +634,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -667,8 +654,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -676,6 +663,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -700,6 +688,150 @@ display:
         pager: false
         sorts: false
       display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            biopama_dashboards_content: biopama_dashboards_content
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_dashboard_section
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'Learn & Explore Contents'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+        name_1:
+          id: name_1
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_biopama_dashboards
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'PAME LandingPage'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       fields:
         title:
           id: title
@@ -1091,162 +1223,10 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      rendering_language: '***LANGUAGE_language_interface***'
-      filters:
-        status:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: node
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          group: 1
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          value:
-            biopama_dashboards_content: biopama_dashboards_content
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        name_1:
-          id: name_1
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_dashboard_section
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'Learn & Explore Contents'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        default_langcode:
-          id: default_langcode
-          table: node_field_data
-          field: default_langcode
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
@@ -1272,6 +1252,150 @@ display:
         pager: false
         sorts: false
       display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            biopama_dashboards_content: biopama_dashboards_content
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_biopama_dashboards
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'PAME LandingPage'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+        name_1:
+          id: name_1
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_dashboard_section
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'Dashboard cards'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: langcode
+          plugin_id: language
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       fields:
         nid:
           id: nid
@@ -1842,7 +1966,36 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      rendering_language: '***LANGUAGE_language_interface***'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_dashboard_bkgd_img'
+        - 'config:field.storage.node.field_dashboard_image_icon'
+        - 'config:field.storage.node.field_dashboard_link'
+        - 'config:field.storage.node.field_dashboard_subtitle'
+  block_7:
+    display_plugin: block
+    id: block_7
+    display_title: highlights_cards
+    position: 4
+    display_options:
+      display_extenders:
+        library_in_views_display_extender: {  }
+      title: icons
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+        fields: false
+        pager: false
+        sorts: false
+      display_description: ''
       filters:
         status:
           value: '1'
@@ -1854,8 +2007,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -1866,9 +2017,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -1893,8 +2041,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1927,8 +2073,6 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1951,15 +2095,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -1968,14 +2114,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -1989,41 +2134,12 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
           1: AND
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_interface'
-        - 'user.node_grants:view'
-        - user.permissions
-      tags:
-        - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_bkgd_img'
-        - 'config:field.storage.node.field_dashboard_image_icon'
-        - 'config:field.storage.node.field_dashboard_link'
-        - 'config:field.storage.node.field_dashboard_subtitle'
-  block_7:
-    display_plugin: block
-    id: block_7
-    display_title: highlights_cards
-    position: 4
-    display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
-      title: icons
-      defaults:
-        title: false
-        filters: false
-        filter_groups: false
-        fields: false
-        pager: false
-        sorts: false
-      display_description: ''
       fields:
         nid:
           id: nid
@@ -2593,7 +2709,28 @@ display:
           expose:
             label: ''
           plugin_id: standard
-      rendering_language: '***LANGUAGE_language_interface***'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_dashboard_bkgd_img'
+        - 'config:field.storage.node.field_dashboard_image_icon'
+        - 'config:field.storage.node.field_dashboard_link'
+        - 'config:field.storage.node.field_dashboard_subtitle'
+  block_8:
+    display_plugin: block
+    id: block_8
+    display_title: GlobalKnowledge
+    position: 2
+    display_options:
+      display_extenders:
+        library_in_views_display_extender: {  }
+      display_description: ''
       filters:
         status:
           value: '1'
@@ -2605,8 +2742,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -2617,100 +2752,16 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
-        name:
-          id: name
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_biopama_dashboards
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'PAME LandingPage'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        name_1:
-          id: name_1
-          table: taxonomy_term_field_data
-          field: name
-          relationship: field_dashboard_section
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: 'Dashboard cards'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: taxonomy_term
-          entity_field: name
-          plugin_id: string
-        default_langcode:
-          id: default_langcode
-          table: node_field_data
-          field: default_langcode
+        field_dashboard_section_target_id:
+          id: field_dashboard_section_target_id
+          table: node__field_dashboard_section
+          field: field_dashboard_section_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: or
+          value:
+            335: 335
           group: 1
           exposed: false
           expose:
@@ -2719,14 +2770,102 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: biopama_dashboards_section
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        field_biopama_dashboards_target_id:
+          id: field_biopama_dashboards_target_id
+          table: node__field_biopama_dashboards
+          field: field_biopama_dashboards_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            - 356
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: textfield
+          limit: true
+          vid: biopama_dashboards
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        langcode:
+          id: langcode
+          table: node_field_data
+          field: langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -2740,8 +2879,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
+      defaults:
+        filters: false
+        filter_groups: false
       filter_groups:
         operator: AND
         groups:
@@ -2749,14 +2891,14 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
+        - url.query_args
+        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_dashboard_bkgd_img'
-        - 'config:field.storage.node.field_dashboard_image_icon'
-        - 'config:field.storage.node.field_dashboard_link'
         - 'config:field.storage.node.field_dashboard_subtitle'
   page_1:
     display_plugin: page
@@ -2767,10 +2909,6 @@ display:
       display_extenders:
         library_in_views_display_extender: {  }
       path: BPMLP_page_pame
-      defaults:
-        filters: false
-        filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -2782,8 +2920,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -2794,9 +2930,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -2821,8 +2954,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2838,15 +2969,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -2855,14 +2988,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -2876,8 +3008,11 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
+      defaults:
+        filters: false
+        filter_groups: false
       filter_groups:
         operator: AND
         groups:
@@ -2885,6 +3020,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -2898,8 +3034,7 @@ display:
     display_title: Assessments
     position: 7
     display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
+      display_extenders: {  }
       path: BPMLP_page_pame_assessments
       display_description: ''
       title: PAME-Assessments
@@ -2907,7 +3042,6 @@ display:
         title: false
         filters: false
         filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -2919,8 +3053,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -2931,9 +3063,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -2958,8 +3087,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -2975,15 +3102,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -2992,14 +3121,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -3013,8 +3141,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -3022,6 +3150,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -3035,8 +3164,7 @@ display:
     display_title: Tools
     position: 7
     display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
+      display_extenders: {  }
       path: BPMLP_page_pame_tools
       display_description: ''
       title: PAME-Tools
@@ -3044,7 +3172,6 @@ display:
         title: false
         filters: false
         filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -3056,8 +3183,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -3068,9 +3193,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -3095,8 +3217,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3112,15 +3232,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -3129,14 +3251,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -3150,8 +3271,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -3159,6 +3280,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -3172,8 +3294,7 @@ display:
     display_title: Resources
     position: 7
     display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
+      display_extenders: {  }
       path: BPMLP_page_pame_resources
       display_description: ''
       title: PAME-Resources
@@ -3181,7 +3302,6 @@ display:
         title: false
         filters: false
         filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -3193,8 +3313,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -3205,9 +3323,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -3232,8 +3347,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3249,15 +3362,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -3266,14 +3381,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -3287,8 +3401,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -3296,6 +3410,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
@@ -3309,8 +3424,7 @@ display:
     display_title: 'Management Plans'
     position: 7
     display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
+      display_extenders: {  }
       path: BPMLP_page_pame_management
       display_description: ''
       title: PAME-Management-Plans
@@ -3318,7 +3432,6 @@ display:
         title: false
         filters: false
         filter_groups: false
-      rendering_language: '***LANGUAGE_language_interface***'
       filters:
         status:
           value: '1'
@@ -3330,8 +3443,6 @@ display:
           id: status
           expose:
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
           group: 1
         type:
           id: type
@@ -3342,9 +3453,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          expose:
-            operator_limit_selection: false
-            operator_list: {  }
         name:
           id: name
           table: taxonomy_term_field_data
@@ -3369,8 +3477,6 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -3386,15 +3492,17 @@ display:
           entity_type: taxonomy_term
           entity_field: name
           plugin_id: string
-        default_langcode:
-          id: default_langcode
+        langcode:
+          id: langcode
           table: node_field_data
-          field: default_langcode
+          field: langcode
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: '1'
+          operator: in
+          value:
+            '***LANGUAGE_site_default***': '***LANGUAGE_site_default***'
+            '***LANGUAGE_language_interface***': '***LANGUAGE_language_interface***'
           group: 1
           exposed: false
           expose:
@@ -3403,14 +3511,13 @@ display:
             description: ''
             use_operator: false
             operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
             identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -3424,8 +3531,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: default_langcode
-          plugin_id: boolean
+          entity_field: langcode
+          plugin_id: language
       filter_groups:
         operator: AND
         groups:
@@ -3433,6 +3540,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
