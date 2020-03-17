@@ -15,8 +15,8 @@ mexcel = ['xlsx','xls','xlm'];
 	$('.resources-doc-thumb').once('updated-view').each(function(){
 		
 		var fpath = $(this).html();
-		var ext = fpath.substr(fpath.lastIndexOf('.') + 1);
-		//alert(ext);
+		var ext = fpath.substr(fpath.lastIndexOf('.') + 1).replace(/\s/g,'');
+		console.log(ext);
 		
 		var html_code = '';
 		if (ext.toLowerCase() == 'pdf'){

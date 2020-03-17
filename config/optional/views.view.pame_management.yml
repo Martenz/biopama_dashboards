@@ -1,3 +1,4 @@
+uuid: 84a72cfd-6d14-4a40-a4d7-5021308d8301
 langcode: en
 status: true
 dependencies:
@@ -544,7 +545,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: '{{ field_reference_link__uri }}'
             make_link: false
             path: ''
             absolute: false
@@ -569,14 +570,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: true
           empty_zero: false
@@ -584,11 +585,11 @@ display:
           click_sort_column: uri
           type: link
           settings:
-            trim_length: 80
-            url_only: false
-            url_plain: false
+            trim_length: 2000
+            url_only: true
+            url_plain: true
             rel: '0'
-            target: _blank
+            target: '0'
           group_column: ''
           group_columns: {  }
           group_rows: true

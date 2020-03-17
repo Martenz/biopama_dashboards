@@ -107,7 +107,7 @@
 
 .pame-resources-card .col-3, .pame-resources-card .col-9{
 	margin:0px!important;
-	padding:0px!important;
+	padding:6px!important;
 }
 
 .pame-resources-title{
@@ -120,7 +120,10 @@
 }
 
 .row.pame-resources-footer{
-	font-size:small;
+	font-size: small;
+    bottom: 2em;
+    position: absolute;
+    left: 1em;
 }
 
 .pame-resources-body{
@@ -181,3 +184,12 @@ fieldset label {
     left: 15px;
 }
 
+.doc-ext-link{
+	position: absolute;
+    bottom: 25%;
+    left: -2px;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 1px 1px 3px -1px black;
+    background-color: white;
+    border-left: 1px solid white;
+}
