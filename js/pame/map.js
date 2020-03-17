@@ -35,8 +35,8 @@ jQuery(document).ready(function($) {
 		dt_table = $('#table_assessments').DataTable({
 			"columns" : [
 				{ "data" : "wdpaid" },
-				{ "data" : "iso3" },
 				{ "data" : "region" },
+				{ "data" : "iso3" },
 				{ "data" : "country_name" },
 				{ "data" : "pa_type" },
 				{ "data" : "name" },
@@ -69,7 +69,7 @@ jQuery(document).ready(function($) {
 				},
 				{
 					extend: 'excel',
-					text: 'Xlsx',
+					text: 'XLSX',
 					messageTop: "Data Source: https://pame.protectedplanet.net/ | Global Database on Protected Area Management Effectiveness (GD-PAME)'"
 				}
 			]

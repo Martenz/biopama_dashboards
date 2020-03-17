@@ -2,11 +2,17 @@
 
 .view-pame-resources .views-row, .view-pame-management .views-row{
 	
-	background-color: #fff;
+/* 	background-color: #fff;
     padding: 10px;
     border-radius: 5px;
     margin: 20px;
-    box-shadow: 0px 0px 10px 6px #4e8cab33;
+	box-shadow: 0px 0px 10px 6px #4e8cab33; */
+	
+    padding: 15px;
+    /* border-radius: 5px; */
+    /* margin: 0px; */
+    /* box-shadow: 0px 0px 10px 6px #4e8cab33; */
+    width: 33%;
 }
 
 .view-pame-resources .views-row a, .view-pame-management .views-row a{
@@ -93,6 +99,10 @@
 
 .pame-resources-card{
    max-width: 20rem;
+    border-radius: 5px;
+    margin: 0px;
+    box-shadow: 0px 0px 10px 6px #4e8cab33;
+    height: 100%;
 }
 
 .pame-resources-card .col-3, .pame-resources-card .col-9{
@@ -145,13 +155,29 @@ fieldset label {
 }
 
 .pame_doc_prev{
-	position:absolute;
+/* 	position:absolute;
 	background-color: #e9ecef;
 	opacity:0.5;
 	width:calc(25%);
 	height:calc(100%);
 	top: 0;
     left: 0;
+	border-radius: 5px 0 0 5px; */
+	
+	position: absolute;
+    background-color: #e9ecef;
+    opacity: 0.5;
+    width: calc(25%);
+    height: calc(100%);
+    top: 0;
+    left: 0;
     border-radius: 5px 0 0 5px;
+    border-radius: 5px 0 0 5px;
+    margin: 0px;
+    /* box-shadow: 0px 0px 10px 6px #4e8cab33; */
+    overflow: hidden;
+    height: calc(100% - 30px);
+    top: 15px;
+    left: 15px;
 }
 

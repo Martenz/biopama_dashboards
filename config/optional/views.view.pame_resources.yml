@@ -1,3 +1,4 @@
+uuid: 490db95f-5677-4f5a-8fb2-447caf399718
 langcode: en
 status: true
 dependencies:
@@ -159,7 +160,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -221,7 +222,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: true
             text: '<div class="pame-resources-title">{{ title }}</div>'
@@ -286,7 +287,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -349,7 +350,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -412,7 +413,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -474,7 +475,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -541,7 +542,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -604,7 +605,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -667,7 +668,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: true
             text: "<div class=\"pame_doc_prev\"></div>\r\n<div class=\"pame-resources-card\">\r\n\r\n    <div class=\"row pame-resources-header\">\r\n        <div class=\"col-3\">\r\n            <div class=\"resources-doc-thumb\">{{ field_document }}</div>\r\n        </div>\r\n        <div class=\"col-9\">\r\n           <a href=\"{{ field_document }}\" download> {{ title }}</a>\r\n        </div>\r\n    </div>\r\n\r\n    <div class=\"row pame-resources-footer\">\r\n        <div class=\"col-12\">{{ field_document_publication_year }} - {{ field_document_type }}</div>\r\n        <div class=\"col-12\">{{ field_ac_region }} - {{ field_ac_country }}</div>\r\n        <div class=\"col-12\">{{ field_reference_link }}</div>\r\n    </div>\r\n\r\n</div>"

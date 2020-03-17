@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
             formatter: "{d}%"//"{a} <br/>{b}: {c} ({d}%)"
         },
         legend: {
-            show: false,
+            show: true,
             orient: 'vertical',
             x: '0%',
             y: '0%',
@@ -93,7 +93,7 @@ jQuery(document).ready(function($) {
                 avoidLabelOverlap: true,
                 label: {
                     normal: {
-                        show: true,
+                        show: false,
                         position: 'left',
                         textStyle: {
                             fontSize: '15',
@@ -101,7 +101,7 @@ jQuery(document).ready(function($) {
                         }
                     },
                     emphasis: {
-                        show: true,
+                        show: false,
                         textStyle: {
                             fontSize: '15',
                             fontWeight: 'bold'
@@ -322,8 +322,8 @@ jQuery(document).ready(function($) {
                 //$('#ACP-card .col-sm-7').append(table_html);
 
                 var text_html = $('<div class="pas_summary_text"></div>');
-                text_html.append('<p>Total n<sup>o</sup> of Protected Areas: <b>'+global_prot_pas+'</b><br>covering: <b>'+global_prot_pas_coverage+' </b><small>[1000 km<sup>2</sup>]</small></p>');
-                text_html.append('<p>where <br><b>   '+global_prot_terr+'</b> <small>[1000 km<sup>2</sup>]</small> are <b>Terrestial</b> and <br>   <b>'+global_prot_mari+'</b> <small>[1000 km<sup>2</sup>]</small> are <b>Marine</b></p>');
+                text_html.append('<p><b>'+global_prot_pas+'</b> Protected Areas <br><b>'+global_prot_pas_coverage+' </b><small>[1000 km<sup>2</sup>]</small></p>');
+                text_html.append('<p>Terrestial <b>'+global_prot_terr+'</b> <small>[1000 km<sup>2</sup>]</small><br>Marine  <b>'+global_prot_mari+'</b> <small>[1000 km<sup>2</sup>]</small></p>');
                 $('#ACP-card .col-sm-7').prepend(text_html);
 
               },200);
