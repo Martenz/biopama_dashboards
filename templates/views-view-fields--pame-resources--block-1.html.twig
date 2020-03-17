@@ -54,9 +54,22 @@
             {% else %}
                 <a href="#" target="">{{ fields.title.content }}</a>
             {% endif %}
-            <div class="col-12">{{ fields.field_document_publication_year.content }} - {{ fields.field_document_type.content }}</div>
-            <div class="col-12">{{ fields.field_ac_region.content }} - {{ fields.field_ac_country.content }} - wdpaid: <code class="btn btn-sm btn-light pame-wdpaid">{{ fields.field_pa_wdpa_id.content }} </code></div>
-            
+            <div class="col-12">
+              {{ fields.field_document_publication_year.content }} 
+              {% if fields.field_document_type.content is not empty%}
+              <br> {{ fields.field_document_type.content }}
+              {% endif %}
+            </div>
+            <div class="col-12">
+              {{ fields.field_ac_region.content }} 
+              {% if fields.field_ac_country.content is not empty%}
+               {{ fields.field_ac_country.content }} 
+              {% endif %}
+              {% if fields.field_pa_wdpa_id.content is not empty%}
+               wdpaid: <code class="btn btn-sm btn-light pame-wdpaid">
+              {{ fields.field_pa_wdpa_id.content }} </code>
+              {% endif %}
+            </div>            
         </div>
     </div>
 <div class="row pame-resources-body">
@@ -67,3 +80,4 @@
 </div>
 
 </div>
+
