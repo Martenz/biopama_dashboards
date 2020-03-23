@@ -8,12 +8,14 @@ var sel_filters = {
 	'pa_type':null
 };
 
-var filters_sel = {
+const null_filters = {
 	'title': null,
 	'year' : null,
 	'country' : null,
 	'region' : null
 }
+
+var filters_sel = null_filters;
 
 var table_fields = ['wdpaid','region','country_name','iso3','name','desig','pame_year','pame_methodology','pa_type'];
 var table_labels = {
@@ -230,7 +232,6 @@ jQuery(document).ready(function($) {
 				
 	}};
 
-
     function filter_map_onfilters(elem){
 			parameters = '';
 
@@ -251,13 +252,24 @@ jQuery(document).ready(function($) {
 	}
 
 	
-	$('#pame-managements-filters select').on('change',function(){
+	$('#pame_managements_filters select').on('change',function(){
 			filter_map_onfilters($(this));
 	})
 
-	$('#pame-managements-filters input').on('input',function(){
+	$('#pame_managements_filters input').on('input',function(){
 			filter_map_onfilters($(this));
 	})
+
+	$('#edit-reset').attr('type','button');
+	$('#edit-reset').html('Reset');
+	$('#edit-reset').on('click',function(){
+		parameters = ''
+		$('#pame_managements_filters input[type="text"]').val('');
+		$('#pame_managements_filters select').val('All');
+		addwdpas(parameters);
+		filters_sel = null_filters;
+		$('#pame_managements_filters select').change();
+	});
 
 	
 });

@@ -12,7 +12,7 @@
     /* border-radius: 5px; */
     /* margin: 0px; */
     /* box-shadow: 0px 0px 10px 6px #4e8cab33; */
-    width: 33%;
+    /*width: 33%;*/
 }
 
 .view-pame-resources .views-row a, .view-pame-management .views-row a{
@@ -99,6 +99,7 @@
 
 .pame-resources-card{
    max-width: 20rem;
+   min-width: 18rem;
     border-radius: 5px;
     margin: 0px;
     box-shadow: 0px 0px 10px 6px #4e8cab33;
@@ -170,7 +171,8 @@ fieldset label {
 	position: absolute;
     background-color: #e9ecef;
     opacity: 0.5;
-    width: calc(25%);
+	width: calc(25%);
+	min-width:4.5rem;
     height: calc(100%);
     top: 0;
     left: 0;

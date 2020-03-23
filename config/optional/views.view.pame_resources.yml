@@ -1121,7 +1121,20 @@ display:
       title: 'PAME resources'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<h4>No results for selected filters.</h4>'
+            format: restricted_html
+          plugin_id: text
       relationships:
         reverse__node__field_protected_area:
           id: reverse__node__field_protected_area

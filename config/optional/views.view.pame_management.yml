@@ -1175,7 +1175,20 @@ display:
             format: restricted_html
           plugin_id: text
       footer: {  }
-      empty: {  }
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: '<h4>No results for selected filters.</h4>'
+            format: restricted_html
+          plugin_id: text
       relationships:
         field_ac_protected_area:
           id: field_ac_protected_area
@@ -1257,7 +1270,7 @@ display:
         type: bef
         options:
           submit_button: Filter
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
