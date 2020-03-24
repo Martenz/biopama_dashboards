@@ -52,7 +52,11 @@
             {% if fields.field_document.content is not empty %}
                 <a href="{{ fields.field_document.content }}" target="_blank">{{ fields.title.content }}</a>
             {% else %}
-                <a href="#" target="">{{ fields.title.content }}</a>
+                {% if fields.field_reference_link.content is not empty and fields.field_reference_link.content !="" %}
+                  <a href="{{ fields.field_reference_link.content }}" target="_blank">{{ fields.title.content }}</a>
+                {% else %}
+                  <div class="padding_a">{{ fields.title.content }}</div>
+                {% endif %}
             {% endif %}
             <div class="col-12">
               {{ fields.field_document_publication_year.content }} 
