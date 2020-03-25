@@ -19,7 +19,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: lccKoa6LaCUE0mDTdCqvutXevs0fyHtLztzqcLOzQag
+  default_config_hash: Xalc8in6KAujj-7f9ZBOno54F-fMiRcHsg1o8vcijh8
 id: pame_contents
 label: 'PAME Contents'
 module: views
@@ -275,7 +275,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_external_link__uri }}" target="_blank"><div class="btn btn-primary">Link</div></a>'
+            text: '<a href="{{ field_pame_external_link__uri }}"><div class="btn btn-primary">Link</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -319,7 +319,7 @@ display:
             url_only: false
             url_plain: false
             rel: '0'
-            target: _blank
+            target: '0'
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -395,7 +395,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="/node/{{ field_pame_related_document__target_id }}" target="_blank"><div class="btn btn-info">Doc</div></a>'
+            text: '<a href="/node/{{ field_pame_related_document__target_id }}"><div class="btn btn-info">Doc</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -457,7 +457,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_map_link__uri }}" target="_blank"><div class="btn btn-success">Map</div></a>'
+            text: '<a href="{{ field_pame_map_link__uri }}"><div class="btn btn-success">Map</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -721,6 +721,18 @@ display:
           entity_field: default_langcode
           plugin_id: boolean
       sorts:
+        field_pame_tool_order_value:
+          id: field_pame_tool_order_value
+          table: node__field_pame_tool_order
+          field: field_pame_tool_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         created:
           id: created
           table: node_field_data
@@ -763,27 +775,11 @@ display:
     display_title: Block
     position: 1
     display_options:
-      display_extenders:
-        library_in_views_display_extender: {  }
-      sorts:
-        field_pame_tool_order_value:
-          id: field_pame_tool_order_value
-          table: node__field_pame_tool_order
-          field: field_pame_tool_order_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          order: ASC
-          exposed: false
-          expose:
-            label: ''
-          plugin_id: standard
-      defaults:
-        sorts: false
-      rendering_language: '***LANGUAGE_language_interface***'
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
