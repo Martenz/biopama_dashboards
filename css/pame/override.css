@@ -260,3 +260,7 @@
 .landing_headers .views-row{
 	width:100%;
 }
+
+#drupal-off-canvas fieldset.col-auto {
+  max-width: 100%!important;
+}
