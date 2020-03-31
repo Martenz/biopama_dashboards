@@ -32,9 +32,26 @@ mexcel = ['xlsx','xls','xlm'];
 		
 		$(this).html( html_code );
 		createPDFThumbnails();
-		$(this).fadeIn(1500);
-		
+		$(this).fadeIn(1500);				
 	});
+
+	// ISO3 to Country names:
+	$('#edit-field-country-iso3-value').hide();
+	var select = $('<select id="tmp-select" class="custom-select"></select>');
+	select.append('<option value="" selected>All Countries</option>');
+	var json_rest_country = "https://restcountries.eu/rest/v2/all?fields=name;alpha3Code"
+	$.getJSON( json_rest_country, function( data ) {
+		console.log(data);
+		$.each( data, function( idx, obj ) {
+		  select.append('<option value="'+obj.alpha3Code+'">'+obj.name+'</option>');
+		});
+	});
+	$('#edit-field-country-iso3-value').once('updated-view').after(select);	
+	$('#tmp-select').once('updated-view').on('change',function(){
+		$('#edit-field-country-iso3-value').val( $(this).val() );
+	});
+
 		}
 	};
 })(jQuery, Drupal);
+

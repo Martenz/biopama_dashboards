@@ -111,8 +111,13 @@ jQuery(document).ready(function($) {
 		var select_year = document.getElementById("assessment_year");
 		for (key in filters["year"]) {
 			var option = document.createElement("option");
-			option.value = key;
-			option.text = key;
+			if (key!="0"){
+				option.value = key;
+				option.text = key;
+			}else{
+				option.value = key;
+				option.text = "Not Recorded";
+			}
 			select_year.appendChild(option);
 		}
 		if (sel_filters.pame_year != null) $('#assessment_year').val(sel_filters.pame_year);
@@ -372,7 +377,7 @@ jQuery(document).ready(function($) {
 			currentURL = currentURL.split('?')[0];
 			history.pushState({}, null, currentURL);
 		}
-		var sel_filters = {
+		sel_filters = {
 			'region':null,
 			'iso3':null,
 			'pame_year':null,
