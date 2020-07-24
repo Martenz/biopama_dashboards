@@ -144,7 +144,9 @@
 }
 
 .assessment-tools-details a{
-  color:#28a745;
+  /*color:#28a745;*/
+  color:#2ba9e0!important;
+  font-weight: normal;
 }
 
 .assessment-tools-details a:hover{

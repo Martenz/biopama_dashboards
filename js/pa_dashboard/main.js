@@ -228,7 +228,15 @@ jQuery(document).ready(function($) {
 				
 				//adding only selected columns
 				if (columns_table.indexOf(key) > -1) {
-					tr+='<td>'+val+'</td>';
+          if(key=="country"){
+            if ('iso2'in record){
+              tr+='<td><a href="/country/'+record['iso2']+'" target="_blank">'+val+'</a></td>';
+            }else{
+              tr+='<td>'+val+'</td>';
+            }
+          }else{
+            tr+='<td>'+val+'</td>';
+          }
 				}
             });
             tr+='</tr>';
