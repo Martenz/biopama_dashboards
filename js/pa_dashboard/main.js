@@ -17,7 +17,7 @@ function empty_table(new_id){
 	  card += '<div class="card-header">';
 	  card += ' <div class="row">';
 	  card += '  <div class="col-sm-12">';
-	  card += '   <h1>'+new_id.replace(re,' ').toUpperCase()+' coverage</h1>';
+	  card += '   <h1><a class="reg_link" href="/region/'+new_id.replace(' ','_')+'" target="_blank">'+new_id.replace(re,' ').toUpperCase()+'</a> coverage</h1>';
 	  card += '  </div>';
 	  card += '  </div>';
 	  card += ' <div class="row">';
@@ -228,7 +228,15 @@ jQuery(document).ready(function($) {
 				
 				//adding only selected columns
 				if (columns_table.indexOf(key) > -1) {
-					tr+='<td>'+val+'</td>';
+          if(key=="country"){
+            if ('iso2'in record){
+              tr+='<td><a href="/country/'+record['iso2']+'" target="_blank">'+val+'</a></td>';
+            }else{
+              tr+='<td>'+val+'</td>';
+            }
+          }else{
+            tr+='<td>'+val+'</td>';
+          }
 				}
             });
             tr+='</tr>';
