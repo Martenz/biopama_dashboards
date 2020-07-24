@@ -17,7 +17,7 @@ function empty_table(new_id){
 	  card += '<div class="card-header">';
 	  card += ' <div class="row">';
 	  card += '  <div class="col-sm-12">';
-	  card += '   <h1>'+new_id.replace(re,' ').toUpperCase()+' coverage</h1>';
+	  card += '   <h1><a class="reg_link" href="/region/'+new_id.replace(' ','_')+'" target="_blank">'+new_id.replace(re,' ').toUpperCase()+'</a> coverage</h1>';
 	  card += '  </div>';
 	  card += '  </div>';
 	  card += ' <div class="row">';
