@@ -123,10 +123,10 @@ display:
           settings:
             image_style: medium
             image_link: ''
-            svg_render_as_image: 0
+            svg_render_as_image: false
             svg_attributes:
-              width: ''
-              height: ''
+              width: null
+              height: null
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -490,9 +490,9 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: '<a href="#"><div class="btn btn-success">Map</div></a>'
+          empty: '<div></div>'
           hide_empty: false
-          empty_zero: false
+          empty_zero: true
           hide_alter_empty: false
           click_sort_column: uri
           type: link
