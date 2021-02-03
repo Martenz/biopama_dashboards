@@ -254,9 +254,9 @@ table.globalk tfoot {
 }
 
 .reg_link{
-  color:rgb(112 193 126);
+  color:#70c17e !important;
 }
 
 .reg_link:hover{
-  color:rgb(96 125 139);
+  color:#607d8b !important;
 }

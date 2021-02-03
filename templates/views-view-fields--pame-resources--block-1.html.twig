@@ -33,55 +33,55 @@
 #}
 <div class="pame_doc_prev"></div>
 <div class="pame-resources-card">
-    <div class="row pame-resources-header">
-        <div class="col-3">
-            {% if fields.field_document.content is not empty %}
-            <div class="resources-doc-thumb">
-              {{ fields.field_document.content }}
-            </div>
-            {% endif %}
-            {% if fields.field_reference_link.content is not empty and fields.field_reference_link.content !="" %}
-              <div class="btn btn-sm btn-light doc-ext-link">
-                <a href="{{ fields.field_reference_link.content }}" target="_blank">
-                  <i class="fas fa-link"></i> 
-                </a>
-              </div>              
-            {% endif %}                        
+  <div class="row pame-resources-header">
+    <div class="col-3">
+        {% if fields.field_document.content is not empty %}
+        <div class="resources-doc-thumb">
+          {{ fields.field_document.content }}
         </div>
-        <div class="col-9">
-            {% if fields.field_document.content is not empty %}
-                <a href="{{ fields.field_document.content }}" target="_blank">{{ fields.title.content }}</a>
-            {% else %}
-                {% if fields.field_reference_link.content is not empty and fields.field_reference_link.content !="" %}
-                  <a href="{{ fields.field_reference_link.content }}" target="_blank">{{ fields.title.content }}</a>
-                {% else %}
-                  <div class="padding_a">{{ fields.title.content }}</div>
-                {% endif %}
-            {% endif %}
-            <div class="col-12">
-              {{ fields.field_document_publication_year.content }} 
-              {% if fields.field_document_type.content is not empty%}
-              <br> {{ fields.field_document_type.content }}
-              {% endif %}
-            </div>
-            <div class="col-12">
-              {{ fields.field_ac_region.content }} 
-              {% if fields.field_ac_country.content is not empty%}
-               {{ fields.field_ac_country.content }} 
-              {% endif %}
-              {% if fields.field_pa_wdpa_id.content is not empty%}
-               WDPAID: <code class="btn btn-sm btn-light pame-wdpaid">
-              {{ fields.field_pa_wdpa_id.content }} </code>
-              {% endif %}
-            </div>            
-        </div>
+        {% endif %}
+        {% if fields.field_reference_link.content is not empty and fields.field_reference_link.content !="" %}
+          <div class="btn btn-sm btn-light doc-ext-link">
+            <a href="{{ fields.field_reference_link.content }}" target="_blank">
+              <i class="fas fa-link"></i> 
+            </a>
+          </div>              
+        {% endif %}                        
     </div>
-<div class="row pame-resources-body">
+    <div class="col-9">
+        {% if fields.field_document.content is not empty %}
+            <a href="{{ fields.field_document.content }}" target="_blank">{{ fields.title.content }}</a>
+        {% else %}
+            {% if fields.field_reference_link.content is not empty and fields.field_reference_link.content !="" %}
+              <a href="{{ fields.field_reference_link.content }}" target="_blank">{{ fields.title.content }}</a>
+            {% else %}
+              <div class="padding_a">{{ fields.title.content }}</div>
+            {% endif %}
+        {% endif %}
+        <div class="col-12">
+          {{ fields.field_document_publication_year.content }} 
+          {% if fields.field_document_type.content is not empty%}
+          <br> {{ fields.field_document_type.content }}
+          {% endif %}
+        </div>
+        <div class="col-12">
+          {{ fields.field_ac_region.content }} 
+          {% if fields.field_ac_country.content is not empty%}
+           {{ fields.field_ac_country.content }} 
+          {% endif %}
+          {% if fields.field_pa_wdpa_id.content is not empty%}
+           WDPAID: <code class="btn btn-sm btn-light pame-wdpaid">
+          {{ fields.field_pa_wdpa_id.content }} </code>
+          {% endif %}
+        </div>            
+    </div>
+  </div>
+  <div class="row pame-resources-body">
     <div class="col-12"></div>
-</div>
-<div class="row pame-resources-footer">
-<div class="col-12">{{ fields.edit_node.content }}</div>
-</div>
+  </div>
+  <div class="row pame-resources-footer">
+    <div class="col-12">{{ fields.edit_node.content }}</div>
+  </div>
 
 </div>
 
