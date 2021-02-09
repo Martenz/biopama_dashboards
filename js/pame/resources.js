@@ -16,7 +16,7 @@ mexcel = ['xlsx','xls','xlm'];
 		
 		var fpath = $(this).html();
 		var ext = fpath.substr(fpath.lastIndexOf('.') + 1).replace(/\s/g,'');
-		console.log(ext);
+		//console.log(ext);
 		
 		var html_code = '';
 		if (ext.toLowerCase() == 'pdf'){
@@ -36,12 +36,12 @@ mexcel = ['xlsx','xls','xlm'];
 	});
 
 	// ISO3 to Country names:
-	$('#edit-field-country-iso3-value').hide();
+/* 	$('#edit-field-country-iso3-value').hide();
 	var select = $('<select id="tmp-select" class="custom-select"></select>');
 	select.append('<option value="" selected>All Countries</option>');
 	var json_rest_country = "https://restcountries.eu/rest/v2/all?fields=name;alpha3Code"
 	$.getJSON( json_rest_country, function( data ) {
-		console.log(data);
+		//console.log(data);
 		$.each( data, function( idx, obj ) {
 		  select.append('<option value="'+obj.alpha3Code+'">'+obj.name+'</option>');
 		});
@@ -49,7 +49,7 @@ mexcel = ['xlsx','xls','xlm'];
 	$('#edit-field-country-iso3-value').once('updated-view').after(select);	
 	$('#tmp-select').once('updated-view').on('change',function(){
 		$('#edit-field-country-iso3-value').val( $(this).val() );
-	});
+	}); */
 
 		}
 	};

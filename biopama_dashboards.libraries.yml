@@ -67,12 +67,13 @@ pame_managements:
 
 pame_resources:
   js:
-    https://cdn.jsdelivr.net/npm/pdfjs-dist@2.2.228/build/pdf.min.js: {}
     js/pame/pdfThumbnails.js: {}
     js/pame/resources.js: {}
   css:
     component:
       css/pame/resources.css: {}
+  dependencies:
+    - biopama_dashboards/pdfjs
 
 pame_tools:
   css:
@@ -94,4 +95,11 @@ pa_dashboard:
     - core/drupalSettings
     - biopama_libraries/datatables
     - biopama_libraries/echarts
+    
+pdfjs:
+  js:
+    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.min.js: {}
+    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.worker.min.js: {}
+
+
 

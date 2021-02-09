@@ -3,6 +3,7 @@
 /**
  * implementing hook_theme().
  */
+use Drupal\Core\Form\FormStateInterface;
 
  function biopama_install_configurations(){
 
@@ -359,3 +360,61 @@ function biopama_dashboards_views_pre_render(\Drupal\views\ViewExecutable $view)
 	}
 }
 
+ /**
+   * Implements hook_form_FORM_ID_alter().
+   *
+   * Alters the artist options on artwork pages.
+   */
+  function biopama_dashboards_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+ 
+    // If not the view we are looking, move on
+    switch ($form['#id']) {
+      case 'views-exposed-form-pame-management-block-2':
+        $country_field = 'country';
+        break;
+      case 'views-exposed-form-pame-resources-block-1':
+        $country_field = 'field_country_iso3_value';
+        break;
+      default:
+          return FALSE;
+    }
+
+    // Query nodes
+    $storage = Drupal::getContainer()->get('entity_type.manager')->getStorage('node');
+    $nids = $storage->getQuery();
+ 
+    // Gather published artist nodes and sort by title
+    $nids = $nids->condition('type', 'country')
+     ->condition('status', 1)
+     ->sort('title')
+     ->execute();
+ 
+    // If there are no nodes, move on
+    if (!$nids) {
+     return FALSE;
+    }
+ 
+    // Start building out the options for our select list
+    $options = [];
+    $nodes = $storage->loadMultiple($nids);
+ 
+    // Push titles into select list
+    foreach ($nodes as $node) {
+     $value = $node->get('field_country_iso3')->getString();
+     $options[$value] = $node->getTitle();
+    }
+ 
+    // Start building out our new form element
+    $form[$country_field]['#type'] = 'select';
+    $form[$country_field]['#empty_value'] = '';
+    $form[$country_field]['#required'] = FALSE;
+    $form[$country_field]['#multiple'] = FALSE;
+ 
+    // Specify the empty option for our select list
+    $form[$country_field]['#empty_option'] = t('- Any -');
+    $options = [NULL => t('- Any -')] + $options; // Add an - Any - option
+ 
+    // Add the $options from above to our select list
+    $form[$country_field]['#options'] = $options;
+    unset($form[$country_field]['#size']);
+  }

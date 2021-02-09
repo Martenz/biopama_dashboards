@@ -1287,61 +1287,49 @@ display:
         options:
           submit_button: Filter
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'Clear All'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: restricted_html
           bef:
             general:
               autosubmit: true
               autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
               autosubmit_hide: true
               input_required: false
-              text_input_required: 'Select any filter and click on Apply to see results'
-              text_input_required_format: basic_html
               allow_secondary: false
               secondary_label: 'Advanced options'
+              secondary_open: false
+              text_input_required: 'Select any filter and click on Apply to see results'
+              text_input_required_format: basic_html
             filter:
               title:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
               field_document_publication_year_value:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
               title_1:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
               field_country_region_target_id:
                 plugin_id: default
                 advanced:
-                  collapsible: false
-                  is_secondary: false
-                  placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
-                  sort_options: false
-          text_input_required_format: restricted_html
+                  collapsible: false
+                  is_secondary: false
+          input_required: false
       use_ajax: true
       exposed_block: true
       rendering_language: '***LANGUAGE_language_interface***'
@@ -1419,6 +1407,359 @@ display:
         options:
           offset: 0
       rendering_language: '***LANGUAGE_language_interface***'
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            management_assessment_justificat: management_assessment_justificat
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        field_document_type_target_id:
+          id: field_document_type_target_id
+          table: node__field_document_type
+          field: field_document_type_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            335: 335
+          group: 1
+          exposed: false
+          expose:
+            operator_id: field_document_type_target_id_op
+            label: 'Document Type'
+            description: ''
+            use_operator: false
+            operator: field_document_type_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_document_type_target_id
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: true
+          type: select
+          limit: true
+          vid: document_types
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Title
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_document_publication_year_value:
+          id: field_document_publication_year_value
+          table: node__field_document_publication_year
+          field: field_document_publication_year_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_document_publication_year_value_op
+            label: 'Publication year'
+            description: ''
+            use_operator: false
+            operator: field_document_publication_year_value_op
+            identifier: year
+            required: false
+            remember: true
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: numeric
+        title_1:
+          id: title_1
+          table: node_field_data
+          field: title
+          relationship: field_pa_country
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_1_op
+            label: Country
+            description: ''
+            use_operator: false
+            operator: title_1_op
+            identifier: country
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            placeholder: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+        field_country_region_target_id:
+          id: field_country_region_target_id
+          table: node__field_country_region
+          field: field_country_region_target_id
+          relationship: field_pa_country
+          group_type: group
+          admin_label: ''
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_country_region_target_id_op
+            label: Region
+            description: ''
+            use_operator: false
+            operator: field_country_region_target_id_op
+            identifier: region
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            reduce: false
+            operator_limit_selection: false
+            operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: region
+          hierarchy: false
+          error_message: true
+          plugin_id: taxonomy_index_tid
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+        field_pa_wdpa_id_value:
+          id: field_pa_wdpa_id_value
+          table: node__field_pa_wdpa_id
+          field: field_pa_wdpa_id_value
+          relationship: field_ac_protected_area
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_pa_wdpa_id_value_op
+            label: 'WDPA ID'
+            description: ''
+            use_operator: false
+            operator: field_pa_wdpa_id_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: wdpaid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              verified_user: '0'
+              regional_assistant: '0'
+              technical_officer: '0'
+              content_manager: '0'
+              administrator: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
