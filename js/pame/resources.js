@@ -35,6 +35,9 @@ mexcel = ['xlsx','xls','xlm'];
 		$(this).fadeIn(1500);				
 	});
 
+	//patch to remove manually specific item from dropdown list 335 = Management Plans, edit this id to remove your
+	$('#edit-field-document-type-target-id option[value=335]').remove()
+
 	// ISO3 to Country names:
 /* 	$('#edit-field-country-iso3-value').hide();
 	var select = $('<select id="tmp-select" class="custom-select"></select>');
