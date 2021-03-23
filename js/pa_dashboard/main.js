@@ -372,8 +372,8 @@ jQuery(document).ready(function($) {
 {"source":"Protected Planet ®",
 "url":"https://www.protectedplanet.net",
 "data":"Protected Areas",
-"icon":"https://www.protectedplanet.net/assets/hand-solo-c3651891bbbe2e2587d022898851ceeaac288aeff06019a063b1adc17f518f75.png",
-"icon_style":"background-color:#71a32b;padding:10px;border-radius:5px;"
+"icon":"/modules/custom/biopama_dashboards/images/protected-planet-logo.png",
+"icon_style":""
 },
 ];
 
