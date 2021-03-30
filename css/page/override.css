@@ -1,0 +1,268 @@
+/* PAME CSS overrides */
+
+.masthead {
+     background-image: none!important;
+     background-color: #fdfdff!important;
+}
+
+.header-table-cards .card {
+    box-shadow: 0 0 20px 10px rgba(17,133,171,0.13);
+}
+
+.header-text .views-element-container {
+    background-color: transparent!important;
+}
+
+.landing_headers {
+     color: #8eb4b1!important;
+}
+
+.landing_headers p {
+    text-shadow: none!important;
+}
+
+#landing_top_cards .view-content {
+    display: unset!important;
+}
+
+.biopama_d-edit-node {
+    position: absolute!important;
+    left: -3rem!important;
+    margin-top: -10%!important;
+    z-index: 2!important;
+    border: 1px solid #41ad53!important;
+    border-radius: 4px!important;
+}
+
+.landing_headers {
+    width: 90%!important;
+    padding-bottom: 20px!important;
+}
+
+.header-table-cards h6.masthead-subheading {
+    width: auto!important;
+    margin: 0px!important;
+}
+
+#landing_top_cards .card-body h4, #landing_top_cards .card-body .heading-d {
+    margin: 1em 0 0.5em;
+    font-size: 1.5em!important;
+    font-weight: inherit;
+    color: #90c14f;
+    text-align: left;
+}
+
+#landing_top_cards .card-body h6, #landing_top_cards .card-body .heading-f {
+     margin: 0px 3rem 0 0!important;
+     letter-spacing: unset;
+     text-transform: unset;
+}
+
+.card .card-link {
+    background: #90c14f;
+    outline: none;
+    border: none;
+    color: #fff!important;
+    margin-left: -20px;
+    cursor: pointer;
+    position: absolute;
+    right: -4rem;
+    top: 20px;
+    height: 80%;
+    width: 10rem;
+    padding-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.header-table-cards .card {
+  height:auto!important;
+}
+
+.biopama_d-card-img {
+    width: 5rem;
+    height: 4rem;
+    margin-right: 2rem;
+}
+
+.card-link .card-title {
+    padding: 0 5px 0 5px!important;
+}
+
+.pame-links img {
+     /*max-width: 100%!important;*/
+     height:auto!important;
+}
+
+.btn-secondary {
+    background-color: #669a94;
+    border-color: #669a94;
+}
+
+#table_assessments_filter{
+  display:flex;
+  padding:10px;
+}
+
+.dt-buttons.btn-group{
+  padding-right:10px;
+}
+
+#spinner {
+  text-align: center;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #ffffffd6;
+  border-radius: 50px;
+  box-shadow: 0px 0px 5px 5px #00000017;
+}
+
+.assessment-tools-details{
+  display:none;
+  color:#8eb4b1;
+  padding:20px;
+}
+
+.assessment-tools-details .col-2 .btn{width: 100%;
+    margin-bottom: 3px;
+  }
+
+.assessment-tools-more{
+  float: right;
+}
+
+.header-table-cards .header-table-wrap{
+  width: 100%;
+  display: unset;
+  flex-direction: column;
+}
+
+.btn.assessment-tools-more {
+    color: #77a6a1!important;
+}
+
+.assessment-tools-details a{
+  /*color:#28a745;*/
+  color:#2ba9e0!important;
+  font-weight: normal;
+}
+
+.assessment-tools-details a:hover{
+  color:#28a745;
+  font-weight:900;
+}
+
+.pame-tools-page .card:hover {
+    transform: scale(1.0);
+}
+
+.workinprogress{
+  text-align: center;
+  width:100%;
+}
+.workinprogress img{
+  width:30%;
+}
+
+#landing_top_cards {
+    /* display: none; */
+    text-align: left;
+    padding-left: 0%;
+}
+
+#landing_top_cards .card  {
+    padding: 1.5rem!important;
+    width: 80%!important;
+}
+
+#reset_filters{
+  margin-left:10px;
+}
+
+#data_source *{ 
+  color:#679c97!important;
+  text-align:left;
+}
+
+.pame-menu-left .col-4{
+  padding: 0px;
+}
+
+@media (max-width:992px) {
+
+  .col-4.header-text{
+    flex: unset;
+    max-width: unset;
+  }
+
+  .card .card-link {
+    right: -1rem!important;
+  }
+
+  .biopama_d-edit-node {
+    left: -1rem!important;
+  }
+
+  .biopama_d-card-img {
+      width: 30px!important;
+      opacity: 1!important;
+  }
+
+  #landing_top_cards .card-body h6, #landing_top_cards .card-body .heading-f {
+    margin: 0px 5rem 0 0!important;
+    letter-spacing: unset;
+    text-transform: unset;
+  }
+
+  #landing_top_cards {
+      /* display: none; */
+      text-align: left;
+      padding-left: 0;
+      margin-left:0;
+  }
+
+  #landing_top_cards .card {
+      padding: 1rem!important;
+      width: 80%!important;
+  }
+
+
+}
+
+.header-table-wrap .form-group{
+	position: relative;
+	margin-bottom: -50px;
+    padding: 3px;
+    background-color: rgba(255, 255, 255, 0.61);
+    border-radius: 5px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#help-text{
+  position: absolute;
+    bottom: 5%; 
+    left: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    /* border-radius: 5px; */
+    width: 100%;
+    text-align: center;
+    /* z-index: -1; */
+    display: none;
+    font-family:"Maven Pro";
+    font-size: 1.5em;
+    display:none;
+}
+
+.landing_headers .views-row{
+	width:100%;
+}
+
+#drupal-off-canvas fieldset.col-auto {
+  max-width: 100%!important;
+}

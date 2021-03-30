@@ -1,0 +1,115 @@
+{% set url = current_uri %}
+{{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
+{{ attach_library( 'biopama_dashboards/page' ) }}
+{{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
+{{ attach_library( 'biopama_dashboards/page_tools' ) }}
+
+
+<header class="masthead text-left text-white">
+
+  <div id="bkgd-linear" class="masthead-linear"></div>
+
+  <div id="bkgd-img" class="masthead-img" style="display:none;"></div>
+
+      <div class="masthead-content">
+
+        <div class="row">
+
+          <div class="col-lg-2 header-text">
+            <div class="container landing_headers">
+            <h5>PAME Dashboard</h5>
+            <img src="{{ image_path }}divider_02.png"/>
+                <ul class="list-group pame-links">
+                  <li class="pame-menu-left">
+                    <a href="/BPMLP_page_page">
+                      <div class="row">
+                       <div class="col-4"><img src="{{ image_path }}page/pame_home.png"/></div>
+                       <div class="col-8">PAME Home</div>
+                      </div>
+                    </a>
+                  </li>
+                  <div class="contextual-region">{{ title_suffix }}
+                        {{ drupal_view('biopama_dashboards_page', 'block_3') }}
+                  </div>
+                </ul>
+            </div>
+          </div>
+          <div class="col-lg-10 header-table-cards">
+              <div class="header-table-wrap">
+              <h2 class="pame-resources-header-title">Assessments</h2>
+              <div id="data_source" class="text-left">
+                <p>Data Source: <b><a class="btn btn-light" href="https://pame.protectedplanet.net/" target="_blank">Global Database on Protected Area Management Effectiveness (GD-PAME, last updated on 3 February 2021)</a></b></p>
+              </div>
+
+                  <div class="form-group">
+                    <label for="assessment_tools">Tool</label>
+                      <select class="form-control cql_filters" id="assessment_tools" param="pame_methodology">
+                        <option value="%">All Methodologies</option>
+                       </select>
+
+                    <label for="assessment_year">Year</label>
+                     <select class="form-control cql_filters" id="assessment_year" param="pame_year">
+                       <option value="%">All Years</option>
+                      </select>
+
+                      <label for="assessment_region">Region</label>
+                       <select class="form-control cql_filters" id="assessment_region" param="region">
+                         <option value="%">All Regions</option>
+                        </select>
+
+                        <label for="assessment_country">Country</label>
+                         <select class="form-control cql_filters" id="assessment_country" param="iso3">
+                           <option value="%">All Countries</option>
+                          </select>
+
+                        <label for="assessment_pa_type">Type</label>
+                         <select class="form-control cql_filters" id="assessment_pa_type" param="pa_type">
+                           <option value="%">Not Set</option>
+                          </select>
+
+                        <button class="btn btn-info" type="button" id="reset_filters">Clear All</button>
+
+                  </div>
+
+              </div>
+              <div id="pame_assessments_map"></div>
+              <div id="spinner">
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
+              </div>
+              <div id="pame_assessments_table">
+				<table id="table_assessments" class="table compact row-border">
+					<thead>
+						<tr>
+							<th>WDPAID</th>
+							<th>Region</th>
+							<th>ISO3</th>
+							<th>Country</th>
+							<th>Type</th>
+							<th>Protected Area</th>
+							<th>Designation</th>
+							<th>Methodology</th>
+							<th>Year</th>
+						</tr>
+					</thead>
+					<tbody>
+					</tbody>
+					<tfooter>
+					</tfooter> 					
+				</table>
+              </div>
+
+          </div>
+
+        </div>
+
+  </div>
+  <div class="wave-corner">
+    <img src="{{ image_path }}color_wave.png"/>
+  </div>
+ </header>
+
+
+<button id="myBtn_scrollTop" title="Go to top"><i class="fas fa-arrow-up fa-2x"></i></button>
+

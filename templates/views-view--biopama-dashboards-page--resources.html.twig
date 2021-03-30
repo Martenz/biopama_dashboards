@@ -1,0 +1,62 @@
+{% set url = current_uri %}
+{{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
+   {{ attach_library( 'biopama_dashboards/page' ) }}
+   {{ attach_library( 'biopama_dashboards/page_resources' ) }}
+   {{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
+
+<header class="masthead text-left">
+
+  <div id="bkgd-linear" class="masthead-linear"></div>
+
+  <div id="bkgd-img" class="masthead-img" style="display:none;"></div>
+
+      <div class="masthead-content">
+
+        <div class="row">
+
+          <div class="col-lg-2 header-text">
+            <div class="container landing_headers">
+            <h5>PAME Dashboard</h5>
+            <img src="{{ image_path }}divider_02.png"/>
+                <ul class="list-group pame-links">
+                  <li class="pame-menu-left">
+                    <a href="/BPMLP_page_page">
+                      <div class="row">
+                       <div class="col-4"><img src="{{ image_path }}page/pame_home.png"/></div>
+                       <div class="col-8">PAME Home</div>
+                      </div>
+                    </a>
+                  </li>
+                  <div class="contextual-region">{{ title_suffix }}
+                        {{ drupal_view('biopama_dashboards_page', 'block_3') }}
+                  </div>
+                </ul>
+            </div>
+          </div>
+          <div class="col-lg-10 header-table-cards">
+		  
+		  
+		  	<h2 class="pame-resources-header-title">Resources
+          {% if logged_in %}
+            <a href="/node/add/management_assessment_justificat?Theme=PAME%20(Protected%20Area%20Management%20Effectiveness)"  class="use-ajax add-policy fancy_login_show_popup btn btn-primary" data-dialog-type="dialog" data-dialog-renderer="off_canvas" data-dialog-options="{&quot;width&quot;:400}">
+            <i class="fas fa-plus"></i> Add a Resource
+            </a>
+          {% endif %}
+        </h2>
+						{{ drupal_block('views_exposed_filter_block:pame_resources-block_1', wrapper=false) }}
+						<p class="pame-resources-subtitle"></p>
+
+     			  {{ drupal_view('pame_resources', 'block_1') }}
+          </div>
+
+        </div>
+
+  </div>
+  <div class="wave-corner">
+    <img src="{{ image_path }}color_wave.png"/>
+  </div>
+ </header>
+
+
+<button id="myBtn_scrollTop" title="Go to top"><i class="fas fa-arrow-up fa-2x"></i></button>
+

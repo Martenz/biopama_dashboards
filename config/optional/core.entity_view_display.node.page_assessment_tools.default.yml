@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page_assessment_tools.body
+    - field.field.node.page_assessment_tools.field_page_external_link
+    - field.field.node.page_assessment_tools.field_page_map_link
+    - field.field.node.page_assessment_tools.field_page_related_document
+    - field.field.node.page_assessment_tools.field_page_tool_icon
+    - node.type.page_assessment_tools
+  module:
+    - image
+    - link
+    - text
+    - user
+id: node.page_assessment_tools.default
+targetEntityType: node
+bundle: page_assessment_tools
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_page_external_link:
+    type: link
+    weight: 5
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_page_map_link:
+    type: link
+    weight: 4
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_page_related_document:
+    type: entity_reference_label
+    weight: 3
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+  field_page_tool_icon:
+    type: image
+    weight: 1
+    region: content
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

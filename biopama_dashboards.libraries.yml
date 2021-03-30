@@ -101,5 +101,57 @@ pdfjs:
     https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.min.js: {}
     https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.worker.min.js: {}
 
+page:
+  js:
+    js/page/map.js: {}
+    js/page/tools.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
+  css:
+    component:
+      css/page/override.css: {}
+      css/override.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - biopama_libraries/datatables
+    - biopama_libraries/mapbox
+
+page_managements:
+  js:
+    js/page/management_map.js: {}
+    js/page/tools.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
+  css:
+    component:
+      css/page/override.css: {}
+      css/override.css: {}
+  dependencies:
+    - core/drupal
+    - core/drupal.ajax
+    - core/jquery
+    - core/jquery.once
+    - core/drupalSettings
+    - biopama_libraries/datatables
+    - biopama_libraries/mapbox
+
+page_resources:
+  js:
+    js/page/pdfThumbnails.js: {}
+    js/page/resources.js: {}
+  css:
+    component:
+      css/page/resources.css: {}
+  dependencies:
+    - biopama_dashboards/pdfjs
+
+page_tools:
+  css:
+    component:
+      css/page/resources.css: {}
 
 

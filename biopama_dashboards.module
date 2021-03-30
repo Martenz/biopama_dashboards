@@ -91,12 +91,21 @@ use Drupal\Core\Form\FormStateInterface;
   function biopama_dashboards_theme($existing, $type, $theme, $path) {
 
    $dashboards_pages = biopama_install_configurations();
-   $array = ['views_view__biopama_dashboards_pame__page_3' => ['base hook' => 'view'],
-             'views_view__biopama_dashboards_pame__page_2' => ['base hook' => 'view'],
-             'views_view__biopama_dashboards_pame__page_4' => ['base hook' => 'view'],
-             'views_view__biopama_dashboards_pame__page_5' => ['base hook' => 'view'],
+   $array = [
+       // PAME MODULE
+       'views_view__biopama_dashboards_pame__page_3' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pame__page_2' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pame__page_4' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pame__page_5' => ['base hook' => 'view'],
 			 'views_view_fields__pame_management__block_2' => ['base hook' => 'view'],
 			 'views_view_fields__pame_resources__block_1' => ['base hook' => 'view'],
+       // PAGE MODULE
+       'views_view__biopama_dashboards_pagem__tools' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pagem__assessments' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pagem__resources' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_pagem__managements' => ['base hook' => 'view'],
+			 'views_view_fields__pagem_management__block_2' => ['base hook' => 'view'],
+			 'views_view_fields__pagem_resources__block_1' => ['base hook' => 'view'],
             ];
    foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
