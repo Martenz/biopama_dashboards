@@ -40,6 +40,7 @@ use Drupal\Core\Form\FormStateInterface;
     'cards' => [], // empty i.e. default nodes created or define cards to be created
     'learn' => [],
     ],
+    // PAME landing page and cards
     [
     'taxonomy' => 'PAME LandingPage', // new main page taxonomy will be created
     'path' =>'BPMLP_page_pame', // this path needs to be specified in the view.biopama_dashboards_pame.yml file and all Taxonomies here should point to this above taxonomy
@@ -84,6 +85,51 @@ use Drupal\Core\Form\FormStateInterface;
                ],
       'learn' => [],
     ],
+    // PAGE landing page and cards
+    [
+    'taxonomy' => 'PAGE LandingPage', // new main page taxonomy will be created
+    'path' =>'BPMLP_page_page', // this path needs to be specified in the view.biopama_dashboards_page.yml file and all Taxonomies here should point to this above taxonomy
+    'template' => 'views-view--biopama-dashboards-page--page-1.html.twig', // template to use, copy of the default one where all views names are replaced with the one here below
+    'view_machine_name' => 'biopama_dashboards_page', // view name specified in the view.biopama_dashboards_page.yml file
+    'header' => [
+                 'PAGE Dashboard' => [
+                   'title' => 'PAGE Dashboard',
+                   'subtitle' => '',
+                   'body' => '<p>PAGE</p>',
+                   'link' => '',
+                 ],
+                ],
+    'cards' => [ 'Tools' => [
+                                  'title' => 'Tools',
+                                  'subtitle' => 'Learn about the main PAGE Assessment Tools',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_page_page_tools', 'title' => 'Assessment Tools'],
+                                  'elem_order' => 0,
+                                ],
+                  'Assessments' => [
+                                  'title' => 'Assessments',
+                                  'subtitle' => 'Browse, search and map PAGE Assessments',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_page_page_assessments', 'title' => 'Assessments'],
+                                  'elem_order' => 1,
+                                ],
+                  'Resources' => [
+                                  'title' => 'Resources',
+                                  'subtitle' => 'Browse, search and add PAGE Assessments',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_page_page_resources', 'title' => 'Resources'],
+                                  'elem_order' => 2,
+                                ],
+                  'Management' => [
+                                  'title' => 'Management Plans',
+                                  'subtitle' => 'Browse, search and add Management Plans',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_page_page_management', 'title' => 'Management Plans'],
+                                  'elem_order' => 3,
+                                ],
+               ],
+      'learn' => [],
+    ]
   ]; // List of test terms
    return $dashboards_pages;
  }
@@ -100,12 +146,12 @@ use Drupal\Core\Form\FormStateInterface;
 			 'views_view_fields__pame_management__block_2' => ['base hook' => 'view'],
 			 'views_view_fields__pame_resources__block_1' => ['base hook' => 'view'],
        // PAGE MODULE
-       'views_view__biopama_dashboards_pagem__tools' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_pagem__assessments' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_pagem__resources' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_pagem__managements' => ['base hook' => 'view'],
-			 'views_view_fields__pagem_management__block_2' => ['base hook' => 'view'],
-			 'views_view_fields__pagem_resources__block_1' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__tools' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__assessments' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__resources' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__managements' => ['base hook' => 'view'],
+			 'views_view_fields__page_management__block_2' => ['base hook' => 'view'],
+			 'views_view_fields__page_resources__block_1' => ['base hook' => 'view'],
             ];
    foreach( $dashboards_pages as $dashboard_page){
       $underscore = explode('.html.',str_replace('-','_',$dashboard_page["template"]))[0];
