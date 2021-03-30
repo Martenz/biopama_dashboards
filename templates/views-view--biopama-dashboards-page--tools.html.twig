@@ -17,14 +17,14 @@
 
           <div class="col-lg-2 header-text">
             <div class="container landing_headers">
-            <h5>PAME Dashboard</h5>
+            <h5>PAGE Dashboard</h5>
             <img src="{{ image_path }}divider_02.png"/>
                 <ul class="list-group pame-links">
                   <li class="pame-menu-left">
                     <a href="/BPMLP_page_page">
                       <div class="row">
                        <div class="col-4"><img src="{{ image_path }}page/pame_home.png"/></div>
-                       <div class="col-8">PAME Home</div>
+                       <div class="col-8">PAGE Home</div>
                       </div>
                     </a>
                   </li>
@@ -40,12 +40,12 @@
 
                 {% if user.hasPermission('administer nodes') %}
                   <div class="row">
-                    <a href="/node/add/pame_assessment_tools"><button class="btn btn-info">+ Add Assessment Tool</button></a>
+                    <a href="/node/add/page_assessment_tools"><button class="btn btn-info">+ Add Assessment Tool</button></a>
                   </div>
                 {% endif %}
 
                 <div class="contextual-region">{{ title_suffix }}
-                  {{ drupal_view('pame_contents', 'block_1') }}
+                  {{ drupal_view('page_contents', 'block_1') }}
                 </div>
 
             </div>

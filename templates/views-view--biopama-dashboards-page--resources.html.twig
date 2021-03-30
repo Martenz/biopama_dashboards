@@ -16,14 +16,14 @@
 
           <div class="col-lg-2 header-text">
             <div class="container landing_headers">
-            <h5>PAME Dashboard</h5>
+            <h5>PAGE Dashboard</h5>
             <img src="{{ image_path }}divider_02.png"/>
                 <ul class="list-group pame-links">
                   <li class="pame-menu-left">
                     <a href="/BPMLP_page_page">
                       <div class="row">
                        <div class="col-4"><img src="{{ image_path }}page/pame_home.png"/></div>
-                       <div class="col-8">PAME Home</div>
+                       <div class="col-8">PAGE Home</div>
                       </div>
                     </a>
                   </li>
@@ -38,15 +38,15 @@
 		  
 		  	<h2 class="pame-resources-header-title">Resources
           {% if logged_in %}
-            <a href="/node/add/management_assessment_justificat?Theme=PAME%20(Protected%20Area%20Management%20Effectiveness)"  class="use-ajax add-policy fancy_login_show_popup btn btn-primary" data-dialog-type="dialog" data-dialog-renderer="off_canvas" data-dialog-options="{&quot;width&quot;:400}">
+            <a href="/node/add/management_assessment_justificat?Theme=PAGE"  class="use-ajax add-policy fancy_login_show_popup btn btn-primary" data-dialog-type="dialog" data-dialog-renderer="off_canvas" data-dialog-options="{&quot;width&quot;:400}">
             <i class="fas fa-plus"></i> Add a Resource
             </a>
           {% endif %}
         </h2>
-						{{ drupal_block('views_exposed_filter_block:pame_resources-block_1', wrapper=false) }}
+						{{ drupal_block('views_exposed_filter_block:page_resources-block_1', wrapper=false) }}
 						<p class="pame-resources-subtitle"></p>
 
-     			  {{ drupal_view('pame_resources', 'block_1') }}
+     			  {{ drupal_view('page_resources', 'block_1') }}
           </div>
 
         </div>

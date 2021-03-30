@@ -16,14 +16,14 @@
 
           <div class="col-lg-2 header-text">
             <div class="container landing_headers">
-            <h5>PAME Dashboard</h5>
+            <h5>PAGE Dashboard</h5>
             <img src="{{ image_path }}divider_02.png"/>
                 <ul class="list-group pame-links">
                   <li class="pame-menu-left">
                     <a href="/BPMLP_page_page">
                       <div class="row">
                        <div class="col-4"><img src="{{ image_path }}page/pame_home.png"/></div>
-                       <div class="col-8">PAME Home</div>
+                       <div class="col-8">PAGE Home</div>
                       </div>
                     </a>
                   </li>
@@ -48,12 +48,12 @@
           {% endif %}        
         </h2>
         <div id="pame_managements_filters">
-						{{ drupal_block('views_exposed_filter_block:pame_management-block_2', wrapper=false) }}
+						{{ drupal_block('views_exposed_filter_block:page_management-block_2', wrapper=false) }}
         </div>
 
 				<div id="pame_assessments_map"></div>
 			  
-			  {{ drupal_view('pame_management', 'block_2') }} 
+			  {{ drupal_view('page_management', 'block_2') }} 
 
           </div>
 
