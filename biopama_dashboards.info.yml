@@ -5,14 +5,5 @@ type: module
 version: !!float 1
 core: 8.x
 dependencies:
-  - 'drupal:field'
-  - 'drupal:taxonomy'
-  - 'drupal:node'
-  - 'drupal:user'
-  - 'drupal:views'
-  - 'drupal:file'
-  - 'drupal:image'
-  - 'drupal:menu_ui'
   - 'biopama_libraries:biopama_libraries'
   - 'twig_tweak:twig_tweak'
-#  - 'biopama_protected_areas'

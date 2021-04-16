@@ -31,8 +31,8 @@ pame:
   js:
     js/pame/map.js: {}
     js/pame/tools.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {external: true, minified: true}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {external: true}
   css:
     component:
       css/pame/override.css: {}
@@ -50,8 +50,8 @@ pame_managements:
   js:
     js/pame/management_map.js: {}
     js/pame/tools.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {}
-    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js: {external: true, minified: true}
+    https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js: {external: true}
   css:
     component:
       css/pame/override.css: {}
@@ -98,8 +98,8 @@ pa_dashboard:
     
 pdfjs:
   js:
-    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.min.js: {}
-    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.worker.min.js: {}
+    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.min.js: {type: external, minified: true}
+    https://cdn.jsdelivr.net/npm/pdfjs-dist@2/build/pdf.worker.min.js: {type: external, minified: true}
 
 
 
