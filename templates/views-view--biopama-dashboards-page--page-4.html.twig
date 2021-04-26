@@ -1,7 +1,7 @@
 {% set url = current_uri %}
 {{ attach_library( 'biopama_dashboards/biopama_dashboards' ) }}
-   {{ attach_library( 'biopama_dashboards/page_managements' ) }}
-   {{ attach_library( 'biopama_dashboards/page_resources' ) }}
+   {{ attach_library( 'biopama_dashboards/pame' ) }}
+   {{ attach_library( 'biopama_dashboards/pame_resources' ) }}
    {{ attach_library( 'biopama_dashboards/biopama_dashboards_maps' ) }}
 
 <header class="masthead text-left">
@@ -34,27 +34,19 @@
             </div>
           </div>
           <div class="col-lg-10 header-table-cards">
-
-             <div id="spinner">
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-                  <img src="{{ image_path }}spinner.gif" style="max-height:80px;"/>
-              </div>
-			  <h2 class="pame-resources-header-title">Management Plans
+		  
+		  
+		  	<h2 class="pame-resources-header-title">Resources
           {% if logged_in %}
-            <a href="/node/add/management_assessment_justificat?ProtectedAreaID=20542&TypeID=335"  class="use-ajax add-policy fancy_login_show_popup btn btn-primary" data-dialog-type="dialog" data-dialog-renderer="off_canvas" data-dialog-options="{&quot;width&quot;:400}">
-            <i class="fas fa-plus"></i> Add a Management Plan
+            <a href="/node/add/management_assessment_justificat?Theme=PAGE"  class="use-ajax add-policy fancy_login_show_popup btn btn-primary" data-dialog-type="dialog" data-dialog-renderer="off_canvas" data-dialog-options="{&quot;width&quot;:400}">
+            <i class="fas fa-plus"></i> Add a Resource
             </a>
-          {% endif %}        
+          {% endif %}
         </h2>
-        <div id="pame_managements_filters">
-						{{ drupal_block('views_exposed_filter_block:page_management-block_2', wrapper=false) }}
-        </div>
+						{{ drupal_block('views_exposed_filter_block:page_resources-block_1', wrapper=false) }}
+						<p class="pame-resources-subtitle"></p>
 
-				<div id="pame_assessments_map"></div>
-			  
-			  {{ drupal_view('page_management', 'block_2') }} 
-
+     			  {{ drupal_view('page_resources', 'block_1') }}
           </div>
 
         </div>

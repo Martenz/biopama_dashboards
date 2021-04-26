@@ -205,11 +205,17 @@ jQuery(document).ready(function($) {
 		});
 		if (feature.length !== 0){
 			var url = "/rest/pame/management_plans?format=json&wdpaid=" + feature[0].properties.WDPAID;
+			var paPopupContent = '';
 			$.getJSON(url,function(response){
 				paPopupContent = '<center class="available"><i class="fas fa-2x fa-paste"></i><p>'+response[0].title+' ('+response[0].wdpa_id+')</p>';
-				for (var key in response.records) {
+				response.forEach(buildDocList);
+				
+				function buildDocList(item, index) {
+					paPopupContent += '<i>'+response[index].publication_year+' ('+response[index].field_docuement+')</i><hr>';
+				};
+/* 				for (var key in response) {
 					paPopupContent += '<i>'+response[0].publication_year+' ('+response[0].field_docuement+')</i><hr>';
-				}
+				} */
 				paPopupContent += '</center>';
 				new mapboxgl.Popup()
 					.setLngLat(e.lngLat)
