@@ -1,6 +1,7 @@
 /* PAME RESOURCES CSS */
 
-.view-pame-resources .views-row, .view-pame-management .views-row{
+.view-pame-resources .views-row, .view-pame-management .views-row,
+.view-page-resources .views-row, .view-page-management .views-row{
 	
 /* 	background-color: #fff;
     padding: 10px;
@@ -19,7 +20,8 @@
 	padding:5px;
 }
 
-.view-pame-resources .views-row a, .view-pame-management .views-row a{
+.view-pame-resources .views-row a, .view-pame-management .views-row a,
+.view-page-resources .views-row a, .view-page-management .views-row a{
 	
 	padding:5px;
 	/*background-color: green;*/
@@ -28,11 +30,13 @@
 	overflow-wrap: break-word;
 }
 
-.header-table-cards .view-pame-resources .view-content.row, .view-pame-management .view-content.row{
+.header-table-cards .view-pame-resources .view-content.row, .view-pame-management .view-content.row,
+.header-table-cards .view-page-resources .view-content.row, .view-page-management .view-content.row{
 	display:inline-flex;
 }
 
-.view-pame-resources .pagination, .view-pame-management .pagination{
+.view-pame-resources .pagination, .view-pame-management .pagination,
+.view-page-resources .pagination, .view-page-management .pagination{
 	/*display:inline-block;*/
 	float:left;
 }
@@ -85,23 +89,27 @@
 	text-align:unset;
 }
 
-.view-pame-resources div.view-header, .pame-resources-header-title{
+.view-pame-resources div.view-header, .pame-resources-header-title,
+.view-page-resources div.view-header, .page-resources-header-title{
 	text-align:left;
 }
 
-.view-pame-resources div.view-header h2, .pame-resources-header-title{
+.view-pame-resources div.view-header h2, .pame-resources-header-title,
+.view-page-resources div.view-header h2, .page-resources-header-title{
 	font-size: 3rem;
     color: #90c14f;
 }
 
-.view-pame-resources div.view-header p, .pame-resources-subtitle{
+.view-pame-resources div.view-header p, .pame-resources-subtitle,
+.view-page-resources div.view-header p, .page-resources-subtitle{
 	font-size: 2rem;
     color: #8eb4b1;
     font-weight: lighter;
 	text-align:left;
 }
 
-.pame-resources-card{
+.pame-resources-card,
+.page-resources-card{
    max-width: 20rem;
    min-width: 18rem;
     border-radius: 5px;

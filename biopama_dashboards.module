@@ -430,6 +430,17 @@ function biopama_dashboards_views_pre_render(\Drupal\views\ViewExecutable $view)
       case 'views-exposed-form-pame-resources-block-1':
         $country_field = 'field_country_iso3_value';
         break;
+
+    /** Adding PAGE cases **/
+
+      case 'views-exposed-form-page-management-block-2':
+        $country_field = 'country';
+        break;
+      case 'views-exposed-form-page-resources-block-1':
+        $country_field = 'field_country_iso3_value';
+        break;
+
+
       default:
           return FALSE;
     }
