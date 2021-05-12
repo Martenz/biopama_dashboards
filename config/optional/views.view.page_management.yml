@@ -27,6 +27,8 @@ dependencies:
     - tracker
     - user
     - yearonly
+_core:
+  default_config_hash: 9-jbF4eBgO4CNCPuevEZRkXexer9Sf-JZsnaJFwp0Z0
 id: page_management
 label: 'PAGE management'
 module: views
@@ -62,70 +64,49 @@ display:
         options:
           submit_button: Filter
           reset_button: true
-          reset_button_label: Reset
+          reset_button_label: 'Clear All'
           exposed_sorts_label: 'Sort by'
           expose_sort_order: false
           sort_asc_label: Asc
           sort_desc_label: Desc
-          input_required: false
           text_input_required: 'Select any filter and click on Apply to see results'
+          text_input_required_format: restricted_html
           bef:
             general:
               autosubmit: true
               autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
               autosubmit_hide: true
               input_required: false
-              text_input_required: 'Select any filter and click on Apply to see results'
-              text_input_required_format: basic_html
               allow_secondary: false
               secondary_label: 'Advanced options'
+              secondary_open: false
+              text_input_required: 'Select any filter and click on Apply to see results'
+              text_input_required_format: basic_html
             filter:
               title:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
-              field_document_type_target_id:
-                plugin_id: default
-                advanced:
-                  collapsible: false
-                  is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
               field_document_publication_year_value:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
-              field_ac_country_target_id:
+              title_1:
                 plugin_id: default
                 advanced:
                   collapsible: false
                   is_secondary: false
-                  placeholder_text: ''
-                  rewrite:
-                    filter_rewrite_values: ''
-                  sort_options: false
               field_country_region_target_id:
                 plugin_id: default
                 advanced:
-                  collapsible: false
-                  is_secondary: false
-                  placeholder_text: ''
                   rewrite:
                     filter_rewrite_values: ''
-                  sort_options: false
-          text_input_required_format: restricted_html
+                  collapsible: false
+                  is_secondary: false
+          input_required: false
       pager:
         type: full
         options:

@@ -13,17 +13,6 @@ dependencies:
     - node.type.management_assessment_justificat
     - taxonomy.vocabulary.document_types
     - taxonomy.vocabulary.region
-  content:
-    - 'taxonomy_term:document_types:51d52886-eb8b-4af1-b808-40256627ae39'
-    - 'taxonomy_term:document_types:54ca993a-9cff-4ce7-aa4b-93fc4e7d1a82'
-    - 'taxonomy_term:document_types:60f2f39e-e933-4e28-9e2b-a399f5b624e5'
-    - 'taxonomy_term:document_types:8cfecccd-46c2-4482-bbe8-1c98a36b9ea8'
-    - 'taxonomy_term:document_types:a0fc5d0e-2b8a-45ac-b73f-59ae81ead6de'
-    - 'taxonomy_term:document_types:a62ffb0a-dbfd-4bb2-b469-3bd21b1691b5'
-    - 'taxonomy_term:document_types:b4aeaeb0-8304-478c-81fc-883453c4da55'
-    - 'taxonomy_term:document_types:cbc1b7a7-e29c-425b-97ee-9558819eb603'
-    - 'taxonomy_term:document_types:ced8fecb-5364-477e-9ea0-914049c2403a'
-    - 'taxonomy_term:document_types:d65680dc-cbc3-486d-aecc-c2683895128c'
   module:
     - better_exposed_filters
     - file
@@ -35,6 +24,8 @@ dependencies:
     - tracker
     - user
     - yearonly
+_core:
+  default_config_hash: omnPZCBGUT8cYvgoHYfwVk2noXzPYbYC0frL_jR0ebc
 id: page_resources
 label: 'PAGE resources'
 module: views
@@ -101,11 +92,6 @@ display:
                   collapsible: false
                   is_secondary: false
               field_document_publication_year_value:
-                plugin_id: default
-                advanced:
-                  collapsible: false
-                  is_secondary: false
-              field_country_iso3_value:
                 plugin_id: default
                 advanced:
                   collapsible: false
@@ -848,7 +834,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            'PAGE': 'PAGE'
+            'PAGE (Protected Area Governance and Equity)': 'PAGE (Protected Area Governance and Equity)'
           group: 1
           exposed: false
           expose:
@@ -857,6 +843,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -864,8 +852,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1028,51 +1014,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-        field_country_iso3_value:
-          id: field_country_iso3_value
-          table: node__field_country_iso3
-          field: field_country_iso3_value
-          relationship: field_ac_country
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_country_iso3_value_op
-            label: Country
-            description: ''
-            use_operator: false
-            operator: field_country_iso3_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: country
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              verified_user: '0'
-              regional_assistant: '0'
-              technical_officer: '0'
-              content_manager: '0'
-              administrator: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: string
         field_ac_region_target_id:
           id: field_ac_region_target_id
           table: node__field_ac_region
@@ -1253,41 +1194,13 @@ display:
       display_description: ''
       defaults:
         header: true
-        relationships: false
+        relationships: true
         filters: false
         filter_groups: false
       exposed_block: true
       rendering_language: '***LANGUAGE_language_interface***'
       allow:
         items_per_page: false
-      relationships:
-        field_ac_country:
-          id: field_ac_country
-          table: node__field_ac_country
-          field: field_ac_country
-          relationship: none
-          group_type: group
-          admin_label: 'field_ac_country: Content'
-          required: false
-          plugin_id: standard
-        field_ac_protected_area:
-          id: field_ac_protected_area
-          table: node__field_ac_protected_area
-          field: field_ac_protected_area
-          relationship: field_ac_country
-          group_type: group
-          admin_label: 'field_ac_protected_area: Content'
-          required: false
-          plugin_id: standard
-        field_pa_country:
-          id: field_pa_country
-          table: node__field_pa_country
-          field: field_pa_country
-          relationship: field_ac_protected_area
-          group_type: group
-          admin_label: 'field_pa_country: Content'
-          required: false
-          plugin_id: standard
       filters:
         type:
           id: type
@@ -1311,7 +1224,7 @@ display:
           admin_label: ''
           operator: or
           value:
-            'PAGE': 'PAGE'
+            'PAGE (Protected Area Governance and Equity)': 'PAGE (Protected Area Governance and Equity)'
           group: 1
           exposed: false
           expose:
@@ -1320,6 +1233,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -1327,8 +1242,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -1343,61 +1256,6 @@ display:
             group_items: {  }
           reduce_duplicates: true
           plugin_id: list_field
-        field_document_type_target_id_1:
-          id: field_document_type_target_id_1
-          table: node__field_document_type
-          field: field_document_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            347: 347
-            345: 345
-            336: 336
-            339: 339
-            346: 346
-            337: 337
-            338: 338
-            340: 340
-            341: 341
-            342: 342
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: document_types
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
         title:
           id: title
           table: node_field_data
