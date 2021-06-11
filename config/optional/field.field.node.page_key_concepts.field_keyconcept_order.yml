@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keyconcept_order
+    - node.type.page_key_concepts
+  module:
+    - epp
+third_party_settings:
+  epp:
+    value: ''
+    on_update: 1
+id: node.page_key_concepts.field_keyconcept_order
+field_name: field_keyconcept_order
+entity_type: node
+bundle: page_key_concepts
+label: keyconcept_order
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

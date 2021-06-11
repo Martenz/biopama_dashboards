@@ -4,6 +4,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page_key_concepts.body
+    - field.field.node.page_key_concepts.field_keyconcept_order
     - field.field.node.page_key_concepts.field_page_external_link
     - field.field.node.page_key_concepts.field_page_map_link
     - field.field.node.page_key_concepts.field_page_related_document
@@ -31,6 +32,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_keyconcept_order: true
   field_page_external_link: true
   field_page_map_link: true
   field_page_related_document: true

@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - field.field.node.page_key_concepts.body
+    - field.field.node.page_key_concepts.field_keyconcept_order
     - field.field.node.page_key_concepts.field_page_external_link
     - field.field.node.page_key_concepts.field_page_map_link
     - field.field.node.page_key_concepts.field_page_related_document
@@ -24,6 +25,15 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_keyconcept_order:
+    weight: 106
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_page_external_link:
     weight: 102
