@@ -4,10 +4,17 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page_assessment_tools.body
+    - field.field.node.page_assessment_tools.field_page_external_link
+    - field.field.node.page_assessment_tools.field_page_key_order
+    - field.field.node.page_assessment_tools.field_page_map_link
+    - field.field.node.page_assessment_tools.field_page_related_document
+    - field.field.node.page_assessment_tools.field_page_tool_icon
     - node.type.page_assessment_tools
   module:
     - text
     - user
+_core:
+  default_config_hash: VOgzv5-PE-iCkTCBej_maSt6O7qUrFl2vAeSoEljJbs
 id: node.page_assessment_tools.teaser
 targetEntityType: node
 bundle: page_assessment_tools
@@ -28,4 +35,9 @@ content:
     region: content
 hidden:
   addtoany: true
+  field_page_external_link: true
+  field_page_key_order: true
+  field_page_map_link: true
+  field_page_related_document: true
+  field_page_tool_icon: true
   langcode: true

@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pame_tool_order
+    - node.type.pame_assessment_tools
+id: node.pame_assessment_tools.field_pame_tool_order
+field_name: field_pame_tool_order
+entity_type: node
+bundle: pame_assessment_tools
+label: 'Tool Order'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

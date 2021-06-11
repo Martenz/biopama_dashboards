@@ -4,16 +4,19 @@ dependencies:
   config:
     - field.storage.node.body
     - field.storage.node.field_page_external_link
+    - field.storage.node.field_page_key_order
     - field.storage.node.field_page_map_link
     - field.storage.node.field_page_related_document
     - field.storage.node.field_page_tool_icon
     - node.type.page_assessment_tools
   module:
-    - image
     - link
     - node
+    - svg_image
     - text
     - user
+_core:
+  default_config_hash: atOXEP02gHwK2nnlulCzj3VNEE7n1kNAVcOB-ZgVaoo
 id: page_assessment_tools
 label: 'Page Assessment Tools'
 module: views
@@ -441,11 +444,75 @@ display:
           settings:
             image_style: ''
             image_link: ''
-            svg_render_as_image: 1
+            svg_render_as_image: true
             svg_attributes:
-              width: ''
-              height: ''
+              width: null
+              height: null
           group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_page_key_order:
+          id: field_page_key_order
+          table: node__field_page_key_order
+          field: field_page_key_order
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -483,6 +550,18 @@ display:
             operator_limit_selection: false
             operator_list: {  }
       sorts:
+        field_page_key_order_value:
+          id: field_page_key_order_value
+          table: node__field_page_key_order
+          field: field_page_key_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         created:
           id: created
           table: node_field_data
@@ -516,6 +595,7 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_external_link'
+        - 'config:field.storage.node.field_page_key_order'
         - 'config:field.storage.node.field_page_map_link'
         - 'config:field.storage.node.field_page_related_document'
         - 'config:field.storage.node.field_page_tool_icon'
@@ -537,6 +617,7 @@ display:
       tags:
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_page_external_link'
+        - 'config:field.storage.node.field_page_key_order'
         - 'config:field.storage.node.field_page_map_link'
         - 'config:field.storage.node.field_page_related_document'
         - 'config:field.storage.node.field_page_tool_icon'

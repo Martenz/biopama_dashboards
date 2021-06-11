@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_key_concepts.body
+    - field.field.node.page_key_concepts.field_keyconcept_order
+    - field.field.node.page_key_concepts.field_page_external_link
+    - field.field.node.page_key_concepts.field_page_map_link
+    - field.field.node.page_key_concepts.field_page_related_document
+    - field.field.node.page_key_concepts.field_page_tool_icon
+    - node.type.page_key_concepts
+  module:
+    - text
+    - user
+id: node.page_key_concepts.teaser
+targetEntityType: node
+bundle: page_key_concepts
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_keyconcept_order: true
+  field_page_external_link: true
+  field_page_map_link: true
+  field_page_related_document: true
+  field_page_tool_icon: true
+  langcode: true

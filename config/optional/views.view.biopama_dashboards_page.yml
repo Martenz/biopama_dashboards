@@ -21,7 +21,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: JwT-sVqMVcTNW5WvbPjebQDOVoytdDN7Hmc1UxOea1k
+  default_config_hash: KzzCppeSijFbiOUQBf9HXFqhIk1OiwWDI-NqSW5p9Js
 id: biopama_dashboards_page
 label: 'PAGE Landingpage Template'
 module: views
@@ -2942,7 +2942,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: PAGE LandingPage'
+          value: 'PAGE LandingPage'''
           group: 1
           exposed: false
           expose:
@@ -3079,7 +3079,7 @@ display:
           group_type: group
           admin_label: ''
           operator: '='
-          value: PAGE LandingPage'
+          value: 'PAGE LandingPage'''
           group: 1
           exposed: false
           expose:
@@ -3371,6 +3371,143 @@ display:
             placeholder: ''
             operator_limit_selection: false
             operator_list: {  }
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_dashboard_subtitle'
+  page_6:
+    display_plugin: page
+    id: page_6
+    display_title: KeyConcepts
+    position: 7
+    display_options:
+      display_extenders:
+        library_in_views_display_extender: {  }
+      path: BPMLP_page_page_keyconcepts
+      display_description: ''
+      title: PAGE-KeyConcepts
+      defaults:
+        title: false
+        filters: false
+        filter_groups: false
+      rendering_language: '***LANGUAGE_language_interface***'
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            biopama_dashboards_content: biopama_dashboards_content
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_biopama_dashboards
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: 'PAGE KeyConcepts'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''

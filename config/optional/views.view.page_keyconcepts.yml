@@ -3,12 +3,13 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
-    - field.storage.node.field_pame_external_link
-    - field.storage.node.field_pame_map_link
-    - field.storage.node.field_pame_related_document
-    - field.storage.node.field_pame_tool_icon
+    - field.storage.node.field_keyconcept_order
+    - field.storage.node.field_page_external_link
+    - field.storage.node.field_page_map_link
+    - field.storage.node.field_page_related_document
+    - field.storage.node.field_page_tool_icon
     - image.style.medium
-    - node.type.pame_assessment_tools
+    - node.type.page_key_concepts
   enforced:
     module:
       - biopama_dashboards
@@ -19,9 +20,9 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: Xalc8in6KAujj-7f9ZBOno54F-fMiRcHsg1o8vcijh8
-id: pame_contents
-label: 'PAME Contents'
+  default_config_hash: 2zaUrd3D2MmCCLj0Qklu3N4hMJ3Djn9PglOCu22_PME
+id: page_keyconcepts
+label: 'PAGE KeyConcepts'
 module: views
 description: ''
 tag: ''
@@ -70,10 +71,10 @@ display:
       row:
         type: fields
       fields:
-        field_pame_tool_icon:
-          id: field_pame_tool_icon
-          table: node__field_pame_tool_icon
-          field: field_pame_tool_icon
+        field_page_tool_icon:
+          id: field_page_tool_icon
+          table: node__field_page_tool_icon
+          field: field_page_tool_icon
           relationship: none
           group_type: group
           admin_label: ''
@@ -123,10 +124,10 @@ display:
           settings:
             image_style: medium
             image_link: ''
-            svg_render_as_image: 0
+            svg_render_as_image: false
             svg_attributes:
-              width: ''
-              height: ''
+              width: null
+              height: null
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -264,10 +265,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_pame_external_link:
-          id: field_pame_external_link
-          table: node__field_pame_external_link
-          field: field_pame_external_link
+        field_page_external_link:
+          id: field_page_external_link
+          table: node__field_page_external_link
+          field: field_page_external_link
           relationship: none
           group_type: group
           admin_label: ''
@@ -275,7 +276,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_external_link__uri }}"><div class="btn btn-primary">Link</div></a>'
+            text: '<a href="{{ field_page_external_link__uri }}"><div class="btn btn-primary">Link</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -384,10 +385,10 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link_edit
-        field_pame_related_document:
-          id: field_pame_related_document
-          table: node__field_pame_related_document
-          field: field_pame_related_document
+        field_page_related_document:
+          id: field_page_related_document
+          table: node__field_page_related_document
+          field: field_page_related_document
           relationship: none
           group_type: group
           admin_label: ''
@@ -395,7 +396,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="/node/{{ field_pame_related_document__target_id }}"><div class="btn btn-info">Doc</div></a>'
+            text: '<a href="/node/{{ field_page_related_document__target_id }}"><div class="btn btn-info">Doc</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -446,10 +447,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_pame_map_link:
-          id: field_pame_map_link
-          table: node__field_pame_map_link
-          field: field_pame_map_link
+        field_page_map_link:
+          id: field_page_map_link
+          table: node__field_page_map_link
+          field: field_page_map_link
           relationship: none
           group_type: group
           admin_label: ''
@@ -457,7 +458,7 @@ display:
           exclude: true
           alter:
             alter_text: true
-            text: '<a href="{{ field_pame_map_link__uri }}"><div class="btn btn-success">Map</div></a>'
+            text: '<a href="{{ field_page_map_link__uri }}"><div class="btn btn-success">Map</div></a>'
             make_link: false
             path: ''
             absolute: false
@@ -490,9 +491,9 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: '<a href="#"><div class="btn btn-success">Map</div></a>'
+          empty: '<div></div>'
           hide_empty: false
-          empty_zero: false
+          empty_zero: true
           hide_alter_empty: false
           click_sort_column: uri
           type: link
@@ -586,7 +587,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<div class=\"h-card-pame\">\r\n<div class=\"card\">\r\n\r\n                <div class=\"card-body\">\r\n\r\n                     <div class=\"row\">\r\n                               <div class=\"col-3\">{{ field_pame_tool_icon }}</div>\r\n                               <div class=\"col-9\">\r\n                                  <h4 class=\"masthead-subheading mb-0\">{{ title }}</h4>\r\n                                  <p class=\"card-text\">{{ body }}</p>\r\n                                  <div class=\"btn bn-light assessment-tools-more\"><i class=\"fas fa-arrows-alt-v\"> </i>More</div>\r\n                               </div>\r\n                     </div>\r\n                     <div class=\"assessment-tools-details\">\r\n<hr></hr>\r\n                     <div class=\"row\">\r\n                          \r\n                         <div class=\"col-10\">{{ body_1 }}</div>\r\n                         <div class=\"col-2\">\r\n                              {{ field_pame_related_document }}\r\n                              {{ field_pame_external_link }}  \r\n                              {{ field_pame_map_link }}\r\n                         </div>\r\n                        </div>  \r\n                     </div>\r\n                </div>\r\n           \r\n</div>{{ edit_node }}\r\n</div>       "
+            text: "<div class=\"h-card-pame\">\r\n<div class=\"card\">\r\n\r\n                <div class=\"card-body\">\r\n\r\n                     <div class=\"row\">\r\n                               <div class=\"col-3\">{{ field_page_tool_icon }}</div>\r\n                               <div class=\"col-9\">\r\n                                  <h4 class=\"masthead-subheading mb-0\">{{ title }}</h4>\r\n                                  <p class=\"card-text\">{{ body }}</p>\r\n                                  <div class=\"btn bn-light assessment-tools-more\"><i class=\"fas fa-arrows-alt-v\"> </i>More</div>\r\n                               </div>\r\n                     </div>\r\n                     <div class=\"assessment-tools-details\">\r\n<hr></hr>\r\n                     <div class=\"row\">\r\n                          \r\n                         <div class=\"col-10\">{{ body_1 }}</div>\r\n                         <div class=\"col-2\">\r\n                              {{ field_page_related_document }}\r\n                              {{ field_page_external_link }}  \r\n                              {{ field_page_map_link }}\r\n                         </div>\r\n                        </div>  \r\n                     </div>\r\n                </div>\r\n           \r\n</div>{{ edit_node }}\r\n</div>       "
             make_link: false
             path: ''
             absolute: false
@@ -624,6 +625,70 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        field_keyconcept_order:
+          id: field_keyconcept_order
+          table: node__field_keyconcept_order
+          field: field_keyconcept_order
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -647,7 +712,7 @@ display:
           admin_label: ''
           operator: in
           value:
-            pame_assessment_tools: pame_assessment_tools
+            page_key_concepts: page_key_concepts
           group: 1
           exposed: false
           expose:
@@ -656,6 +721,8 @@ display:
             description: ''
             use_operator: false
             operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: ''
             required: false
             remember: false
@@ -663,8 +730,6 @@ display:
             remember_roles:
               authenticated: authenticated
             reduce: false
-            operator_limit_selection: false
-            operator_list: {  }
           is_grouped: false
           group_info:
             label: ''
@@ -721,10 +786,22 @@ display:
           entity_field: default_langcode
           plugin_id: boolean
       sorts:
-        field_pame_tool_order_value:
-          id: field_pame_tool_order_value
-          table: node__field_pame_tool_order
-          field: field_pame_tool_order_value
+        field_keyconcept_order_value:
+          id: field_keyconcept_order_value
+          table: node__field_keyconcept_order
+          field: field_keyconcept_order_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+        field_page_tool_order_value:
+          id: field_page_tool_order_value
+          table: node__field_page_tool_order
+          field: field_page_tool_order_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -748,7 +825,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: 'PAME Contents'
+      title: 'PAGE Contents'
       header: {  }
       footer: {  }
       empty: {  }
@@ -765,10 +842,11 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_pame_external_link'
-        - 'config:field.storage.node.field_pame_map_link'
-        - 'config:field.storage.node.field_pame_related_document'
-        - 'config:field.storage.node.field_pame_tool_icon'
+        - 'config:field.storage.node.field_keyconcept_order'
+        - 'config:field.storage.node.field_page_external_link'
+        - 'config:field.storage.node.field_page_map_link'
+        - 'config:field.storage.node.field_page_related_document'
+        - 'config:field.storage.node.field_page_tool_icon'
   block_1:
     display_plugin: block
     id: block_1
@@ -776,6 +854,150 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            page_key_concepts: page_key_concepts
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+        title:
+          id: title
+          table: node_field_revision
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '!='
+          value: KeyConceptsHeader
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -785,7 +1007,356 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.body'
-        - 'config:field.storage.node.field_pame_external_link'
-        - 'config:field.storage.node.field_pame_map_link'
-        - 'config:field.storage.node.field_pame_related_document'
-        - 'config:field.storage.node.field_pame_tool_icon'
+        - 'config:field.storage.node.field_keyconcept_order'
+        - 'config:field.storage.node.field_page_external_link'
+        - 'config:field.storage.node.field_page_map_link'
+        - 'config:field.storage.node.field_page_related_document'
+        - 'config:field.storage.node.field_page_tool_icon'
+  block_2:
+    display_plugin: block
+    id: block_2
+    display_title: header
+    position: 1
+    display_options:
+      display_extenders:
+        library_in_views_display_extender: {  }
+      display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            page_key_concepts: page_key_concepts
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        default_langcode:
+          id: default_langcode
+          table: node_field_data
+          field: default_langcode
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: default_langcode
+          plugin_id: boolean
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: KeyConceptsHeader
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+      defaults:
+        filters: false
+        filter_groups: false
+        fields: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        edit_node:
+          id: edit_node
+          table: node
+          field: edit_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<div class="btn btn-light pame-edit-node">{{ edit_node }}</div>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: edit
+          output_url_as_text: false
+          absolute: false
+          entity_type: node
+          plugin_id: entity_link_edit
+        field_page_tool_icon:
+          id: field_page_tool_icon
+          table: node__field_page_tool_icon
+          field: field_page_tool_icon
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: '0'
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: image
+          settings:
+            image_style: medium
+            image_link: ''
+            svg_render_as_image: false
+            svg_attributes:
+              width: null
+              height: null
+          group_column: ''
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        body_1:
+          id: body_1
+          table: node__body
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ body_1 }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_page_tool_icon'

@@ -99,33 +99,40 @@ use Drupal\Core\Form\FormStateInterface;
                    'link' => '',
                  ],
                 ],
-    'cards' => [ 'Tools' => [
-                                  'title' => 'Tools',
+    'cards' => [ 'KeyConcepts' => [
+                                  'title' => 'Key Concepts',
+                                  'subtitle' => 'Learn about key PAGE concepts',
+                                  'body' => '',
+                                  'link' => ['uri' => 'internal:/BPMLP_page_page_keyconcepts', 'title' => 'Key Concepts'],
+                                  'elem_order' => 0,
+                                ],
+                  'Tools' => [
+                                  'title' => 'Assessment Tools',
                                   'subtitle' => 'Learn about the main PAGE Assessment Tools',
                                   'body' => '',
                                   'link' => ['uri' => 'internal:/BPMLP_page_page_tools', 'title' => 'Assessment Tools'],
-                                  'elem_order' => 0,
+                                  'elem_order' => 1,
                                 ],
                   'Assessments' => [
                                   'title' => 'Assessments',
                                   'subtitle' => 'Browse, search and map PAGE Assessments',
                                   'body' => '',
                                   'link' => ['uri' => 'internal:/BPMLP_page_page_assessments', 'title' => 'Assessments'],
-                                  'elem_order' => 1,
+                                  'elem_order' => 2,
                                 ],
                   'Resources' => [
                                   'title' => 'Resources',
                                   'subtitle' => 'Browse, search and add PAGE Assessments',
                                   'body' => '',
                                   'link' => ['uri' => 'internal:/BPMLP_page_page_resources', 'title' => 'Resources'],
-                                  'elem_order' => 2,
+                                  'elem_order' => 3,
                                 ],
                   'Management' => [
                                   'title' => 'Management Plans',
                                   'subtitle' => 'Browse, search and add Management Plans',
                                   'body' => '',
                                   'link' => ['uri' => 'internal:/BPMLP_page_page_management', 'title' => 'Management Plans'],
-                                  'elem_order' => 3,
+                                  'elem_order' => 4,
                                 ],
                ],
       'learn' => [],
@@ -146,10 +153,11 @@ use Drupal\Core\Form\FormStateInterface;
 			 'views_view_fields__pame_management__block_2' => ['base hook' => 'view'],
 			 'views_view_fields__pame_resources__block_1' => ['base hook' => 'view'],
        // PAGE MODULE
-       'views_view__biopama_dashboards_page__tools' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_page__assessments' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_page__resources' => ['base hook' => 'view'],
-       'views_view__biopama_dashboards_page__managements' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__page_3' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__page_2' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__page_4' => ['base hook' => 'view'],
+       'views_view__biopama_dashboards_page__page_5' => ['base hook' => 'view'],
+			 'views_view__biopama_dashboards_page__page_6' => ['base hook' => 'view'],
 			 'views_view_fields__page_management__block_2' => ['base hook' => 'view'],
 			 'views_view_fields__page_resources__block_1' => ['base hook' => 'view'],
             ];
@@ -430,6 +438,17 @@ function biopama_dashboards_views_pre_render(\Drupal\views\ViewExecutable $view)
       case 'views-exposed-form-pame-resources-block-1':
         $country_field = 'field_country_iso3_value';
         break;
+
+    /** Adding PAGE cases **/
+
+      case 'views-exposed-form-page-management-block-2':
+        $country_field = 'country';
+        break;
+      case 'views-exposed-form-page-resources-block-1':
+        $country_field = 'field_country_iso3_value';
+        break;
+
+
       default:
           return FALSE;
     }
