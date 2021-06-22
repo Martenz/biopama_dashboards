@@ -123,7 +123,6 @@ footer .text_f {
 
 .header-table-cards{
   min-height: -webkit-fill-available;
-  text-align:center;
 }
 
 #landing_top_cards{
@@ -169,10 +168,10 @@ padding: 7px;*/
   margin: 20px;
 }
 
-.header-table-cards .card:hover{
+.header-table-cards .h-card-pame:hover{
   transform:scale(1.1);
   opacity:1;
-  z-index: 10000;
+  z-index: 1;
 }
 
 .header-table-cards .card-body{

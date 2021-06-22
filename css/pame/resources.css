@@ -85,10 +85,6 @@
 } 
 */
 
-.header-table-cards {
-	text-align:unset;
-}
-
 .view-pame-resources div.view-header, .pame-resources-header-title,
 .view-page-resources div.view-header, .page-resources-header-title{
 	text-align:left;
