@@ -1,5 +1,5 @@
 name: 'BIOPAMA DashBoards'
-description: 'Creates a content types for BIOPAMA Dashboards Pages, and all related views'
+description: 'Creates a content types for BIOPAMA Dashboards Pages, and all related views.'
 package: BIOPAMA
 type: module
 version: !!float 1
