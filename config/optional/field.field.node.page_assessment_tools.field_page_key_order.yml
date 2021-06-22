@@ -2,10 +2,10 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_pame_tool_order
+    - field.storage.node.field_page_key_order
     - node.type.pame_assessment_tools
-id: node.pame_assessment_tools.field_pame_tool_order
-field_name: field_pame_tool_order
+id: node.pame_assessment_tools.field_page_key_order
+field_name: field_page_key_order
 entity_type: node
 bundle: pame_assessment_tools
 label: 'Tool Order'
